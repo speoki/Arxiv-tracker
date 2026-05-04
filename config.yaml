@@ -1,12 +1,18 @@
-categories: ["cs.CV", "cs.LG", "cs.AI"]
+categories: ["physics.soc-ph","math.AT","math.GT","math.KT","stat.ML","stat.TH", "cs.CG", "cs.LG"]
 keywords:
-  - "open vocabulary"
-  - "open-vocabulary"
-  - "open vocabulary segmentation"
-  - "open-vocabulary segmentation"
-  - "vision language model"
-  - "training-free"
-  - "training free"
+  - "simplicial complex"
+  - "hypergraph"
+  - "high-order network"
+  - "topological data analysis"
+  - "topology data analysis"
+  - "diffusion model"
+  - "persistent homology"
+  - "TDA"
+  - "time-series anomaly detection"
+  - "perslay"
+  - "information decomposition"
+  - "o-information"
+  - "high-order interaction"
 
 # exclude_keywords: # 选择排除的关键词
 #   - "Large Language Model"
@@ -45,8 +51,8 @@ email:
 llm:
   provider: "openai-compatible"     # 兼容 OpenAI SDK 的服务
   # 硅基流动的版本
-  base_url: "https://api.siliconflow.cn"
-  model: "Qwen/Qwen2.5-7B-Instruct"
+  base_url: "https://api.deepseek.com"
+  model: "DeepSeek-V4-Flash"
   api_key_env: "OPENAI_COMPAT_API_KEY"
   # Deepseek的版本
   # base_url: "https://api.deepseek.com"

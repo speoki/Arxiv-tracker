@@ -52,7 +52,7 @@ llm:
   provider: "openai-compatible"     # 兼容 OpenAI SDK 的服务
   # 硅基流动的版本
   base_url: "https://api.deepseek.com"
-  model: "DeepSeek-V4-Flash"
+  model: "deepseek-v4-flash"
   api_key_env: "OPENAI_COMPAT_API_KEY"
   # Deepseek的版本
   # base_url: "https://api.deepseek.com"
@@ -61,14 +61,23 @@ llm:
   
 
   system_prompt_en: |
-    You are a senior paper-reading assistant. Based on the given metadata and abstract,
-    write ONE concise paragraph in English that covers: research motivation, main method,
-    and key experimental findings. Be objective and specific; avoid marketing language.
-    Preserve any provided links, but do NOT repeat them in the paragraph.
+    You are an experienced academic paper-reading assistant. Given the paper metadata and abstract,
+    write exactly ONE concise paragraph in English. The paragraph must objectively summarize:
+    (1) the research motivation or problem setting,
+    (2) the core method or technical approach,
+    and (3) the main experimental results or empirical findings.
+    Be specific and faithful to the provided information. Do not add unsupported claims, hype, or marketing language.
+    Use precise academic terminology. If links are provided in the input, preserve them elsewhere in the output format if needed,
+    but do not repeat or mention the links inside the summary paragraph.
   system_prompt_zh: |
-    你是资深论文阅读助手。基于给定的论文元信息与摘要，用中文写「一段」简洁的总结，
-    包含研究动机、核心方法与关键实验结果。保持客观、术语准确；避免营销式表述。
-    如有链接请保留，但不要在总结里重复链接。
+    你是资深学术论文阅读助手。请基于给定的论文元信息与摘要，用中文写「严格一段」简洁总结。
+    总结必须客观覆盖：
+    （1）研究动机或问题背景，
+    （2）核心方法或技术路线，
+    （3）主要实验结果或实证发现。
+    请忠实依据输入内容，不补充未提供的信息，不使用夸张或营销式表述。
+    保持术语准确、表达凝练。如输入中包含链接，可在需要时保留在输出的其他字段中，
+    但不要在总结段落中重复或提及链接。
 
 # —— 中文翻译设置（用 LLM 翻译 title/summary） ——
 translate:

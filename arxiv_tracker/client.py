@@ -15,8 +15,8 @@ ARXIV_HTTP  = "http://export.arxiv.org/api/query"
 DEFAULT_TIMEOUT = float(os.getenv("ARXIV_TIMEOUT", "120"))      # 单次请求超时（秒）
 MAX_ATTEMPTS    = int(os.getenv("ARXIV_MAX_ATTEMPTS", "4"))    # 尝试次数
 BASE_PAUSE      = float(os.getenv("ARXIV_PAUSE", "8"))       # 基础退避（秒）
-MAX_SLEEP       = float(os.getenv("ARXIV_MAX_SLEEP", "3.5"))    # 退避上限（秒）
-
+MAX_SLEEP = float(os.getenv("ARXIV_MAX_SLEEP", "180"))   # 退避上限（秒）
+MIN_INTERVAL = float(os.getenv("ARXIV_MIN_INTERVAL", "3.5"))
 RETRYABLE_STATUS = {429, 500, 502, 503, 504}
 
 HEADERS = {

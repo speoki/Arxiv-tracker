@@ -74,12 +74,71 @@ summary{cursor:pointer;color:var(--acc)}
   <button class="btn" onclick="__expandAll(false)">Collapse All</button>
 </div>
 
-        <span class="badge">2026-10-11 21:47</span>
+        <span class="badge">2026-10-13 00:30</span>
       </div>
     </div>
     <div class="hr"></div>
     <div>Latest digest</div>
     <div class="row"><div class="card">
+<div class="title">PANDA: Prior-guided Attentional Dual-path Architecture</div>
+<div class="meta-line">Authors: Rishabh Jain, Federico Belotti, Stefano Coniglio, Pietro Lio, Stefano Fiorini</div>
+<div class="meta-line">Venue: NeurIPS 2026</div>
+<div class="meta-line">First: 2026-10-09T14:15:14+00:00 · Latest: 2026-10-09T14:15:14+00:00</div>
+<div class="meta-line">Comments: Accepted at NeurIPS 2026</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.13635v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.13635v1">PDF</a> · <a href="https://github.com/jainris/panda">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Hypergraph Neural Networks (HNNs), designed to model higher-order relations beyond pairwise interactions, typically rely either on fixed structural weights or on normalised attention. Fixed weights can propagate misleading information in heterophilic settings, while normalisation makes attention coefficients competitive, in the sense that, in a message-passing framework, increasing the weight of one sender must reduce the weight of others in the same aggregation set. Our main contribution is the introduction of PANDA (Prior-guided AttentioNal Dual-path Architecture), a plug-in for two-stage message passing HNNs applicable to both undirected and directed settings. The main path interpolates between learned receiver-normalised attention and structural incidence priors, while a non-competitive (not normalised) auxiliary path lets each sender contribute its own transformed information. We also show that, with fixed structural coefficients, PANDA recovers a certain complex-valued convolution operator adopted in previous works. Across four HNNs spanning spatial and spectral methods in both directed and undirected settings, plugging PANDA in yields an average improvement of 5.18 percentage points across eight real-world benchmark datasets. The code is available at https://github.com/jainris/panda.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Hypergraph Neural Networks (HNNs), designed to model higher-order relations beyond pairwise interactions, typically rely either on fixed structural weights or on normalised attention.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Gaussian BROJA Partial Information Decomposition in Closed Form</div>
+<div class="meta-line">Authors: Ohad Sheelo, Tal Golan, Ari Pakman</div>
+<div class="meta-line">First: 2026-10-09T12:02:17+00:00 · Latest: 2026-10-09T12:02:17+00:00</div>
+<div class="meta-line">Comments: 28 pages total, including 10 pages of main text, 2 main figures, 5 supplementary sections, and 5 supplementary figures</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.13464v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.13464v1">PDF</a> · <a href="https://github.com/brainsandmachines/Eigen_PID">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">The BROJA partial information decomposition provides an operationally motivated way to separate the information that two sources carry about a target into unique, redundant, and synergistic components. For continuous and high-dimensional variables, however, computing the BROJA decomposition requires solving a difficult optimization problem. Previous work showed that, when each source-target pair is jointly Gaussian, the problem can be reduced to finite-dimensional numerical optimization. Here, we derive a closed-form solution to this optimization problem, enabling direct computation of the BROJA decomposition in the general multivariate Gaussian setting. The resulting closed-form expression enables speedups exceeding two orders of magnitude for high-dimensional Gaussian BROJA PID. Code is available at https://github.com/brainsandmachines/Eigen_PID.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">The BROJA partial information decomposition provides an operationally motivated way to separate the information that two sources carry about a target into unique, redundant, and synergistic components.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Learning Transfers: Kan Extensions of Topological Invariants of Learned Representations</div>
+<div class="meta-line">Authors: Luciano Melodia</div>
+<div class="meta-line">First: 2026-05-30T15:34:08+00:00 · Latest: 2026-10-09T07:24:47+00:00</div>
+<div class="meta-line">Comments: Repository https://codeberg.org/Jiren/CatTrans</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2606.07627v4">Abs</a> · <a href="https://arxiv.org/pdf/2606.07627v4">PDF</a> · <a href="https://codeberg.org/Jiren/CatTrans">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">When a learned representation is reused for a new task, which of its structure should survive? A task is a small category, a change of task is a functor $J$, and the invariants of a trained representation form a functor $F$. The left Kan extension $\operatorname{Lan}_JF$ is the invariant that the source and the change of task force on the target: by its universal property, every comparison of the source with an observed target invariant factors through it. The transfer discrepancy is the largest distance, over the target objects, between this extension and the observed invariant. For persistent homology the extension is a cokernel over comma categories, and a functorial version of the discrepancy, which also compares the maps between target objects, is $1$-Lipschitz under interleavings. On finite samples the discrepancy is a bottleneck distance, computed without approximation. For data glued from two pieces whose exclusive parts lie farther apart than the filtration scale, a Mayer-Vietoris sequence identifies what extending homology loses, while extending chains loses nothing. For a merge of labelled point clouds, the degree-zero discrepancy vanishes if and only if some $1$-Lipschitz classifier has a margin above the filtration scale at every sample point. In experiments on sampled manifolds, trained encoders and pretrained image models, every exact prediction holds on every sample. The discrepancy of truncated invariants recovers a hidden merge of separated parts far above chance and tells the intended target of a merge from a permuted control, but across pretrained models it does not track the accuracy of a linear probe.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">When a learned representation is reused for a new task, which of its structure should survive?</div>
+</details>
+</div>
+<div class="card">
+<div class="title">NV-Tesseract-AD: Curriculum-Enhanced Conditional Diffusion for Multivariate Time-Series Anomaly Detection</div>
+<div class="meta-line">Authors: Aditi Gautam, Manikandan Ravikiran, Saira Qureshi, Sena Fatma Ekiz, Charan Jagwani, Mahmoud Elhadidy, Sanjeev Roka</div>
+<div class="meta-line">First: 2026-10-08T22:06:40+00:00 · Latest: 2026-10-08T22:06:40+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.12754v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.12754v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">We propose NV-Tesseract-AD, a curriculum learning-enhanced conditional diffusion framework for multivariate time-series anomaly detection. Our central hypothesis is that reconstruction difficulty can be explicitly structured along two complementary axes, masking severity and diffusion noise level, and that training from easier to harder tasks along both axes simultaneously stabilizes optimization and improves residual discriminability. We integrate a Transformer-based diffusion backbone with a three-stage dual curriculum over masking ratios and diffusion timesteps, retaining anomalous samples throughout training and relying on structured corruption to drive self-supervised representation learning. We evaluate NV-Tesseract-AD under two regimes: in-distribution training on the TSB-UAD-M corpus and strict zero-shot transfer to ten EasyTSAD benchmark families without per-dataset tuning. The dual-axis curriculum produces masking-invariant reconstruction, confirmed by a near-zero loss gap between complementary masking strategies within the first training stage, and yields an approximately 3.7-fold improvement in F1 and a 56 percent reduction in MSE relative to a non-curriculum baseline. Zero-shot performance reaches F1 = 0.984 on NAB and F1 = 0.948 on NormA. Weaker results on heterogeneous families are traced to unsupervised threshold calibration rather than reconstruction quality, identifying calibration as the dominant remaining detection bottleneck. Accelerated inference via DPM-Solver++ reduces sampling cost by a factor of 3.5 to 5.7 at the dataset level but couples to thresholding behavior, establishing that the sampler and threshold must be validated jointly. Together, these findings demonstrate that aligning diffusion denoising difficulty with curriculum learning principles provides a principled and practical approach for robust anomaly detection in complex multivariate time series.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">We propose NV-Tesseract-AD, a curriculum learning-enhanced conditional diffusion framework for multivariate time-series anomaly detection.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Byzantine-Resilient Federated Large Language Model via Hypergraph Message Passing</div>
+<div class="meta-line">Authors: Kai Li, Hanlin Cai, Zihao Liu, Yichen Li, Jose Alcaraz Calero, Wei Ni, Falko Dressler, Özgür B. Akan</div>
+<div class="meta-line">First: 2026-10-08T20:47:08+00:00 · Latest: 2026-10-08T20:47:08+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.12711v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.12711v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Federated Large Language Models (FedLLMs) are promising to deliver privacy-preserving, collaborative intelligence. The decentralized training process is vulnerable to Byzantine attacks that corrupt semantic consistency and factual resilience through malicious model updates. This paper presents a new resilience strategy that prevents semantically corrupted knowledge from propagating during federated aggregation. A defense problem is formulated to jointly maximize global accuracy and suppress manipulated model updates, enabling trustworthy knowledge aggregation without accessing private local data. To strengthen the resilience of FedLLMs, we develop a novel Hypergraph Message Passing Graph Autoencoder (HMP-GAE) framework, where low-rank model updates are represented as nodes in a hypergraph and high-order semantic relationships among multiple agents are exploited through iterative message passing. By leveraging historical checkpoints and cross-agent relational reasoning, HMP-GAE identifies and suppresses semantically inconsistent updates while preserving knowledge alignment among agents throughout federated training. HMP-GAE is implemented using Qwen-2.5 and Llama-3.2 as pretrained FedLLM backbones and evaluated on AG News and Yahoo! Answers datasets. Compared to existing defenses, HMP-GAE improves global accuracy by $1.21$\%, reduces final-model classification semantic entropy by $44.08$\%, and lowers perplexity by $13.34$\%. HMP-GAE outperforms the GAE-based defense by improving the accuracy $1.39$\%, reducing the semantic entropy by $54.5$\%, and lowering perplexity by $35.5$\%.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Federated Large Language Models (FedLLMs) are promising to deliver privacy-preserving, collaborative intelligence.</div>
+</details>
+</div>
+<div class="card">
 <div class="title">Batch Before You Lift: Scalable Topological Deep Learning on Large Graphs</div>
 <div class="meta-line">Authors: David Leko, Luka Benić, Guillermo Bernárdez, Nina Miolane, Olga Fink, Lev Telyatnikov</div>
 <div class="meta-line">First: 2026-10-08T16:23:43+00:00 · Latest: 2026-10-08T16:23:43+00:00</div>
@@ -374,67 +433,10 @@ summary{cursor:pointer;color:var(--acc)}
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">Hypergraphs record multi-way interactions among entities.</div>
 </details>
-</div>
-<div class="card">
-<div class="title">Topologically Relevant Landmark Selection on Point Clouds</div>
-<div class="meta-line">Authors: Kaifeng Zhang, Kai Ming Ting</div>
-<div class="meta-line">First: 2026-08-04T04:59:54+00:00 · Latest: 2026-10-03T15:45:51+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.00019v2">Abs</a> · <a href="https://arxiv.org/pdf/2610.00019v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Persistent Homology (PH) is an important tool in Topological Data Analysis for point clouds, but can be prohibitively expensive for large datasets. A practical approximation is to compute PH on a smaller subset of representative points, known as landmarks. Existing landmark selection methods mainly address challenges such as outlier contamination rather than restoring the topological features of the full dataset. To select topologically relevant landmarks, we propose a landmark selection method based on Hodge Laplacian. It assigns each point a topological relevance score based on its harmonic participation and selects points with high scores as landmarks. By quantifying each point&#x27;s participation in global homological structures, our method restores the PH of the original point cloud more accurately than geometric baselines and a method built upon local PH on both synthetic and real-world datasets.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Persistent Homology (PH) is an important tool in Topological Data Analysis for point clouds, but can be prohibitively expensive for large datasets.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Geometric Realizations of Capability Spaces of Large Models and Zigzag Persistent Homology</div>
-<div class="meta-line">Authors: Yu-Zhe Liu, Shengda Liu, Jianyong Pi, Chao Zhang</div>
-<div class="meta-line">First: 2026-10-03T08:23:10+00:00 · Latest: 2026-10-03T08:23:10+00:00</div>
-<div class="meta-line">Comments: 25 pages, 5 figures</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.04374v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.04374v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">We propose a topological model for capability changes during large-model training. The model represents knowledge states and preregistered capability probes as subcomplexes of a finite regular CW complex. We prove that attaching a single $n$-cell can only create a class in $\mathrm H_n$ or kill a class in $\mathrm H_{n-1}$. With the reliability threshold and the training checkpoint as two parameter axes, capability gains and losses make the spaces along the training axis nonnested. Union or intersection bridges produce zigzag persistence modules, and we distinguish checkpoint, transition, and bridge-sensitive classes. A finite four-stage example is computed by boundary matrices. The framework records algebraic changes under a chosen encoding, and a homological change is called a candidate capability emergence only after robustness tests, null-model comparisons, and independent behavioral validation.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">We propose a topological model for capability changes during large-model training.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">HyperFuse: Fast Self-Supervised Node Embeddings for Attributed Hypergraphs</div>
-<div class="meta-line">Authors: Megha P, Harshit Kumar, Srajan Agarwal, Anirban Banerjee, Olaf Wolkenhauer, Saptarshi Bej</div>
-<div class="meta-line">First: 2026-10-02T12:30:51+00:00 · Latest: 2026-10-02T12:30:51+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.03211v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.03211v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Self-supervised hypergraph representation learning can produce informative node embeddings, but existing methods often require deep encoders trained for hundreds of epochs, making embedding generation costly even for hypergraphs with a few thousand nodes. This limits applications requiring embeddings for many or evolving hypergraphs. We present HyperFuse, a label-free pipeline for fast hypergraph representation learning. HyperFuse (i) computes structural node coordinates by maximizing a spectral relaxation of hypergraph modularity using Banerjee&#x27;s hypergraph adjacency and a matrix-free operator with cost linear in node-hyperedge incidences; (ii) constructs multi-scale feature summaries and assigns bounded utility weights to hyperedges based on member stability under feature and membership masking; and (iii) trains a lightweight utility-weighted hypergraph encoder for 100 epochs using an invariance-decorrelation objective. We compare HyperFuse with TriCL, SE-HSSL, VilLain, and HypeBoy on nine public hypergraphs using six downstream classifiers and k-means clustering. On the eight datasets where all methods completed, HyperFuse required 8.7 s per dataset on average, achieving 13-179x geometric-mean speed-ups over the baselines. It achieved the highest average accuracy with five of six classifiers, while classification and clustering performance was not significantly different from TriCL and SE-HSSL. Compared with HypeBoy, HyperFuse was 13x faster and 2.1-4.1 percentage points more accurate across all classifiers. HyperFuse provides a practical approach for fast, repeated hypergraph embedding generation.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Self-supervised hypergraph representation learning can produce informative node embeddings, but existing methods often require deep encoders trained for hundreds of epochs, making embedding generation costly even for hypergraphs with a few thousand nodes.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Quantitative chain extensions and integral cohomological fillings</div>
-<div class="meta-line">Authors: Franziska Hofmann, Clara Loeh</div>
-<div class="meta-line">First: 2026-10-02T08:23:09+00:00 · Latest: 2026-10-02T08:23:09+00:00</div>
-<div class="meta-line">Comments: 43 pages</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.02987v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.02987v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">We develop two methods in quantitative homological algebra: A declarative approach to integral cohomological filling problems and a quantitatively controlled replacement of normed chain complexes by their homology complex. Both methods are connected through so-called chain extensions. As applications, we obtain transparent proofs for uniform integral simplicial cohomological fillings for subdivisions of simplicial complexes, for uniform integral cohomological fillings of certain finite coverings, and for lower bounds of the $\ell^1$-semi-norm on product spaces.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">We develop two methods in quantitative homological algebra: A declarative approach to integral cohomological filling problems and a quantitatively controlled replacement of normed chain complexes by their homology complex.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Structural-Functional Brain Connectivity Generation via Multimodal Hypergraph-based Flow Matching</div>
-<div class="meta-line">Authors: Chyong Yi Poh, Hwa Hui Tew, Junn Yong Loo, Raphaël C. -W. Phan, Fuad Noman, Pew-Thian Yap, Chee-Ming Ting</div>
-<div class="meta-line">First: 2026-10-02T02:58:09+00:00 · Latest: 2026-10-02T02:58:09+00:00</div>
-<div class="meta-line">Comments: 10 pages, 3 figures, 5 tables</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.02722v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.02722v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Structural connectivity (SC) and functional connectivity (FC) provide complementary information on interactions between brain regions and are widely used in neuroimaging studies of neuropsychiatric disorders. Generative modelling can alleviate the scarcity of large-scale paired SC-FC data, but existing approaches typically use pairwise graphs that capture only dyadic interactions and often generate SC and FC independently, limiting preservation of higher-order structure-function relationships. We propose a Multimodal Hypergraph Flow Matching (MHG-FM) framework for joint SC-FC connectivity generation and cross-modal translation. MHG-FM constructs modality-specific hypergraphs, learns higher-order representations with Hypergraph Neural Network (HGNN) encoders, and performs bidirectional cross-modal fusion using Dual Cross-Attention (DCA). A variational autoencoder maps the fused representations to a compact latent space, where conditional flow matching enables connectivity synthesis and multimodal translation via latent transport. Experiments on the Human Connectome Project Young Adult (HCP-YA) dataset show that MHG-FM outperforms several state-of-the-art baselines in reconstruction quality, topology preservation, distributional similarity, and SC-FC coupling, while achieving approximately 8x faster sampling than a matched diffusion backbone.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Structural connectivity (SC) and functional connectivity (FC) provide complementary information on interactions between brain regions and are widely used in neuroimaging studies of neuropsychiatric disorders.</div>
-</details>
 </div></div>
     <details style="margin-top:16px" class="detail"><summary>History</summary>
-      <div class="history-list"><a href="archive/20261010_2118.html">20261010_2118</a>
+      <div class="history-list"><a href="archive/20261011_2147.html">20261011_2147</a>
+<a href="archive/20261010_2118.html">20261010_2118</a>
 <a href="archive/20261009_2210.html">20261009_2210</a>
 <a href="archive/20261008_2223.html">20261008_2223</a>
 <a href="archive/20261007_2213.html">20261007_2213</a>

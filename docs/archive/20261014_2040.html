@@ -1,0 +1,884 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv 论文速递</title><style>
+:root {
+  --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#667085; --border:#e5e7eb; --acc:#2563eb;
+}
+:root[data-theme="dark"] {
+  --bg:#0b0f17; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --border:#1f2937; --acc:#2563eb;
+}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6;}
+.container{max-width:900px;margin:0 auto;padding:18px;}
+.header{display:flex;gap:10px;justify-content:space-between;align-items:center;margin:8px 0 16px;flex-wrap:wrap}
+h1{font-size:22px;margin:0}
+.badge{font-size:12px;color:#111827;background:var(--acc);padding:2px 8px;border-radius:999px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 18px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.title{font-weight:700;margin:0 0 6px 0;font-size:18px}
+.meta-line{color:var(--muted);font-size:13px;margin:2px 0}
+.links a{color:var(--acc);text-decoration:none;margin-right:12px}
+.detail{margin-top:10px;background:rgba(2,6,23,.03);border:1px solid var(--border);border-radius:10px;padding:8px 10px}
+summary{cursor:pointer;color:var(--acc)}
+.mono{white-space:pre-wrap;background:rgba(2,6,23,.03);border:1px solid var(--border);padding:10px;border-radius:10px}
+.row{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width: 860px) {
+  .row-2{grid-template-columns:1fr 1fr}
+}
+.footer{color:var(--muted);font-size:13px;margin:20px 0 10px}
+.hr{height:1px;background:var(--border);margin:14px 0}
+.history-list a{display:block;color:var(--acc);text-decoration:none;margin:4px 0}
+.controls{display:flex;gap:8px;align-items:center}
+.btn{border:1px solid var(--border);background:var(--card);padding:6px 10px;border-radius:10px;cursor:pointer;color:var(--text)}
+.btn:hover{border-color:var(--acc)}
+</style>
+<script>
+(function() {
+  const root = document.documentElement;
+  function apply(t) {
+    if (t==='dark') root.setAttribute('data-theme','dark');
+    else if (t==='light') root.removeAttribute('data-theme');
+    else {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        root.setAttribute('data-theme','dark');
+      else root.removeAttribute('data-theme');
+    }
+  }
+  let t = localStorage.getItem('theme') || 'light';
+  if (!['light','dark','auto'].includes(t)) t='light';
+  apply(t);
+  window.__toggleTheme = function() {
+    let cur = localStorage.getItem('theme') || 'light';
+    if (cur==='light') cur='dark';
+    else if (cur==='dark') cur='auto';
+    else cur='light';
+    localStorage.setItem('theme', cur);
+    apply(cur);
+    const el=document.getElementById('theme-label');
+    if(el) el.textContent = cur.toUpperCase();
+  }
+  window.__expandAll = function(open) {
+    document.querySelectorAll('details').forEach(d => d.open = !!open);
+  }
+})();
+</script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>arXiv 论文速递</h1>
+      <div style="display:flex;gap:10px;align-items:center">
+        
+<div class="controls">
+  <button class="btn" onclick="__toggleTheme()">Theme: <span id="theme-label" style="margin-left:6px">AUTO</span></button>
+  <button class="btn" onclick="__expandAll(true)">Expand All</button>
+  <button class="btn" onclick="__expandAll(false)">Collapse All</button>
+</div>
+
+        <span class="badge">2026-10-14 20:40</span>
+      </div>
+    </div>
+    <div class="hr"></div>
+    <div>Snapshot: 20261014_2040</div>
+    <div class="row"><div class="card">
+<div class="title">Exact Topological Compliance: Generating Persistence-Equivalent Graphs</div>
+<div class="meta-line">Authors: Mattie Ji, Indradyumna Roy, Vikas Garg</div>
+<div class="meta-line">Venue: NeurIPS 2026</div>
+<div class="meta-line">First: 2026-10-13T17:59:19+00:00 · Latest: 2026-10-13T17:59:19+00:00</div>
+<div class="meta-line">Comments: Accepted by NeurIPS 2026</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.18856v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.18856v1">PDF</a> · <a href="https://github.com/Aalto-QuML/ExactCompliance">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Persistent homology summarizes the topological evolution of a graph as persistence diagrams (PDs). Generating graphs whose topology matches a target descriptor is increasingly important, yet existing topology-aware generative models rely on soft regularization, producing graphs whose PDs may only be approximately similar. We initiate a principled investigation of the generation problem: produce graphs that realize a target PD exactly. We propose two approaches guided by the implicit local and global constraints a target PD imposes. The local approach builds degree-based PD-equivalent graphs iteratively, and we prove that every output realizes the target PD and that every degree-based PD-equivalent graph is reachable. However, as shown thereafter, local generation necessarily trades off between sample diversity and reaching infeasible states. We therefore recast generation as a global constraint satisfaction problem with a complete encoding solvable by modern constraint programming solvers. This is applicable to any vertex-based permutation equivariant filtration scheme and is minimal under the degree filtration. Experiments on four standard graph generation benchmarks confirm that both methods realize the target PD exactly. Together, our methods provide a principled treatment of strict topology-compliant graph generation. Code is available at https://github.com/Aalto-QuML/ExactCompliance.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Persistent homology summarizes the topological evolution of a graph as persistence diagrams (PDs).</div>
+</details>
+</div>
+<div class="card">
+<div class="title">From Fourier Amplitudes to Persistence Images for Impact-Echo Defect Detection</div>
+<div class="meta-line">Authors: Keunsu Kim, Suyoung Choi, Meiyan Kang</div>
+<div class="meta-line">First: 2026-10-13T17:07:04+00:00 · Latest: 2026-10-13T17:07:04+00:00</div>
+<div class="meta-line">Comments: 32 pages, 5 figures, including supplementary material</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.18732v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.18732v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Impact-echo testing is a nondestructive testing method used to detect internal defects in concrete structures. However, boundary reflections, structured interference, and measurement noise can produce complex Fourier amplitude spectra, making defect classification difficult. We constructed a two-dimensional frequency--amplitude persistence image (FA-PI) from the Fourier amplitude spectrum. Using a fixed parameterization of exact multi-parameter persistent homology, each retained Fourier component is represented with frequency-bin location as one coordinate and amplitude as the other, and Gaussian kernels are then applied in this two-dimensional space. This construction has a direct analytical connection to the corresponding one-dimensional Gaussian-smoothed Fourier amplitude spectrum. FA-PI was evaluated on an experimental backfill-void dataset and a public bridge-deck impact-echo dataset, and compared with raw and Gaussian-smoothed Fourier amplitude spectra using a linear classifier with a Softmax output and identical signal-level data splits. The evaluation included original signals and signals corrupted by Gaussian noise, sinusoidal interference, or mixed noise, with matching noise types and signal-to-noise ratios during training, validation, and testing. Performance was assessed using accuracy and macro-averaged precision, recall, and F1-score. Across the two datasets, FA-PI consistently outperformed the raw and Gaussian-smoothed Fourier baselines in the noisy-condition summaries. These findings indicate that representing Fourier spectral components in a two-dimensional frequency--amplitude space can improve impact-echo defect classification beyond frequency-axis smoothing alone.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Impact-echo testing is a nondestructive testing method used to detect internal defects in concrete structures.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Training data attribution in diffusion models via mirrored unlearning and noise-consistent skew</div>
+<div class="meta-line">Authors: Joan Serrà, Dipam Goswami, Fabio Morreale, Wei-Hsiang Liao, Yuki Mitsufuji</div>
+<div class="meta-line">First: 2026-05-18T06:52:26+00:00 · Latest: 2026-10-13T16:48:43+00:00</div>
+<div class="meta-line">Comments: Accepted at NeurIPS26; 21 pages, 5 figures, 9 tables (includes appendix)</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.17938v2">Abs</a> · <a href="https://arxiv.org/pdf/2605.17938v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Training data attribution (TDA) should enable generative model interpretability and foster a variety of related downstream tasks. Nonetheless, current TDA approaches lack reliability and robustness, preventing their adoption in real-world setups. In this paper, we take a decisive step towards more reliable and robust TDA for diffusion models. We propose to perform TDA with mirrored unlearning and noise-consistent skew (MUCS). The idea is to fine-tune a second model with bounded mirrored gradient ascent, and to measure the normalized skew of this model with respect to the original one using consistent noise samples. We show that, while being conceptually simple and generic, MUCS systematically outperforms existing methods on three different datasets by a large margin. We additionally study the effect that core design choices have on final performance, and analyze novel aspects regarding the overlap of influential instances across generated items and the potential of ensembling TDA approaches. We believe that our findings may have broader implications for more general unlearning setups, as well as for tasks requiring the comparison of diffusion losses.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Training data attribution (TDA) should enable generative model interpretability and foster a variety of related downstream tasks.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Directed percolation in higher-order social dilemmas</div>
+<div class="meta-line">Authors: Pablo Villegas, Sandro Meloni</div>
+<div class="meta-line">First: 2026-10-13T15:00:41+00:00 · Latest: 2026-10-13T15:00:41+00:00</div>
+<div class="meta-line">Comments: 13 pages, 3 figures, 57 refs and supplementary material</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.18506v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.18506v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Multiplayer social dilemmas on hypergraphs show a variety of emergent phenomena, which has been attributed to group interactions. Here we test whether pairwise dynamics can reproduce them as well. We derive the mesoscopic Langevin equation of a testbed model and find the operator content of absorbing phase transitions: a directed-percolation line, a tricritical point, and a first-order region whose spinodal is the explosive transition. In our analysis, three-player games only set the values of the Landau coefficients. We construct a strictly pairwise model with short-lived memory, in which every event involves at most two entities, that reproduces these coefficients term by term and has exactly the same mean-field fixed points. Simulations confirm that the two dynamics share mean-field critical and tricritical scaling and the size of the critical mass, and that a purely three-player game on a two-dimensional triangular lattice lies in the directed-percolation class. For these games, the explosive transition and the critical mass therefore do not require group interactions, and the critical behavior is that of the pairwise theory.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Multiplayer social dilemmas on hypergraphs show a variety of emergent phenomena, which has been attributed to group interactions.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">An Approximate-Master-Equation Formulation of the Watts Threshold Model on Hypergraphs</div>
+<div class="meta-line">Authors: Leah A. Keating, Kwang-Il Goh, Mason A. Porter</div>
+<div class="meta-line">First: 2025-03-06T02:16:20+00:00 · Latest: 2026-10-13T08:43:52+00:00</div>
+<div class="meta-line">Comments: 25 pages, 10 figures</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2503.04020v5">Abs</a> · <a href="https://arxiv.org/pdf/2503.04020v5">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">In traditional models of behavioral and opinion dynamics on networks, researchers suppose that interactions occur between pairs of individuals. However, in reality, social interactions also occur in sets of three or more individuals. A common way to incorporate such polyadic interactions is to study dynamical processes on hypergraphs, in which interactions can occur between any number of the individuals. A major current effort is to generalize popular dynamical processes from graphs to hypergraphs. One important model is the Watts threshold model (WTM), which describes a simplistic social spreading process and was extended recently by Chen et al. from dyadic networks (i.e., ordinary graphs) to polyadic networks (i.e., hypergraphs). In the present paper, we extend their discrete-time model to continuous time by using approximate master equations (AMEs). By employing AMEs, we are able to very accurately model the mean behavior of the continuous-time system. We reduce the high-dimensional AME system to a system of three coupled ordinary differential equations without any detectable loss of accuracy. This much lower-dimensional system is computationally faster to solve numerically, and it is also easier to interpret. We linearize the reduced AME system and derive a cascade condition, which allows us to determine when a large spreading event occurs. We then examine our reduced AME system on a contact hypergraph of a French primary school and on a hypergraph of computer-science coauthorships. We find that our full and reduced AME systems give reasonably good descriptions of the mean time-dependent fraction of active nodes in the polyadic WTM dynamics on these empirical networks.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">In traditional models of behavioral and opinion dynamics on networks, researchers suppose that interactions occur between pairs of individuals.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">On the Spectral Synthesis of Lipschitz Vectorizations of Persistence Diagrams</div>
+<div class="meta-line">Authors: Charles Fanning, Mehmet Emin Aktas</div>
+<div class="meta-line">First: 2026-07-18T20:22:28+00:00 · Latest: 2026-10-12T23:13:31+00:00</div>
+<div class="meta-line">Comments: 73 pages, 25 figures</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2607.16957v4">Abs</a> · <a href="https://arxiv.org/pdf/2607.16957v4">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Persistence diagrams are fundamental descriptors in topological data analysis. Many statistical and machine learning methods require persistence diagrams to be mapped into vector spaces or compared through kernels. Although many persistence diagram vectorizations and persistence kernels have been proposed, there is no general framework for determining which persistence diagram vectorizations are synthesizable. Spectral synthesis asks whether the exponential monomials contained in the translation-invariant variety generated by a function span a dense subspace of that variety. We introduce uniformly discrete spectral synthesis for persistence diagram vectorizations using Fourier analysis on groups of virtual persistence diagrams. When the space of persistence intervals is separable, we prove sufficient conditions for uniformly discrete spectral synthesis and derive approximation results for virtual persistence diagrams with bounded total multiplicity. We then classify many persistence diagram vectorizations and persistence kernels from the literature by uniformly discrete spectral synthesis.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Persistence diagrams are fundamental descriptors in topological data analysis.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">The rational homology of independence complexes of Kneser graphs on triples</div>
+<div class="meta-line">Authors: Ziqin Feng</div>
+<div class="meta-line">First: 2026-10-12T20:59:54+00:00 · Latest: 2026-10-12T20:59:54+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.17394v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.17394v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">The independence complex of the Kneser graph $\KG(n,k)$ is the simplicial complex of pairwise intersecting families of $n$-subsets of $[2n+k]$; equivalently, it is a Vietoris--Rips complex of the $n$-subsets of $[2n+k]$ under the symmetric-difference metric. Feng and Wang asked whether, for $n=3$, its reduced homology is nontrivial only in dimensions $6$ and $9$, and conjectured the rank in dimension $9$. We answer the question affirmatively over the rationals and determine all the associated Betti numbers. For every $k\ge0$, the only nonzero reduced Betti numbers using rationals of $\Ind(\KG(3,k))$ are \[
+  β_6=\binom{k+5}{7}+29\binom{k+6}{7}
+  \qquad\text{and}\qquad
+  β_9=\binom{k+6}{6}. \] The proof uses an inductive decomposition based on a simplicial retraction and Barmak&#x27;s star clusters, Dowker duality together with Jonsson&#x27;s computation of the homology of complexes of graphs with bounded covering number, and a relative Mayer--Vietoris spectral sequence which reduces the problem to the six-element sets.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">The independence complex of the Kneser graph $\KG(n,k)$ is the simplicial complex of pairwise intersecting families of $n$-subsets of $[2n+k]$; equivalently, it is a Vietoris--Rips complex of the $n$-subsets of $[2n+k]$ under the symmetric-difference metric.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Signature-Kernel One-Class Learning with Manifold Regularisation for Multivariate Time Series Anomaly Detection</div>
+<div class="meta-line">Authors: Shervin Rahimzadeh Arashloo</div>
+<div class="meta-line">First: 2025-07-31T11:27:01+00:00 · Latest: 2026-10-12T14:12:30+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2507.23449v3">Abs</a> · <a href="https://arxiv.org/pdf/2507.23449v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">One-class learning is an effective methodology for time series anomaly detection, yet kernel one-class approaches often compare sequences in a pointwise fashion and ignore the geometry of normal data. In this work, we present a manifold-regularised, large-margin $\ell_p$-support vector data description ($\ell_p$-SVDD) method that analyses sequences as paths via the signature kernel. By incorporating a a graph-Laplacian penalty into the $\ell_p$-SVDD objective function and utilising the representer theorem for manifold regularisation, we illustrate that the dual task retains the functional form of the original one with a modified kernel matrix. As such, existing Frank--Wolfe solvers can be applied unchanged. We show that this new modified kernel is a valid kernel matrix and under a generic norm bound on the discriminant, the proposed model yields a smaller Rademacher-complexity bound than the baseline. Furthermore, the signature kernel which is computed through a Goursat partial differential equation and can handle irregularly sampled data and is invariant to reparametrisation has not previously been used for one-class time series anomaly detection to the best of our knowledge. Our experiments on five widely used benchmarks, evaluated without point adjustment, demonstrate that the proposed approach compares very favourably with the state of the art approaches.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">One-class learning is an effective methodology for time series anomaly detection, yet kernel one-class approaches often compare sequences in a pointwise fashion and ignore the geometry of normal data.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">The Geometry of the Set of Equivalent Linear Neural Networks</div>
+<div class="meta-line">Authors: Jonathan Richard Shewchuk, Sagnik Bhattacharya</div>
+<div class="meta-line">First: 2024-04-23T09:20:55+00:00 · Latest: 2026-10-12T09:52:09+00:00</div>
+<div class="meta-line">Comments: 135 pages, 25 figures, 7 tables</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2404.14855v2">Abs</a> · <a href="https://arxiv.org/pdf/2404.14855v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">We characterize the geometry of the set of all weight vectors for which a fully-connected linear neural network computes the same linear transformation $W$. Said another way, the set of all sequences of matrices (of predetermined sizes) whose product is $W$. This set of weight vectors is an algebraic variety in the Euclidean weight space, called the fiber of $W$ under the matrix multiplication map. Sometimes this variety is a manifold, but usually not. The rank stratification of a fiber is a natural partition of the fiber into smooth manifolds of various dimensions called strata. We derive the dimensions of these strata and characterize how they are connected to each other. They satisfy the frontier condition: if a stratum intersects the closure of another stratum, then the former stratum is a subset of the closure of the latter stratum. This subset relationship can be expressed as a partial order with a single minimal element, a stratum that is included in the closure of every other stratum. Hence the strata can be arranged in a hierarchy represented by a directed acyclic graph that represents that partial order; we give an algorithm that computes that graph. A key result describes the relationship between this partial order and the ranks of certain matrices in the network. We derive the tangent and normal subspaces of the strata, and we construct elegant bases for those subspaces.
+  Each stratum represents a different pattern of information flow through the network, expressed as a barcode, borrowed from the study of persistent homology. The topology of a stratum depends solely on its barcode. So does its geometry, up to a linear transformation in weight space. Connections among the strata are best understood through &quot;barcode moves,&quot; which can be expressed as simple modifications of the barcodes.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">We characterize the geometry of the set of all weight vectors for which a fully-connected linear neural network computes the same linear transformation $W$.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Persistence diagrams of finite topological spaces</div>
+<div class="meta-line">Authors: Akhilesh Badra, Hemant Kumar Singh</div>
+<div class="meta-line">First: 2026-10-12T08:36:53+00:00 · Latest: 2026-10-12T08:36:53+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.16386v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.16386v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">In this paper, we apply persistent homology to study finite topological spaces by associating persistence diagrams with their elements through the furtherness function. This approach enables us to classify elements according to their topological evolution within the space. We further establish a bottleneck stability theorem showing that the bottleneck distance between the persistence diagrams associated with two elements is bounded above by their mutual furtherness.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">In this paper, we apply persistent homology to study finite topological spaces by associating persistence diagrams with their elements through the furtherness function.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">OneShot: Label-Efficient Detector Weighting for Time Series Anomaly Detection</div>
+<div class="meta-line">Authors: Seunghan Lee, Jun Seo, Jaehoon Lee, Junhyeok Kang, Sangjun Han, Sungdong Yoo, Minjae Kim, Tae Yoon Lim, Dongwan Kang, Hwanil Choi, Soonyoung Lee, Wonbin Ahn</div>
+<div class="meta-line">First: 2026-10-12T05:49:42+00:00 · Latest: 2026-10-12T05:49:42+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.16219v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.16219v1">PDF</a> · <a href="https://github.com/seunghan96/one_shot">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Time series (TS) anomaly detection (AD) lacks a universal detector, with the best choice determined by the series rather than by the algorithm. Existing methods therefore either select one detector for each series or average a pool of them. However, both assume that no label ever arrives, while a deployed monitor does receive them, since an operator confirms the alarms it raises. In this paper, we propose ONESHOT, which uses a single confirmed anomaly to weight the pool rather than to choose one detector from it. Specifically, we score each detector on the confirmed anomaly, and those scores become the weights of a soft mixture over the whole pool. We show that a single confirmed anomaly is enough to come close to the best detector for the series. Across 152 univariate and 73 multivariate series, ONESHOT outperforms the strongest single detector, averaging the whole pool, and even picking the best detector on the confirmed event. Code is available at: https://github.com/seunghan96/one_shot.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Time series (TS) anomaly detection (AD) lacks a universal detector, with the best choice determined by the series rather than by the algorithm.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">CHAIN: Calibrated LLM Forecasting via Causal-Temporal Hypergraph Inference</div>
+<div class="meta-line">Authors: Wenjin Liu, Chenxi Wang, Yue Lu, Zhe Cui, Haoran Luo</div>
+<div class="meta-line">First: 2026-09-29T04:30:42+00:00 · Latest: 2026-10-12T01:19:53+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.36689v2">Abs</a> · <a href="https://arxiv.org/pdf/2609.36689v2">PDF</a> · <a href="https://github.com/QwenQKing/Chain">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Large language models have achieved significant progress in event forecasting, yet their probability outputs exhibit systematic calibration bias that varies heterogeneously across different domains and question types, undermining the trustworthiness of probabilistic outputs for decision-making under uncertainty. However, existing calibration methods typically correct probability outputs after prediction is complete, without modeling the structural sources of bias within the prediction process itself. To address this challenge, we decompose probabilistic prediction over causal-temporal hypergraphs into three stages, evidence weighting, evidence aggregation, and source fusion, and propose CHAIN, which designs stage-specific mechanisms to mitigate bias at each stage: (i) modulating the temporal decay function by causal topological distance, (ii) aggregating approximately independent causal chains via Noisy-OR after direction-aware deduplication, and (iii) driving adaptive fusion by causal coverage and directional balance. Experimental results on cross-domain forecasting benchmarks show CHAIN outperforms existing methods in expected calibration error, Brier score, and accuracy. Our project is available at https://github.com/QwenQKing/Chain.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Large language models have achieved significant progress in event forecasting, yet their probability outputs exhibit systematic calibration bias that varies heterogeneously across different domains and question types, undermining the trustworthiness of probabilistic outputs for decision-making under uncertainty.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Geodesic Models for Loop Spaces on Riemannian Manifolds</div>
+<div class="meta-line">Authors: Abbas Bahri, Fred Cohen, Moncef Ghazel, Sadok Kallel</div>
+<div class="meta-line">First: 2026-10-11T14:47:48+00:00 · Latest: 2026-10-11T14:47:48+00:00</div>
+<div class="meta-line">Comments: 27 pages, to appear in Fields Institute Communications</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.15668v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.15668v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">A topological group, defined in terms of ``composable minimal geodesics&#x27;&#x27; is constructed and shown to be homotopy equivalent to the pointed loop space of a path-connected, simply connected Riemannian manifold $M$ of positive convexity radius. This construction is analogous to John Milnor&#x27;s free group model for the pointed loop space of a connected simplicial complex. Related models built from composable minimal geodesics are also obtained for the free loop space of $M$ and for the space of maps from any finite two-dimensional CW-complex into $M$.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">A topological group, defined in terms of ``composable minimal geodesics&#x27;&#x27; is constructed and shown to be homotopy equivalent to the pointed loop space of a path-connected, simply connected Riemannian manifold $M$ of positive convexity radius.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Learning Higher-Order Interactions from Incomplete Spatiotemporal Data with Mixtures of Hypergraph Laplacians</div>
+<div class="meta-line">Authors: Keshu Wu, Sixu Li, Zihao Li, Zhiwen Fan, Xiaopeng Li, Yang Zhou</div>
+<div class="meta-line">First: 2026-05-17T08:15:16+00:00 · Latest: 2026-10-11T02:28:48+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.17316v2">Abs</a> · <a href="https://arxiv.org/pdf/2605.17316v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Traffic sensor data exhibit strong temporal and cross-sensor dependencies, yet long gaps erase both a sensor&#x27;s local history and the joint observations needed to learn its relationships with other sensors. We introduce MoHL, a mixture of hypergraph Laplacians that learns group-wise relational structure directly from incomplete spatiotemporal data. MoHL discovers overlapping sensor groups from observed co-variation, constructs a Laplacian component for each interaction order, and learns their mixture through holdouts that mimic the missingness pattern. By sharing weights across group-induced couplings, MoHL pools scattered evidence instead of estimating each coupling independently. We characterize the induced weight-sharing structure and analyze the conditions under which sharing reduces estimation risk. Experiments on three traffic networks show that higher-order groups are most beneficial under long gaps, while support-matched comparisons demonstrate the advantage of shared weights when relational evidence is scarce. MoHL achieves the lowest error among the evaluated baseline methods under day-long gaps, with orders of magnitude fewer learned parameters than deep imputers. These results show how group-wise sharing can sustain reliable reconstruction precisely when missingness depletes the evidence needed to learn cross-sensor dependence.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Traffic sensor data exhibit strong temporal and cross-sensor dependencies, yet long gaps erase both a sensor&#x27;s local history and the joint observations needed to learn its relationships with other sensors.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Correlation-Aware Reconstruction for Multivariate Time Series Anomaly Detection</div>
+<div class="meta-line">Authors: Md. Johir Raihan, Zahra Zamanzadeh Darban, Yueyang Liu, Flora D. Salim, Levin Kuhlmann, Mahsa Salehi</div>
+<div class="meta-line">First: 2026-10-11T00:46:24+00:00 · Latest: 2026-10-11T00:46:24+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.15250v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.15250v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Reconstruction-based detectors for multivariate time series anomaly detection typically learn a single entangled representation of normal behavior and flag anomalies based on reconstruction error. However, real-world anomalies are not only isolated spikes in a single channel but also disruptions in the relationships between channels, where each sensor individually appears normal, but their joint behavior deviates from the norm. Because these models compress both temporal evolution and inter-channel structure into this single space, they lack an explicit mechanism to isolate such inter-channel dependencies from normal temporal dependencies, leading to lower detection rates for cross-channel anomalies. We propose CARMA (Correlation-Aware Reconstruction for Multivariate Time Series Anomaly Detection), which is a reconstruction-based variational autoencoder with two complementary latent spaces: a temporal latent that captures sequential dynamics, and a correlation latent that is trained to reconstruct the window&#x27;s pairwise Pearson correlations. Both representations are fused in the signal decoder, and anomalies are detected from the reconstruction error. We evaluate CARMA on the TSB-AD-M benchmark suite (17 datasets, 180 series) against 29 baseline methods, and show that it significantly outperforms all of them across multiple threshold-free and range-aware metrics, achieving a VUS-PR of 0.4929. Ablations show that removing the correlation branch degrades performance, that adding a second latent without supervision recovers only part of the gain, and that supervising the correlation latent with an explicit correlation target accounts for the rest and produces a sharper error response at anomalies.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Reconstruction-based detectors for multivariate time series anomaly detection typically learn a single entangled representation of normal behavior and flag anomalies based on reconstruction error.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Topological realizations of finite posets</div>
+<div class="meta-line">Authors: Vin de Silva</div>
+<div class="meta-line">First: 2026-10-10T18:16:14+00:00 · Latest: 2026-10-10T18:16:14+00:00</div>
+<div class="meta-line">Comments: 34 pages</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.15099v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.15099v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">I introduce a new class of cell complexes, called CL-complexes, that provide alternative topological realizations of finite posets. Each realization of a given poset has the same homotopy type as the order complex of that, so in some sense these spaces do not provide anything really new. Their value is that they enable short transparent proofs of standard results in poset homotopy. These include Quillen&#x27;s Theorem A for finite posets, the Nerve Theorem for good covers of a topological space, and Sheehy&#x27;s multicover generalization of the Nerve Theorem. Order complexes retain a special status: the order complex of a finite poset admits CL-complex structures both for the poset itself and for its opposite poset. The definition of CL-complexes is motivated by an elementary generalization of the Carrier Lemma of J. W. Walker, which in its original form constructs a canonical homotopy class of maps from a simplicial complex to a space covered by a suitable family of contractible sets. In the generalized lemma, the role played by simplicial complexes and the role played by spaces covered by contractible sets can both be fulfilled by CL-complexes. This sets up an equivalence of categories that tacitly underlies our approach.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">I introduce a new class of cell complexes, called CL-complexes, that provide alternative topological realizations of finite posets.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">HodgePhaseNet: Discrete Hodge Decomposition of Semantic Flows in Transformer Attention</div>
+<div class="meta-line">Authors: Kiyotaka Kasubuchi, Kazuo Fukiya</div>
+<div class="meta-line">First: 2026-10-10T14:45:53+00:00 · Latest: 2026-10-10T14:45:53+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.14971v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.14971v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">WavePhaseNet introduced frequency-resolved semantic representations, QuantumPhaseNet introduced gauge-covariant phase connections, and ModularPhaseNet made a finite cyclic phase channel and its cycle holonomy computable in an ordinary Transformer. These constructions are complementary, yet they do not by themselves separate an observed collection of pairwise relations into a globally consistent direction, circulation around local compositions, and circulation that persists around a larger unfilled cycle. HodgePhaseNet addresses this separation by representing semantic transitions as an antisymmetric real-valued 1-cochain on a finite oriented simplicial complex. With vertex-edge incidence matrix $B_1$ and edge-face incidence matrix $B_2$, every such field has a unique orthogonal decomposition $Ω= B_1^TΦ+ B_2Ψ+ H$, where $B_1H=0$ and $B_2^TH=0$. The three component fields are unique even when their potentials are not. We give explicit projectors, a sparse implementation, integrability and gauge results, a verified numerical example, and a redesigned attention interface. The attention bias is defined on allowed ordered query-key pairs, remains consistent under arbitrary choices of edge orientation, and preserves a decoder&#x27;s causal information boundary by constructing its complex from the visible prefix. Gauge invariance of the attention output is conditional on using invariant or appropriately compensated features. A simple difference of vertex embeddings has no coexact or harmonic component; a genuine relation encoder is therefore indispensable. Local circulation is not automatically contradiction, and harmonic flow is not automatically missing knowledge. These interpretations and any reduction in factual error require controlled empirical evaluation. This paper presents a mathematical and architectural proposal, not external natural-language performance results.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">WavePhaseNet introduced frequency-resolved semantic representations, QuantumPhaseNet introduced gauge-covariant phase connections, and ModularPhaseNet made a finite cyclic phase channel and its cycle holonomy computable in an ordinary Transformer.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">TopoPilot: Reliable Conversational Workflow Automation for Topological Data Analysis and Visualization</div>
+<div class="meta-line">Authors: Nathaniel Gorski, Shusen Liu, Bei Wang</div>
+<div class="meta-line">First: 2026-03-26T05:56:53+00:00 · Latest: 2026-10-09T22:53:42+00:00</div>
+<div class="meta-line">Comments: 21 pages, 10 figures</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2603.25063v2">Abs</a> · <a href="https://arxiv.org/pdf/2603.25063v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Recent agentic systems demonstrate that large language models can generate complex codebases from natural language prompts. Despite this progress, they present reliability concerns for scientific visualization due to invalid operations, subtle errors, and failure to resolve underspecified inputs. These challenges are compounded in real-world workflows that exceed the complexity of standard benchmarks. In this work, we introduce TopoPilot, a reliable and extensible agentic framework for automating complex scientific visualization workflows. We focus on topological data analysis and visualization as a primary use case, while designing the framework to generalize to broader visualization domains. TopoPilot employs a two-agent architecture: an orchestrator translates user prompts into workflows composed of atomic backend actions, while a verifier evaluates workflows prior to execution. Its modular design isolates components and supports new topological descriptors and domain-specific workflows without modifying the core system. It also employs numerous deterministic guardrails to ensure semantic consistency and accurate execution. To systematically improve reliability, we develop a taxonomy of failure modes and employ targeted safeguards for each class of error. Across 1,000 simulated multi-turn conversations spanning 100 prompts, including adversarial and infeasible requests, TopoPilot achieves a success rate exceeding 95%, compared with under 50% for a baseline without comprehensive guardrails and verification. We also show that TopoPilot outperforms Claude Code and Codex on similar prompts in terms of accuracy, completion time, and token usage.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Recent agentic systems demonstrate that large language models can generate complex codebases from natural language prompts.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">PANDA: Prior-guided Attentional Dual-path Architecture</div>
+<div class="meta-line">Authors: Rishabh Jain, Federico Belotti, Stefano Coniglio, Pietro Lio, Stefano Fiorini</div>
+<div class="meta-line">Venue: NeurIPS 2026</div>
+<div class="meta-line">First: 2026-10-09T14:15:14+00:00 · Latest: 2026-10-09T14:15:14+00:00</div>
+<div class="meta-line">Comments: Accepted at NeurIPS 2026</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.13635v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.13635v1">PDF</a> · <a href="https://github.com/jainris/panda">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Hypergraph Neural Networks (HNNs), designed to model higher-order relations beyond pairwise interactions, typically rely either on fixed structural weights or on normalised attention. Fixed weights can propagate misleading information in heterophilic settings, while normalisation makes attention coefficients competitive, in the sense that, in a message-passing framework, increasing the weight of one sender must reduce the weight of others in the same aggregation set. Our main contribution is the introduction of PANDA (Prior-guided AttentioNal Dual-path Architecture), a plug-in for two-stage message passing HNNs applicable to both undirected and directed settings. The main path interpolates between learned receiver-normalised attention and structural incidence priors, while a non-competitive (not normalised) auxiliary path lets each sender contribute its own transformed information. We also show that, with fixed structural coefficients, PANDA recovers a certain complex-valued convolution operator adopted in previous works. Across four HNNs spanning spatial and spectral methods in both directed and undirected settings, plugging PANDA in yields an average improvement of 5.18 percentage points across eight real-world benchmark datasets. The code is available at https://github.com/jainris/panda.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Hypergraph Neural Networks (HNNs), designed to model higher-order relations beyond pairwise interactions, typically rely either on fixed structural weights or on normalised attention.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Gaussian BROJA Partial Information Decomposition in Closed Form</div>
+<div class="meta-line">Authors: Ohad Sheelo, Tal Golan, Ari Pakman</div>
+<div class="meta-line">First: 2026-10-09T12:02:17+00:00 · Latest: 2026-10-09T12:02:17+00:00</div>
+<div class="meta-line">Comments: 28 pages total, including 10 pages of main text, 2 main figures, 5 supplementary sections, and 5 supplementary figures</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.13464v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.13464v1">PDF</a> · <a href="https://github.com/brainsandmachines/Eigen_PID">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">The BROJA partial information decomposition provides an operationally motivated way to separate the information that two sources carry about a target into unique, redundant, and synergistic components. For continuous and high-dimensional variables, however, computing the BROJA decomposition requires solving a difficult optimization problem. Previous work showed that, when each source-target pair is jointly Gaussian, the problem can be reduced to finite-dimensional numerical optimization. Here, we derive a closed-form solution to this optimization problem, enabling direct computation of the BROJA decomposition in the general multivariate Gaussian setting. The resulting closed-form expression enables speedups exceeding two orders of magnitude for high-dimensional Gaussian BROJA PID. Code is available at https://github.com/brainsandmachines/Eigen_PID.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">The BROJA partial information decomposition provides an operationally motivated way to separate the information that two sources carry about a target into unique, redundant, and synergistic components.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Learning Transfers: Kan Extensions of Topological Invariants of Learned Representations</div>
+<div class="meta-line">Authors: Luciano Melodia</div>
+<div class="meta-line">First: 2026-05-30T15:34:08+00:00 · Latest: 2026-10-09T07:24:47+00:00</div>
+<div class="meta-line">Comments: Repository https://codeberg.org/Jiren/CatTrans</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2606.07627v4">Abs</a> · <a href="https://arxiv.org/pdf/2606.07627v4">PDF</a> · <a href="https://codeberg.org/Jiren/CatTrans">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">When a learned representation is reused for a new task, which of its structure should survive? A task is a small category, a change of task is a functor $J$, and the invariants of a trained representation form a functor $F$. The left Kan extension $\operatorname{Lan}_JF$ is the invariant that the source and the change of task force on the target: by its universal property, every comparison of the source with an observed target invariant factors through it. The transfer discrepancy is the largest distance, over the target objects, between this extension and the observed invariant. For persistent homology the extension is a cokernel over comma categories, and a functorial version of the discrepancy, which also compares the maps between target objects, is $1$-Lipschitz under interleavings. On finite samples the discrepancy is a bottleneck distance, computed without approximation. For data glued from two pieces whose exclusive parts lie farther apart than the filtration scale, a Mayer-Vietoris sequence identifies what extending homology loses, while extending chains loses nothing. For a merge of labelled point clouds, the degree-zero discrepancy vanishes if and only if some $1$-Lipschitz classifier has a margin above the filtration scale at every sample point. In experiments on sampled manifolds, trained encoders and pretrained image models, every exact prediction holds on every sample. The discrepancy of truncated invariants recovers a hidden merge of separated parts far above chance and tells the intended target of a merge from a permuted control, but across pretrained models it does not track the accuracy of a linear probe.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">When a learned representation is reused for a new task, which of its structure should survive?</div>
+</details>
+</div>
+<div class="card">
+<div class="title">NV-Tesseract-AD: Curriculum-Enhanced Conditional Diffusion for Multivariate Time-Series Anomaly Detection</div>
+<div class="meta-line">Authors: Aditi Gautam, Manikandan Ravikiran, Saira Qureshi, Sena Fatma Ekiz, Charan Jagwani, Mahmoud Elhadidy, Sanjeev Roka</div>
+<div class="meta-line">First: 2026-10-08T22:06:40+00:00 · Latest: 2026-10-08T22:06:40+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.12754v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.12754v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">We propose NV-Tesseract-AD, a curriculum learning-enhanced conditional diffusion framework for multivariate time-series anomaly detection. Our central hypothesis is that reconstruction difficulty can be explicitly structured along two complementary axes, masking severity and diffusion noise level, and that training from easier to harder tasks along both axes simultaneously stabilizes optimization and improves residual discriminability. We integrate a Transformer-based diffusion backbone with a three-stage dual curriculum over masking ratios and diffusion timesteps, retaining anomalous samples throughout training and relying on structured corruption to drive self-supervised representation learning. We evaluate NV-Tesseract-AD under two regimes: in-distribution training on the TSB-UAD-M corpus and strict zero-shot transfer to ten EasyTSAD benchmark families without per-dataset tuning. The dual-axis curriculum produces masking-invariant reconstruction, confirmed by a near-zero loss gap between complementary masking strategies within the first training stage, and yields an approximately 3.7-fold improvement in F1 and a 56 percent reduction in MSE relative to a non-curriculum baseline. Zero-shot performance reaches F1 = 0.984 on NAB and F1 = 0.948 on NormA. Weaker results on heterogeneous families are traced to unsupervised threshold calibration rather than reconstruction quality, identifying calibration as the dominant remaining detection bottleneck. Accelerated inference via DPM-Solver++ reduces sampling cost by a factor of 3.5 to 5.7 at the dataset level but couples to thresholding behavior, establishing that the sampler and threshold must be validated jointly. Together, these findings demonstrate that aligning diffusion denoising difficulty with curriculum learning principles provides a principled and practical approach for robust anomaly detection in complex multivariate time series.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">We propose NV-Tesseract-AD, a curriculum learning-enhanced conditional diffusion framework for multivariate time-series anomaly detection.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Byzantine-Resilient Federated Large Language Model via Hypergraph Message Passing</div>
+<div class="meta-line">Authors: Kai Li, Hanlin Cai, Zihao Liu, Yichen Li, Jose Alcaraz Calero, Wei Ni, Falko Dressler, Özgür B. Akan</div>
+<div class="meta-line">First: 2026-10-08T20:47:08+00:00 · Latest: 2026-10-08T20:47:08+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.12711v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.12711v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Federated Large Language Models (FedLLMs) are promising to deliver privacy-preserving, collaborative intelligence. The decentralized training process is vulnerable to Byzantine attacks that corrupt semantic consistency and factual resilience through malicious model updates. This paper presents a new resilience strategy that prevents semantically corrupted knowledge from propagating during federated aggregation. A defense problem is formulated to jointly maximize global accuracy and suppress manipulated model updates, enabling trustworthy knowledge aggregation without accessing private local data. To strengthen the resilience of FedLLMs, we develop a novel Hypergraph Message Passing Graph Autoencoder (HMP-GAE) framework, where low-rank model updates are represented as nodes in a hypergraph and high-order semantic relationships among multiple agents are exploited through iterative message passing. By leveraging historical checkpoints and cross-agent relational reasoning, HMP-GAE identifies and suppresses semantically inconsistent updates while preserving knowledge alignment among agents throughout federated training. HMP-GAE is implemented using Qwen-2.5 and Llama-3.2 as pretrained FedLLM backbones and evaluated on AG News and Yahoo! Answers datasets. Compared to existing defenses, HMP-GAE improves global accuracy by $1.21$\%, reduces final-model classification semantic entropy by $44.08$\%, and lowers perplexity by $13.34$\%. HMP-GAE outperforms the GAE-based defense by improving the accuracy $1.39$\%, reducing the semantic entropy by $54.5$\%, and lowering perplexity by $35.5$\%.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Federated Large Language Models (FedLLMs) are promising to deliver privacy-preserving, collaborative intelligence.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Batch Before You Lift: Scalable Topological Deep Learning on Large Graphs</div>
+<div class="meta-line">Authors: David Leko, Luka Benić, Guillermo Bernárdez, Nina Miolane, Olga Fink, Lev Telyatnikov</div>
+<div class="meta-line">First: 2026-10-08T16:23:43+00:00 · Latest: 2026-10-08T16:23:43+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.12247v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.12247v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Topological Deep Learning extends graph-based learning to higher-order domains, such as hypergraphs, cellular, and simplicial complexes. These domains are typically constructed from patterns in an input graph through a process of graph lifting. Full-domain training constructs and stores the complete lifted representation before model execution. On large and dense datasets like Reddit (233k nodes and 57.3M edges), this global materialization becomes a severe computational bottleneck, often rendering training infeasible. To address this limitation, we introduce Cluster-TNN, a domain-agnostic framework that avoids this bottleneck by lifting locally instead. After partitioning the input graph during preprocessing, at runtime Cluster-TNN dynamically samples groups of node clusters, reconstructs their induced subgraphs to form mini-batches, and applies the chosen lifting within each mini-batch. Retaining all edges among sampled nodes preserves the connectivity needed to construct higher-order structures across clusters, producing topological mini-batches that existing Topological Neural Networks can process directly. Across 21 matched comparisons with full-graph execution, Cluster-TNN reduces peak GPU memory in every configuration, by 83.2% on average while maintaining competitive predictive performance. Notably, such a reduction enables, to our knowledge, the first training of multiple different higher-order Topological Neural Networks on large datasets such as Reddit and OGBN Products. These results establish Cluster-TNN as a general strategy for scaling Topological Deep Learning beyond the limitations of global domain construction.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Topological Deep Learning extends graph-based learning to higher-order domains, such as hypergraphs, cellular, and simplicial complexes.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Keeping the interaction structure explicit: comment on &quot;Graphs are maximally expressive for higher-order interactions&quot;</div>
+<div class="meta-line">Authors: Giulio Burgio</div>
+<div class="meta-line">First: 2026-10-06T17:22:11+00:00 · Latest: 2026-10-08T16:08:53+00:00</div>
+<div class="meta-line">Comments: 3 pages, 1 figure. Comment on 2602.16937v2. v2: clarified assumptions; corrected Eq. (6); minor edits</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.08712v2">Abs</a> · <a href="https://arxiv.org/pdf/2610.08712v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Peixoto et al. (arXiv:2602.16937v2) stress that graph-based formulations can express any interaction model, a point the literature on higher-order networks (HONs) has often overlooked. We agree with much of their critique. We argue that expressiveness, however, might not be the main reason hypergraphs are often preferred. A network is read from a model rather than assumed, and to properly study the role of structure-one of the most basic questions in complex systems research-one needs a representation that keeps that structure separate from the functional form of the interactions. We show that such representation is in general a directed hypergraph (equivalently, a directed factor graph), with one hyperarc per interaction term, recovering a (directed) graph for pairwise interactions, and an undirected hypergraph for symmetric, higher-order ones. Most of the HONs literature has focused so far on symmetric interactions, which, in light of what established here, might explain why there (undirected) hypergraphs are regularly presented as the natural representation for systems with higher-order interactions.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Peixoto et al.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Limit Theorems for Persistent Homology of Multiparameter Complex Processes</div>
+<div class="meta-line">Authors: Masanori Hino, Shu Kanazawa</div>
+<div class="meta-line">First: 2026-10-08T15:52:59+00:00 · Latest: 2026-10-08T15:52:59+00:00</div>
+<div class="meta-line">Comments: 78 pages, 4 figures</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.12197v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.12197v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Multiparameter complex processes, based on the Costa-Farber model, provide a common framework for growing random simplicial complexes, including the Linial-Meshulam and random flag complex processes. We establish laws of large numbers for persistent Betti numbers of these processes and prove that, after a deterministic time change and normalization, their persistence diagrams converge weakly in probability to a deterministic finite measure. Its quadrant masses are determined by universal limits of normalized persistent Betti numbers, characterized by an explicit finite-dimensional optimization problem. We extend the diagram convergence to integrals of continuous functions with polynomial growth in the death coordinate and controlled singularities at the diagonal. These results yield convergence of additive and multiplicative lifetime measures and total persistence. We further deduce convergence in optimal transport distance. The proofs combine local weak convergence of simplicial pairs, spectral analysis of compressed Laplacians accounting for dependence through shared faces, and quantitative estimates for large death coordinates and short lifetimes.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Multiparameter complex processes, based on the Costa-Farber model, provide a common framework for growing random simplicial complexes, including the Linial-Meshulam and random flag complex processes.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Adaptive Domain Models: Bayesian Evolution, Warm Rotation, and Principled Training for Geometric and Neuromorphic AI</div>
+<div class="meta-line">Authors: Houston Haynes</div>
+<div class="meta-line">First: 2026-03-18T12:36:19+00:00 · Latest: 2026-10-08T14:57:37+00:00</div>
+<div class="meta-line">Comments: 26 pages, 0 figures, 2 tables. Major revision: expanded precision and efficiency analysis. Added Urschel&#x27;s bounds and worked Bayesian examples</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2603.18104v6">Abs</a> · <a href="https://arxiv.org/pdf/2603.18104v6">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Transformer-based large language models have become a prominent focus of machine learning. We develop adaptive domain models to supply domain-specific predictions and checks within language-model pipelines, as well as to serve direct machine automation efficiently. Their predictions can inform generation, while declared constraints and error bounds support checks on the calculations underlying proposed responses and actions. These feedforward and feedback paths aim to reduce domain errors while supporting use cases such as constraint solving for machine processes as well as preserving accuracy in a language model&#x27;s conversational setting.
+  Physical dimensions and geometric support restrict admissible operations and updates, while a specified probability model expresses uncertainty within that space. Our dimensional type and program hypergraph work connects these relationships to proof obligations for numerical realization and deployment. Forward-mode gradient estimates and posit accumulation provide computational choices whose error and resource costs can be evaluated together in order to provide more precise and computationally efficient inference.
+  Our worked linear-Gaussian update connects posterior computation to error and a distribution-shift decision. Recent results from Urschel bound elimination growth probabilistically under distinct Gaussian-input and random-preconditioning hypotheses. Our unique approach to warm rotation binds candidate parameters to their numerical evidence and destination while each request observes a coherent model and state. We propose Bayesian distillation as a source of prior information. Our architecture offers a route to domain computations with explicit guarantees that can guide automated decisions and model responses. We specify experiments to evaluate prediction quality, domain errors across conversational turns, and total resource cost.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Transformer-based large language models have become a prominent focus of machine learning.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Decidable By Construction: Design-Time Verification for Truly Fearless Systems</div>
+<div class="meta-line">Authors: Houston Haynes</div>
+<div class="meta-line">First: 2026-03-26T13:09:36+00:00 · Latest: 2026-10-08T14:51:48+00:00</div>
+<div class="meta-line">Comments: 33 pages, 0 figures, 4 tables. Major revision: expanded four-tier verification. Added exact and probabilistic distributed examples</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2603.25414v5">Abs</a> · <a href="https://arxiv.org/pdf/2603.25414v5">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Concurrency, parallelism and distributed execution become truly fearless when the compiler tracks wait-for edges, proves multi-threaded work is sound and preserves distributed boundary contracts. In this design, our Composer compiler preserves proofs while lowering Clef directly to native CPU, GPU, NPU and FPGA code, without translation through C or vendor APIs. Our Program Semantic Graph retains the values, relationships and premises that justify BAREWire&#x27;s unboxed boundary contracts. And C &amp; C++ interfacing is an explicit marshaling boundary, with proofs tied to actual arguments, conversions and returned values.
+  Four verification tiers connect an account of our design. Tier 1 supplies structural inference, founded on principal dimensional types. Tier 2 generates and checks local arithmetic, representation, and computational integrity at the node level. Tier 3 instantiates reusable domain and system lemmas, including distributed proofs supported by Iris, Actris and Aneris. Tiers 1-3 require no developer annotations, with a quotation based lemma library design to extend coverage as use cases expand. Tier 4 admits computational and probabilistic relational proofs, with project annotations identifying the required relations. We extend the same library direction toward recognizing relational constructions from hypergraph structure.
+  A formal composition rule connects arithmetic, ownership, protocol and realization evidence. Our worked distributed reduction preserves one specified result across concurrent workers, reordered arrivals and boundary mappings. Its probabilistic extension carries worker and conversion error with an explicit failure budget. With recent work by Urschel, we show bounds supply a relevant source of reusable proof terms. These constructions make verification a core engineering discipline for truly fearless programs and systems across a variety of hardware targets.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Concurrency, parallelism and distributed execution become truly fearless when the compiler tracks wait-for edges, proves multi-threaded work is sound and preserves distributed boundary contracts.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Oriented Grassmannian Bundle, Normal Curvature Reduction, and Persistent Homology</div>
+<div class="meta-line">Authors: Dongwoo Gang</div>
+<div class="meta-line">First: 2025-11-27T16:36:52+00:00 · Latest: 2026-10-08T08:19:09+00:00</div>
+<div class="meta-line">Comments: 32 pages, 7 figures</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2511.22603v3">Abs</a> · <a href="https://arxiv.org/pdf/2511.22603v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">We consider a smooth closed orientable submanifold $M \subset \mathbb{R}^D$ with narrow cycles. We embed $M$ into a scaled oriented Grassmannian bundle via the Gauss map in order to enlarge the scale of these cycles. Under mild assumptions, we show that this embedding reduces the normal curvature of the embedded submanifold in directions where the original normal curvature is large. For smooth closed hypersurfaces, we further show that this construction increases the distance between antipodal points of narrow cycles for fixed volume.
+  We then obtain an explicit range of radii for which the ambient Čech complex on this Grassmannian bundle is homotopy equivalent to the embedded manifold, yielding lower bounds on the scales at which the Čech filtration recovers the homology of $M$. Since the distance induced by the embedding depends on both positions and oriented tangent spaces, we work with Whitney $C^1$ convergence of embeddings and prove that the associated Čech persistent homology is stable with respect to the interleaving distance. Finally, we describe a procedure for computing a distance matrix for a finite subset with respect to this embedding and illustrate the construction on several examples, including an approximate quasi-halo orbit in the Saturn--Enceladus system.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">We consider a smooth closed orientable submanifold $M \subset \mathbb{R}^D$ with narrow cycles.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">The sublevel Flood bifiltration: towards scalable 2-parameter persistent homology</div>
+<div class="meta-line">Authors: Mattéo Clémot, Julie Digne, Julien Tierny</div>
+<div class="meta-line">First: 2026-10-04T18:22:32+00:00 · Latest: 2026-10-07T15:12:36+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.05441v2">Abs</a> · <a href="https://arxiv.org/pdf/2610.05441v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Multiparameter persistent homology is a rapidly developing branch of topological data analysis that improves the robustness of single-parameter persistent homology to outliers, while still capturing the metric characteristics of the data. However, a notable limitation is its lack of scalability. In this paper, we introduce a novel approach for efficiently computing 2-parameter persistent homology on large point sets. Our work extends the Flood filtration, originally developed for single-parameter persistence. Our construction, called the sublevel Flood bifiltration, offers a scalable approximation of the sublevel offset bifiltration. We show that it benefits from theoretical stability properties and describe how to compute it efficiently. We demonstrate the performance of our approach in classification tasks on low-dimensional synthetic datasets, where density awareness is critical, as well as on real-world time series datasets.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Multiparameter persistent homology is a rapidly developing branch of topological data analysis that improves the robustness of single-parameter persistent homology to outliers, while still capturing the metric characteristics of the data.</div>
+</details>
+</div></div>
+    <details style="margin-top:16px" class="detail"><summary>History</summary>
+      <div class="history-list"><a href="archive/20261013_0030.html">20261013_0030</a>
+<a href="archive/20261011_2147.html">20261011_2147</a>
+<a href="archive/20261010_2118.html">20261010_2118</a>
+<a href="archive/20261009_2210.html">20261009_2210</a>
+<a href="archive/20261008_2223.html">20261008_2223</a>
+<a href="archive/20261007_2213.html">20261007_2213</a>
+<a href="archive/20261006_2156.html">20261006_2156</a>
+<a href="archive/20261005_2334.html">20261005_2334</a>
+<a href="archive/20261004_2103.html">20261004_2103</a>
+<a href="archive/20261003_2015.html">20261003_2015</a>
+<a href="archive/20261002_2135.html">20261002_2135</a>
+<a href="archive/20261001_2211.html">20261001_2211</a>
+<a href="archive/20260930_2121.html">20260930_2121</a>
+<a href="archive/20260929_2145.html">20260929_2145</a>
+<a href="archive/20260928_2257.html">20260928_2257</a>
+<a href="archive/20260927_2046.html">20260927_2046</a>
+<a href="archive/20260926_2005.html">20260926_2005</a>
+<a href="archive/20260925_2035.html">20260925_2035</a>
+<a href="archive/20260923_2034.html">20260923_2034</a>
+<a href="archive/20260922_2022.html">20260922_2022</a>
+<a href="archive/20260921_2137.html">20260921_2137</a>
+<a href="archive/20260920_2002.html">20260920_2002</a>
+<a href="archive/20260919_1948.html">20260919_1948</a>
+<a href="archive/20260918_2005.html">20260918_2005</a>
+<a href="archive/20260917_2026.html">20260917_2026</a>
+<a href="archive/20260916_2026.html">20260916_2026</a>
+<a href="archive/20260912_1929.html">20260912_1929</a>
+<a href="archive/20260911_2002.html">20260911_2002</a>
+<a href="archive/20260910_2004.html">20260910_2004</a>
+<a href="archive/20260909_2010.html">20260909_2010</a>
+<a href="archive/20260908_2000.html">20260908_2000</a>
+<a href="archive/20260907_2118.html">20260907_2118</a>
+<a href="archive/20260906_1932.html">20260906_1932</a>
+<a href="archive/20260905_1916.html">20260905_1916</a>
+<a href="archive/20260904_2006.html">20260904_2006</a>
+<a href="archive/20260903_2002.html">20260903_2002</a>
+<a href="archive/20260902_2004.html">20260902_2004</a>
+<a href="archive/20260901_2030.html">20260901_2030</a>
+<a href="archive/20260831_2258.html">20260831_2258</a>
+<a href="archive/20260830_2044.html">20260830_2044</a>
+<a href="archive/20260829_2106.html">20260829_2106</a>
+<a href="archive/20260829_0322.html">20260829_0322</a>
+<a href="archive/20260828_0213.html">20260828_0213</a>
+<a href="archive/20260826_1551.html">20260826_1551</a>
+<a href="archive/20260825_1548.html">20260825_1548</a>
+<a href="archive/20260824_1603.html">20260824_1603</a>
+<a href="archive/20260823_1538.html">20260823_1538</a>
+<a href="archive/20260822_1537.html">20260822_1537</a>
+<a href="archive/20260821_1547.html">20260821_1547</a>
+<a href="archive/20260820_1547.html">20260820_1547</a>
+<a href="archive/20260819_1544.html">20260819_1544</a>
+<a href="archive/20260818_1544.html">20260818_1544</a>
+<a href="archive/20260817_1559.html">20260817_1559</a>
+<a href="archive/20260816_1530.html">20260816_1530</a>
+<a href="archive/20260815_1529.html">20260815_1529</a>
+<a href="archive/20260814_1621.html">20260814_1621</a>
+<a href="archive/20260813_1627.html">20260813_1627</a>
+<a href="archive/20260811_1611.html">20260811_1611</a>
+<a href="archive/20260810_1626.html">20260810_1626</a>
+<a href="archive/20260809_1553.html">20260809_1553</a>
+<a href="archive/20260808_1548.html">20260808_1548</a>
+<a href="archive/20260807_1620.html">20260807_1620</a>
+<a href="archive/20260806_1746.html">20260806_1746</a>
+<a href="archive/20260805_1743.html">20260805_1743</a>
+<a href="archive/20260804_1745.html">20260804_1745</a>
+<a href="archive/20260803_1842.html">20260803_1842</a>
+<a href="archive/20260802_1715.html">20260802_1715</a>
+<a href="archive/20260731_1751.html">20260731_1751</a>
+<a href="archive/20260730_1730.html">20260730_1730</a>
+<a href="archive/20260729_1737.html">20260729_1737</a>
+<a href="archive/20260728_1736.html">20260728_1736</a>
+<a href="archive/20260727_1841.html">20260727_1841</a>
+<a href="archive/20260726_1712.html">20260726_1712</a>
+<a href="archive/20260725_1701.html">20260725_1701</a>
+<a href="archive/20260724_1727.html">20260724_1727</a>
+<a href="archive/20260723_1724.html">20260723_1724</a>
+<a href="archive/20260722_1733.html">20260722_1733</a>
+<a href="archive/20260721_1734.html">20260721_1734</a>
+<a href="archive/20260720_1806.html">20260720_1806</a>
+<a href="archive/20260719_1712.html">20260719_1712</a>
+<a href="archive/20260718_1655.html">20260718_1655</a>
+<a href="archive/20260717_1716.html">20260717_1716</a>
+<a href="archive/20260716_1720.html">20260716_1720</a>
+<a href="archive/20260715_1717.html">20260715_1717</a>
+<a href="archive/20260714_1714.html">20260714_1714</a>
+<a href="archive/20260713_1825.html">20260713_1825</a>
+<a href="archive/20260712_1711.html">20260712_1711</a>
+<a href="archive/20260711_1655.html">20260711_1655</a>
+<a href="archive/20260710_1832.html">20260710_1832</a>
+<a href="archive/20260709_1832.html">20260709_1832</a>
+<a href="archive/20260707_1825.html">20260707_1825</a>
+<a href="archive/20260706_1936.html">20260706_1936</a>
+<a href="archive/20260705_1750.html">20260705_1750</a>
+<a href="archive/20260704_1731.html">20260704_1731</a>
+<a href="archive/20260703_1806.html">20260703_1806</a>
+<a href="archive/20260702_1810.html">20260702_1810</a>
+<a href="archive/20260701_1842.html">20260701_1842</a>
+<a href="archive/20260630_1831.html">20260630_1831</a>
+<a href="archive/20260629_1959.html">20260629_1959</a>
+<a href="archive/20260628_1758.html">20260628_1758</a>
+<a href="archive/20260627_1736.html">20260627_1736</a>
+<a href="archive/20260626_1823.html">20260626_1823</a>
+<a href="archive/20260625_1824.html">20260625_1824</a>
+<a href="archive/20260624_1823.html">20260624_1823</a>
+<a href="archive/20260623_1846.html">20260623_1846</a>
+<a href="archive/20260622_2050.html">20260622_2050</a>
+<a href="archive/20260621_1839.html">20260621_1839</a>
+<a href="archive/20260620_1817.html">20260620_1817</a>
+<a href="archive/20260619_1929.html">20260619_1929</a>
+<a href="archive/20260618_1919.html">20260618_1919</a>
+<a href="archive/20260617_1956.html">20260617_1956</a>
+<a href="archive/20260616_2021.html">20260616_2021</a>
+<a href="archive/20260615_2121.html">20260615_2121</a>
+<a href="archive/20260614_1824.html">20260614_1824</a>
+<a href="archive/20260613_1757.html">20260613_1757</a>
+<a href="archive/20260612_1901.html">20260612_1901</a>
+<a href="archive/20260611_1923.html">20260611_1923</a>
+<a href="archive/20260610_1856.html">20260610_1856</a>
+<a href="archive/20260609_1835.html">20260609_1835</a>
+<a href="archive/20260608_1958.html">20260608_1958</a>
+<a href="archive/20260607_1800.html">20260607_1800</a>
+<a href="archive/20260605_1846.html">20260605_1846</a>
+<a href="archive/20260602_1918.html">20260602_1918</a>
+<a href="archive/20260601_2037.html">20260601_2037</a>
+<a href="archive/20260531_1748.html">20260531_1748</a>
+<a href="archive/20260530_1715.html">20260530_1715</a>
+<a href="archive/20260527_1856.html">20260527_1856</a>
+<a href="archive/20260525_1919.html">20260525_1919</a>
+<a href="archive/20260524_1729.html">20260524_1729</a>
+<a href="archive/20260523_1711.html">20260523_1711</a>
+<a href="archive/20260521_1848.html">20260521_1848</a>
+<a href="archive/20260519_1847.html">20260519_1847</a>
+<a href="archive/20260516_1657.html">20260516_1657</a>
+<a href="archive/20260515_1758.html">20260515_1758</a>
+<a href="archive/20260513_1754.html">20260513_1754</a>
+<a href="archive/20260512_1754.html">20260512_1754</a>
+<a href="archive/20260511_1851.html">20260511_1851</a>
+<a href="archive/20260510_1707.html">20260510_1707</a>
+<a href="archive/20260509_1642.html">20260509_1642</a>
+<a href="archive/20260508_1636.html">20260508_1636</a>
+<a href="archive/20260507_1749.html">20260507_1749</a>
+<a href="archive/20260506_1740.html">20260506_1740</a>
+<a href="archive/20260505_1800.html">20260505_1800</a>
+<a href="archive/20260505_1132.html">20260505_1132</a>
+<a href="archive/20260504_1808.html">20260504_1808</a>
+<a href="archive/20260504_0410.html">20260504_0410</a>
+<a href="archive/20260503_0414.html">20260503_0414</a>
+<a href="archive/20260502_0426.html">20260502_0426</a>
+<a href="archive/20260501_0429.html">20260501_0429</a>
+<a href="archive/20260430_0430.html">20260430_0430</a>
+<a href="archive/20260429_0437.html">20260429_0437</a>
+<a href="archive/20260428_0429.html">20260428_0429</a>
+<a href="archive/20260427_0405.html">20260427_0405</a>
+<a href="archive/20260426_0404.html">20260426_0404</a>
+<a href="archive/20260425_0410.html">20260425_0410</a>
+<a href="archive/20260424_0430.html">20260424_0430</a>
+<a href="archive/20260423_0426.html">20260423_0426</a>
+<a href="archive/20260422_0424.html">20260422_0424</a>
+<a href="archive/20260421_0418.html">20260421_0418</a>
+<a href="archive/20260420_0359.html">20260420_0359</a>
+<a href="archive/20260419_0358.html">20260419_0358</a>
+<a href="archive/20260418_0415.html">20260418_0415</a>
+<a href="archive/20260417_0421.html">20260417_0421</a>
+<a href="archive/20260416_0425.html">20260416_0425</a>
+<a href="archive/20260415_0426.html">20260415_0426</a>
+<a href="archive/20260414_0423.html">20260414_0423</a>
+<a href="archive/20260413_0352.html">20260413_0352</a>
+<a href="archive/20260412_0347.html">20260412_0347</a>
+<a href="archive/20260411_0356.html">20260411_0356</a>
+<a href="archive/20260410_0412.html">20260410_0412</a>
+<a href="archive/20260409_0411.html">20260409_0411</a>
+<a href="archive/20260407_0404.html">20260407_0404</a>
+<a href="archive/20260406_0347.html">20260406_0347</a>
+<a href="archive/20260405_0344.html">20260405_0344</a>
+<a href="archive/20260404_0350.html">20260404_0350</a>
+<a href="archive/20260403_0400.html">20260403_0400</a>
+<a href="archive/20260401_0408.html">20260401_0408</a>
+<a href="archive/20260331_0407.html">20260331_0407</a>
+<a href="archive/20260329_0347.html">20260329_0347</a>
+<a href="archive/20260328_0350.html">20260328_0350</a>
+<a href="archive/20260326_0357.html">20260326_0357</a>
+<a href="archive/20260325_0405.html">20260325_0405</a>
+<a href="archive/20260324_0400.html">20260324_0400</a>
+<a href="archive/20260323_0342.html">20260323_0342</a>
+<a href="archive/20260322_0340.html">20260322_0340</a>
+<a href="archive/20260321_0347.html">20260321_0347</a>
+<a href="archive/20260320_0356.html">20260320_0356</a>
+<a href="archive/20260319_0358.html">20260319_0358</a>
+<a href="archive/20260318_0405.html">20260318_0405</a>
+<a href="archive/20260317_0401.html">20260317_0401</a>
+<a href="archive/20260316_0343.html">20260316_0343</a>
+<a href="archive/20260315_0341.html">20260315_0341</a>
+<a href="archive/20260314_0344.html">20260314_0344</a>
+<a href="archive/20260313_0352.html">20260313_0352</a>
+<a href="archive/20260312_0352.html">20260312_0352</a>
+<a href="archive/20260311_0347.html">20260311_0347</a>
+<a href="archive/20260310_0350.html">20260310_0350</a>
+<a href="archive/20260309_0338.html">20260309_0338</a>
+<a href="archive/20260308_0337.html">20260308_0337</a>
+<a href="archive/20260307_0347.html">20260307_0347</a>
+<a href="archive/20260306_0402.html">20260306_0402</a>
+<a href="archive/20260305_0348.html">20260305_0348</a>
+<a href="archive/20260304_0348.html">20260304_0348</a>
+<a href="archive/20260303_0348.html">20260303_0348</a>
+<a href="archive/20260302_0336.html">20260302_0336</a>
+<a href="archive/20260301_0339.html">20260301_0339</a>
+<a href="archive/20260228_0348.html">20260228_0348</a>
+<a href="archive/20260227_0354.html">20260227_0354</a>
+<a href="archive/20260226_0402.html">20260226_0402</a>
+<a href="archive/20260225_0404.html">20260225_0404</a>
+<a href="archive/20260224_0406.html">20260224_0406</a>
+<a href="archive/20260223_0338.html">20260223_0338</a>
+<a href="archive/20260222_0339.html">20260222_0339</a>
+<a href="archive/20260221_0345.html">20260221_0345</a>
+<a href="archive/20260220_0348.html">20260220_0348</a>
+<a href="archive/20260219_0358.html">20260219_0358</a>
+<a href="archive/20260218_0358.html">20260218_0358</a>
+<a href="archive/20260217_0343.html">20260217_0343</a>
+<a href="archive/20260216_0339.html">20260216_0339</a>
+<a href="archive/20260215_0338.html">20260215_0338</a>
+<a href="archive/20260213_0401.html">20260213_0401</a>
+<a href="archive/20260212_0404.html">20260212_0404</a>
+<a href="archive/20260210_0409.html">20260210_0409</a>
+<a href="archive/20260208_0339.html">20260208_0339</a>
+<a href="archive/20260207_0349.html">20260207_0349</a>
+<a href="archive/20260206_0347.html">20260206_0347</a>
+<a href="archive/20260205_0346.html">20260205_0346</a>
+<a href="archive/20260204_0354.html">20260204_0354</a>
+<a href="archive/20260202_0337.html">20260202_0337</a>
+<a href="archive/20260201_0333.html">20260201_0333</a>
+<a href="archive/20260131_0345.html">20260131_0345</a>
+<a href="archive/20260130_0341.html">20260130_0341</a>
+<a href="archive/20260129_0344.html">20260129_0344</a>
+<a href="archive/20260128_0341.html">20260128_0341</a>
+<a href="archive/20260127_0338.html">20260127_0338</a>
+<a href="archive/20260126_0330.html">20260126_0330</a>
+<a href="archive/20260125_0329.html">20260125_0329</a>
+<a href="archive/20260124_0337.html">20260124_0337</a>
+<a href="archive/20260123_0337.html">20260123_0337</a>
+<a href="archive/20260122_0343.html">20260122_0343</a>
+<a href="archive/20260121_0424.html">20260121_0424</a>
+<a href="archive/20260119_0329.html">20260119_0329</a>
+<a href="archive/20260118_0327.html">20260118_0327</a>
+<a href="archive/20260117_0332.html">20260117_0332</a>
+<a href="archive/20260116_0339.html">20260116_0339</a>
+<a href="archive/20260115_0334.html">20260115_0334</a>
+<a href="archive/20260114_0333.html">20260114_0333</a>
+<a href="archive/20260113_0334.html">20260113_0334</a>
+<a href="archive/20260112_0331.html">20260112_0331</a>
+<a href="archive/20260111_0329.html">20260111_0329</a>
+<a href="archive/20260110_0333.html">20260110_0333</a>
+<a href="archive/20260109_0334.html">20260109_0334</a>
+<a href="archive/20260108_0335.html">20260108_0335</a>
+<a href="archive/20260107_0330.html">20260107_0330</a>
+<a href="archive/20260106_0336.html">20260106_0336</a>
+<a href="archive/20260105_0328.html">20260105_0328</a>
+<a href="archive/20260104_0328.html">20260104_0328</a>
+<a href="archive/20260103_0325.html">20260103_0325</a>
+<a href="archive/20260102_0339.html">20260102_0339</a>
+<a href="archive/20260101_0329.html">20260101_0329</a>
+<a href="archive/20251231_0333.html">20251231_0333</a>
+<a href="archive/20251230_0332.html">20251230_0332</a>
+<a href="archive/20251229_0329.html">20251229_0329</a>
+<a href="archive/20251228_0332.html">20251228_0332</a>
+<a href="archive/20251227_0329.html">20251227_0329</a>
+<a href="archive/20251226_0330.html">20251226_0330</a>
+<a href="archive/20251225_0329.html">20251225_0329</a>
+<a href="archive/20251224_0331.html">20251224_0331</a>
+<a href="archive/20251223_0332.html">20251223_0332</a>
+<a href="archive/20251222_0328.html">20251222_0328</a>
+<a href="archive/20251221_0329.html">20251221_0329</a>
+<a href="archive/20251220_0330.html">20251220_0330</a>
+<a href="archive/20251219_0330.html">20251219_0330</a>
+<a href="archive/20251218_0345.html">20251218_0345</a>
+<a href="archive/20251217_0332.html">20251217_0332</a>
+<a href="archive/20251216_0333.html">20251216_0333</a>
+<a href="archive/20251215_0333.html">20251215_0333</a>
+<a href="archive/20251214_0327.html">20251214_0327</a>
+<a href="archive/20251212_0333.html">20251212_0333</a>
+<a href="archive/20251211_0331.html">20251211_0331</a>
+<a href="archive/20251210_0332.html">20251210_0332</a>
+<a href="archive/20251209_0331.html">20251209_0331</a>
+<a href="archive/20251208_0328.html">20251208_0328</a>
+<a href="archive/20251207_0327.html">20251207_0327</a>
+<a href="archive/20251206_0330.html">20251206_0330</a>
+<a href="archive/20251205_0331.html">20251205_0331</a>
+<a href="archive/20251204_0331.html">20251204_0331</a>
+<a href="archive/20251203_0333.html">20251203_0333</a>
+<a href="archive/20251202_0335.html">20251202_0335</a>
+<a href="archive/20251201_0328.html">20251201_0328</a>
+<a href="archive/20251130_0327.html">20251130_0327</a>
+<a href="archive/20251129_0328.html">20251129_0328</a>
+<a href="archive/20251128_0327.html">20251128_0327</a>
+<a href="archive/20251127_0327.html">20251127_0327</a>
+<a href="archive/20251126_0329.html">20251126_0329</a>
+<a href="archive/20251125_0327.html">20251125_0327</a>
+<a href="archive/20251124_0327.html">20251124_0327</a>
+<a href="archive/20251123_0326.html">20251123_0326</a>
+<a href="archive/20251122_0328.html">20251122_0328</a>
+<a href="archive/20251121_0328.html">20251121_0328</a>
+<a href="archive/20251120_0329.html">20251120_0329</a>
+<a href="archive/20251119_0328.html">20251119_0328</a>
+<a href="archive/20251118_0328.html">20251118_0328</a>
+<a href="archive/20251117_0326.html">20251117_0326</a>
+<a href="archive/20251116_0325.html">20251116_0325</a>
+<a href="archive/20251115_0327.html">20251115_0327</a>
+<a href="archive/20251114_0328.html">20251114_0328</a>
+<a href="archive/20251113_0330.html">20251113_0330</a>
+<a href="archive/20251112_0329.html">20251112_0329</a>
+<a href="archive/20251111_0328.html">20251111_0328</a>
+<a href="archive/20251110_0325.html">20251110_0325</a>
+<a href="archive/20251109_0326.html">20251109_0326</a>
+<a href="archive/20251108_0328.html">20251108_0328</a>
+<a href="archive/20251107_0328.html">20251107_0328</a>
+<a href="archive/20251106_0329.html">20251106_0329</a>
+<a href="archive/20251105_0326.html">20251105_0326</a>
+<a href="archive/20251104_0327.html">20251104_0327</a>
+<a href="archive/20251103_0324.html">20251103_0324</a>
+<a href="archive/20251102_0326.html">20251102_0326</a>
+<a href="archive/20251101_0324.html">20251101_0324</a>
+<a href="archive/20251031_0328.html">20251031_0328</a>
+<a href="archive/20251030_0330.html">20251030_0330</a>
+<a href="archive/20251029_0329.html">20251029_0329</a>
+<a href="archive/20251028_0329.html">20251028_0329</a>
+<a href="archive/20251027_0322.html">20251027_0322</a>
+<a href="archive/20251026_0327.html">20251026_0327</a>
+<a href="archive/20251025_0331.html">20251025_0331</a>
+<a href="archive/20251024_0329.html">20251024_0329</a>
+<a href="archive/20251023_0329.html">20251023_0329</a>
+<a href="archive/20251022_0330.html">20251022_0330</a>
+<a href="archive/20251021_0331.html">20251021_0331</a>
+<a href="archive/20251020_0328.html">20251020_0328</a>
+<a href="archive/20251019_0321.html">20251019_0321</a>
+<a href="archive/20251018_0327.html">20251018_0327</a>
+<a href="archive/20251017_0320.html">20251017_0320</a>
+<a href="archive/20251016_0328.html">20251016_0328</a>
+<a href="archive/20251015_0328.html">20251015_0328</a>
+<a href="archive/20251014_0323.html">20251014_0323</a>
+<a href="archive/20251011_0328.html">20251011_0328</a>
+<a href="archive/20251010_0330.html">20251010_0330</a>
+<a href="archive/20251009_0321.html">20251009_0321</a>
+<a href="archive/20251008_0343.html">20251008_0343</a>
+<a href="archive/20251007_0353.html">20251007_0353</a>
+<a href="archive/20251006_0325.html">20251006_0325</a>
+<a href="archive/20251005_0350.html">20251005_0350</a>
+<a href="archive/20251004_0352.html">20251004_0352</a>
+<a href="archive/20251003_0352.html">20251003_0352</a>
+<a href="archive/20251002_0356.html">20251002_0356</a>
+<a href="archive/20251001_0321.html">20251001_0321</a>
+<a href="archive/20250925_0335.html">20250925_0335</a>
+<a href="archive/20250924_0350.html">20250924_0350</a>
+<a href="archive/20250923_0348.html">20250923_0348</a>
+<a href="archive/20250922_0346.html">20250922_0346</a>
+<a href="archive/20250921_0345.html">20250921_0345</a>
+<a href="archive/20250920_0342.html">20250920_0342</a>
+<a href="archive/20250919_0346.html">20250919_0346</a>
+<a href="archive/20250918_0342.html">20250918_0342</a>
+<a href="archive/20250917_0336.html">20250917_0336</a>
+<a href="archive/20250916_0333.html">20250916_0333</a>
+<a href="archive/20250915_0333.html">20250915_0333</a>
+<a href="archive/20250914_0328.html">20250914_0328</a>
+<a href="archive/20250913_0322.html">20250913_0322</a>
+<a href="archive/20250912_0335.html">20250912_0335</a>
+<a href="archive/20250911_0337.html">20250911_0337</a>
+<a href="archive/20250910_0338.html">20250910_0338</a>
+<a href="archive/20250909_0341.html">20250909_0341</a>
+<a href="archive/20250908_0342.html">20250908_0342</a>
+<a href="archive/20250907_0333.html">20250907_0333</a>
+<a href="archive/20250906_0350.html">20250906_0350</a>
+<a href="archive/20250905_0319.html">20250905_0319</a>
+<a href="archive/20250904_0323.html">20250904_0323</a>
+<a href="archive/20250903_0355.html">20250903_0355</a>
+<a href="archive/20250902_0325.html">20250902_0325</a>
+<a href="archive/20250901_0355.html">20250901_0355</a>
+<a href="archive/20250831_0355.html">20250831_0355</a>
+<a href="archive/20250830_0356.html">20250830_0356</a>
+<a href="archive/20250829_0355.html">20250829_0355</a>
+<a href="archive/20250828_0333.html">20250828_0333</a>
+<a href="archive/20250827_1654.html">20250827_1654</a>
+<a href="archive/20250827_1602.html">20250827_1602</a>
+<a href="archive/20250827_1557.html">20250827_1557</a>
+<a href="archive/20250827_0320.html">20250827_0320</a>
+<a href="archive/20250826_0320.html">20250826_0320</a>
+<a href="archive/20250825_1752.html">20250825_1752</a>
+<a href="archive/20250825_1709.html">20250825_1709</a>
+<a href="archive/20250825_1652.html">20250825_1652</a>
+<a href="archive/20250825_1647.html">20250825_1647</a>
+<a href="archive/20250825_1645.html">20250825_1645</a>
+<a href="archive/20250825_1631.html">20250825_1631</a>
+<a href="archive/20250825_1606.html">20250825_1606</a>
+<a href="archive/20250825_1559.html">20250825_1559</a>
+<a href="archive/20250825_1558.html">20250825_1558</a>
+<a href="archive/20250825_1556.html">20250825_1556</a>
+<a href="archive/20250825_1531.html">20250825_1531</a>
+<a href="archive/20250825_1525.html">20250825_1525</a>
+<a href="archive/20250825_1516.html">20250825_1516</a>
+<a href="archive/20250825_1450.html">20250825_1450</a>
+<a href="archive/20250825_1444.html">20250825_1444</a>
+<a href="archive/20250825_1438.html">20250825_1438</a>
+<a href="archive/20250825_1414.html">20250825_1414</a>
+<a href="archive/20250825_1413.html">20250825_1413</a>
+<a href="archive/20250825_1410.html">20250825_1410</a>
+<a href="archive/20250825_1408.html">20250825_1408</a>
+<a href="archive/20250825_1405.html">20250825_1405</a>
+<a href="archive/20250825_1401.html">20250825_1401</a>
+<a href="archive/20250825_1355.html">20250825_1355</a>
+<a href="archive/20250825_1347.html">20250825_1347</a>
+<a href="archive/20250825_1345.html">20250825_1345</a>
+<a href="archive/20250825_1344.html">20250825_1344</a>
+<a href="archive/20250825_1343.html">20250825_1343</a>
+<a href="archive/20250825_1340.html">20250825_1340</a>
+<a href="archive/20250825_1339.html">20250825_1339</a>
+<a href="archive/20250825_1333.html">20250825_1333</a>
+<a href="archive/20250825_1323.html">20250825_1323</a>
+<a href="archive/20250825_1317.html">20250825_1317</a>
+<a href="archive/20250825_1243.html">20250825_1243</a>
+<a href="archive/20250824_0342.html">20250824_0342</a>
+<a href="archive/20250823_0343.html">20250823_0343</a>
+<a href="archive/20250823_0142.html">20250823_0142</a>
+<a href="archive/20250822_2331.html">20250822_2331</a>
+<a href="archive/20250822_2308.html">20250822_2308</a>
+<a href="archive/20250822_2258.html">20250822_2258</a>
+<a href="archive/20250822_2241.html">20250822_2241</a>
+<a href="archive/20250822_2228.html">20250822_2228</a>
+<a href="archive/20250822_2206.html">20250822_2206</a>
+<a href="archive/20250822_2147.html">20250822_2147</a>
+<a href="archive/20250822_2111.html">20250822_2111</a>
+<a href="archive/20250822_1259.html">20250822_1259</a>
+<a href="archive/20250822_1233.html">20250822_1233</a>
+<a href="archive/20250822_1229.html">20250822_1229</a>
+<a href="archive/20250822_1223.html">20250822_1223</a>
+<a href="archive/20250822_1210.html">20250822_1210</a>
+<a href="archive/20250822_1201.html">20250822_1201</a>
+<a href="archive/20250822_1111.html">20250822_1111</a>
+<a href="archive/20250822_1058.html">20250822_1058</a>
+<a href="archive/20250822_1052.html">20250822_1052</a>
+<a href="archive/20250822_1045.html">20250822_1045</a>
+<a href="archive/20250822_0657.html">20250822_0657</a>
+<a href="archive/20250822_0553.html">20250822_0553</a></div>
+    </details>
+    <div class="footer">Generated by arxiv-tracker</div>
+  </div>
+</body></html>

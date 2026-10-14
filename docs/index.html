@@ -74,12 +74,225 @@ summary{cursor:pointer;color:var(--acc)}
   <button class="btn" onclick="__expandAll(false)">Collapse All</button>
 </div>
 
-        <span class="badge">2026-10-13 00:30</span>
+        <span class="badge">2026-10-14 20:40</span>
       </div>
     </div>
     <div class="hr"></div>
     <div>Latest digest</div>
     <div class="row"><div class="card">
+<div class="title">Exact Topological Compliance: Generating Persistence-Equivalent Graphs</div>
+<div class="meta-line">Authors: Mattie Ji, Indradyumna Roy, Vikas Garg</div>
+<div class="meta-line">Venue: NeurIPS 2026</div>
+<div class="meta-line">First: 2026-10-13T17:59:19+00:00 · Latest: 2026-10-13T17:59:19+00:00</div>
+<div class="meta-line">Comments: Accepted by NeurIPS 2026</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.18856v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.18856v1">PDF</a> · <a href="https://github.com/Aalto-QuML/ExactCompliance">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Persistent homology summarizes the topological evolution of a graph as persistence diagrams (PDs). Generating graphs whose topology matches a target descriptor is increasingly important, yet existing topology-aware generative models rely on soft regularization, producing graphs whose PDs may only be approximately similar. We initiate a principled investigation of the generation problem: produce graphs that realize a target PD exactly. We propose two approaches guided by the implicit local and global constraints a target PD imposes. The local approach builds degree-based PD-equivalent graphs iteratively, and we prove that every output realizes the target PD and that every degree-based PD-equivalent graph is reachable. However, as shown thereafter, local generation necessarily trades off between sample diversity and reaching infeasible states. We therefore recast generation as a global constraint satisfaction problem with a complete encoding solvable by modern constraint programming solvers. This is applicable to any vertex-based permutation equivariant filtration scheme and is minimal under the degree filtration. Experiments on four standard graph generation benchmarks confirm that both methods realize the target PD exactly. Together, our methods provide a principled treatment of strict topology-compliant graph generation. Code is available at https://github.com/Aalto-QuML/ExactCompliance.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Persistent homology summarizes the topological evolution of a graph as persistence diagrams (PDs).</div>
+</details>
+</div>
+<div class="card">
+<div class="title">From Fourier Amplitudes to Persistence Images for Impact-Echo Defect Detection</div>
+<div class="meta-line">Authors: Keunsu Kim, Suyoung Choi, Meiyan Kang</div>
+<div class="meta-line">First: 2026-10-13T17:07:04+00:00 · Latest: 2026-10-13T17:07:04+00:00</div>
+<div class="meta-line">Comments: 32 pages, 5 figures, including supplementary material</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.18732v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.18732v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Impact-echo testing is a nondestructive testing method used to detect internal defects in concrete structures. However, boundary reflections, structured interference, and measurement noise can produce complex Fourier amplitude spectra, making defect classification difficult. We constructed a two-dimensional frequency--amplitude persistence image (FA-PI) from the Fourier amplitude spectrum. Using a fixed parameterization of exact multi-parameter persistent homology, each retained Fourier component is represented with frequency-bin location as one coordinate and amplitude as the other, and Gaussian kernels are then applied in this two-dimensional space. This construction has a direct analytical connection to the corresponding one-dimensional Gaussian-smoothed Fourier amplitude spectrum. FA-PI was evaluated on an experimental backfill-void dataset and a public bridge-deck impact-echo dataset, and compared with raw and Gaussian-smoothed Fourier amplitude spectra using a linear classifier with a Softmax output and identical signal-level data splits. The evaluation included original signals and signals corrupted by Gaussian noise, sinusoidal interference, or mixed noise, with matching noise types and signal-to-noise ratios during training, validation, and testing. Performance was assessed using accuracy and macro-averaged precision, recall, and F1-score. Across the two datasets, FA-PI consistently outperformed the raw and Gaussian-smoothed Fourier baselines in the noisy-condition summaries. These findings indicate that representing Fourier spectral components in a two-dimensional frequency--amplitude space can improve impact-echo defect classification beyond frequency-axis smoothing alone.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Impact-echo testing is a nondestructive testing method used to detect internal defects in concrete structures.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Training data attribution in diffusion models via mirrored unlearning and noise-consistent skew</div>
+<div class="meta-line">Authors: Joan Serrà, Dipam Goswami, Fabio Morreale, Wei-Hsiang Liao, Yuki Mitsufuji</div>
+<div class="meta-line">First: 2026-05-18T06:52:26+00:00 · Latest: 2026-10-13T16:48:43+00:00</div>
+<div class="meta-line">Comments: Accepted at NeurIPS26; 21 pages, 5 figures, 9 tables (includes appendix)</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.17938v2">Abs</a> · <a href="https://arxiv.org/pdf/2605.17938v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Training data attribution (TDA) should enable generative model interpretability and foster a variety of related downstream tasks. Nonetheless, current TDA approaches lack reliability and robustness, preventing their adoption in real-world setups. In this paper, we take a decisive step towards more reliable and robust TDA for diffusion models. We propose to perform TDA with mirrored unlearning and noise-consistent skew (MUCS). The idea is to fine-tune a second model with bounded mirrored gradient ascent, and to measure the normalized skew of this model with respect to the original one using consistent noise samples. We show that, while being conceptually simple and generic, MUCS systematically outperforms existing methods on three different datasets by a large margin. We additionally study the effect that core design choices have on final performance, and analyze novel aspects regarding the overlap of influential instances across generated items and the potential of ensembling TDA approaches. We believe that our findings may have broader implications for more general unlearning setups, as well as for tasks requiring the comparison of diffusion losses.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Training data attribution (TDA) should enable generative model interpretability and foster a variety of related downstream tasks.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Directed percolation in higher-order social dilemmas</div>
+<div class="meta-line">Authors: Pablo Villegas, Sandro Meloni</div>
+<div class="meta-line">First: 2026-10-13T15:00:41+00:00 · Latest: 2026-10-13T15:00:41+00:00</div>
+<div class="meta-line">Comments: 13 pages, 3 figures, 57 refs and supplementary material</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.18506v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.18506v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Multiplayer social dilemmas on hypergraphs show a variety of emergent phenomena, which has been attributed to group interactions. Here we test whether pairwise dynamics can reproduce them as well. We derive the mesoscopic Langevin equation of a testbed model and find the operator content of absorbing phase transitions: a directed-percolation line, a tricritical point, and a first-order region whose spinodal is the explosive transition. In our analysis, three-player games only set the values of the Landau coefficients. We construct a strictly pairwise model with short-lived memory, in which every event involves at most two entities, that reproduces these coefficients term by term and has exactly the same mean-field fixed points. Simulations confirm that the two dynamics share mean-field critical and tricritical scaling and the size of the critical mass, and that a purely three-player game on a two-dimensional triangular lattice lies in the directed-percolation class. For these games, the explosive transition and the critical mass therefore do not require group interactions, and the critical behavior is that of the pairwise theory.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Multiplayer social dilemmas on hypergraphs show a variety of emergent phenomena, which has been attributed to group interactions.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">An Approximate-Master-Equation Formulation of the Watts Threshold Model on Hypergraphs</div>
+<div class="meta-line">Authors: Leah A. Keating, Kwang-Il Goh, Mason A. Porter</div>
+<div class="meta-line">First: 2025-03-06T02:16:20+00:00 · Latest: 2026-10-13T08:43:52+00:00</div>
+<div class="meta-line">Comments: 25 pages, 10 figures</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2503.04020v5">Abs</a> · <a href="https://arxiv.org/pdf/2503.04020v5">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">In traditional models of behavioral and opinion dynamics on networks, researchers suppose that interactions occur between pairs of individuals. However, in reality, social interactions also occur in sets of three or more individuals. A common way to incorporate such polyadic interactions is to study dynamical processes on hypergraphs, in which interactions can occur between any number of the individuals. A major current effort is to generalize popular dynamical processes from graphs to hypergraphs. One important model is the Watts threshold model (WTM), which describes a simplistic social spreading process and was extended recently by Chen et al. from dyadic networks (i.e., ordinary graphs) to polyadic networks (i.e., hypergraphs). In the present paper, we extend their discrete-time model to continuous time by using approximate master equations (AMEs). By employing AMEs, we are able to very accurately model the mean behavior of the continuous-time system. We reduce the high-dimensional AME system to a system of three coupled ordinary differential equations without any detectable loss of accuracy. This much lower-dimensional system is computationally faster to solve numerically, and it is also easier to interpret. We linearize the reduced AME system and derive a cascade condition, which allows us to determine when a large spreading event occurs. We then examine our reduced AME system on a contact hypergraph of a French primary school and on a hypergraph of computer-science coauthorships. We find that our full and reduced AME systems give reasonably good descriptions of the mean time-dependent fraction of active nodes in the polyadic WTM dynamics on these empirical networks.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">In traditional models of behavioral and opinion dynamics on networks, researchers suppose that interactions occur between pairs of individuals.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">On the Spectral Synthesis of Lipschitz Vectorizations of Persistence Diagrams</div>
+<div class="meta-line">Authors: Charles Fanning, Mehmet Emin Aktas</div>
+<div class="meta-line">First: 2026-07-18T20:22:28+00:00 · Latest: 2026-10-12T23:13:31+00:00</div>
+<div class="meta-line">Comments: 73 pages, 25 figures</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2607.16957v4">Abs</a> · <a href="https://arxiv.org/pdf/2607.16957v4">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Persistence diagrams are fundamental descriptors in topological data analysis. Many statistical and machine learning methods require persistence diagrams to be mapped into vector spaces or compared through kernels. Although many persistence diagram vectorizations and persistence kernels have been proposed, there is no general framework for determining which persistence diagram vectorizations are synthesizable. Spectral synthesis asks whether the exponential monomials contained in the translation-invariant variety generated by a function span a dense subspace of that variety. We introduce uniformly discrete spectral synthesis for persistence diagram vectorizations using Fourier analysis on groups of virtual persistence diagrams. When the space of persistence intervals is separable, we prove sufficient conditions for uniformly discrete spectral synthesis and derive approximation results for virtual persistence diagrams with bounded total multiplicity. We then classify many persistence diagram vectorizations and persistence kernels from the literature by uniformly discrete spectral synthesis.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Persistence diagrams are fundamental descriptors in topological data analysis.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">The rational homology of independence complexes of Kneser graphs on triples</div>
+<div class="meta-line">Authors: Ziqin Feng</div>
+<div class="meta-line">First: 2026-10-12T20:59:54+00:00 · Latest: 2026-10-12T20:59:54+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.17394v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.17394v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">The independence complex of the Kneser graph $\KG(n,k)$ is the simplicial complex of pairwise intersecting families of $n$-subsets of $[2n+k]$; equivalently, it is a Vietoris--Rips complex of the $n$-subsets of $[2n+k]$ under the symmetric-difference metric. Feng and Wang asked whether, for $n=3$, its reduced homology is nontrivial only in dimensions $6$ and $9$, and conjectured the rank in dimension $9$. We answer the question affirmatively over the rationals and determine all the associated Betti numbers. For every $k\ge0$, the only nonzero reduced Betti numbers using rationals of $\Ind(\KG(3,k))$ are \[
+  β_6=\binom{k+5}{7}+29\binom{k+6}{7}
+  \qquad\text{and}\qquad
+  β_9=\binom{k+6}{6}. \] The proof uses an inductive decomposition based on a simplicial retraction and Barmak&#x27;s star clusters, Dowker duality together with Jonsson&#x27;s computation of the homology of complexes of graphs with bounded covering number, and a relative Mayer--Vietoris spectral sequence which reduces the problem to the six-element sets.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">The independence complex of the Kneser graph $\KG(n,k)$ is the simplicial complex of pairwise intersecting families of $n$-subsets of $[2n+k]$; equivalently, it is a Vietoris--Rips complex of the $n$-subsets of $[2n+k]$ under the symmetric-difference metric.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Signature-Kernel One-Class Learning with Manifold Regularisation for Multivariate Time Series Anomaly Detection</div>
+<div class="meta-line">Authors: Shervin Rahimzadeh Arashloo</div>
+<div class="meta-line">First: 2025-07-31T11:27:01+00:00 · Latest: 2026-10-12T14:12:30+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2507.23449v3">Abs</a> · <a href="https://arxiv.org/pdf/2507.23449v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">One-class learning is an effective methodology for time series anomaly detection, yet kernel one-class approaches often compare sequences in a pointwise fashion and ignore the geometry of normal data. In this work, we present a manifold-regularised, large-margin $\ell_p$-support vector data description ($\ell_p$-SVDD) method that analyses sequences as paths via the signature kernel. By incorporating a a graph-Laplacian penalty into the $\ell_p$-SVDD objective function and utilising the representer theorem for manifold regularisation, we illustrate that the dual task retains the functional form of the original one with a modified kernel matrix. As such, existing Frank--Wolfe solvers can be applied unchanged. We show that this new modified kernel is a valid kernel matrix and under a generic norm bound on the discriminant, the proposed model yields a smaller Rademacher-complexity bound than the baseline. Furthermore, the signature kernel which is computed through a Goursat partial differential equation and can handle irregularly sampled data and is invariant to reparametrisation has not previously been used for one-class time series anomaly detection to the best of our knowledge. Our experiments on five widely used benchmarks, evaluated without point adjustment, demonstrate that the proposed approach compares very favourably with the state of the art approaches.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">One-class learning is an effective methodology for time series anomaly detection, yet kernel one-class approaches often compare sequences in a pointwise fashion and ignore the geometry of normal data.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">The Geometry of the Set of Equivalent Linear Neural Networks</div>
+<div class="meta-line">Authors: Jonathan Richard Shewchuk, Sagnik Bhattacharya</div>
+<div class="meta-line">First: 2024-04-23T09:20:55+00:00 · Latest: 2026-10-12T09:52:09+00:00</div>
+<div class="meta-line">Comments: 135 pages, 25 figures, 7 tables</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2404.14855v2">Abs</a> · <a href="https://arxiv.org/pdf/2404.14855v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">We characterize the geometry of the set of all weight vectors for which a fully-connected linear neural network computes the same linear transformation $W$. Said another way, the set of all sequences of matrices (of predetermined sizes) whose product is $W$. This set of weight vectors is an algebraic variety in the Euclidean weight space, called the fiber of $W$ under the matrix multiplication map. Sometimes this variety is a manifold, but usually not. The rank stratification of a fiber is a natural partition of the fiber into smooth manifolds of various dimensions called strata. We derive the dimensions of these strata and characterize how they are connected to each other. They satisfy the frontier condition: if a stratum intersects the closure of another stratum, then the former stratum is a subset of the closure of the latter stratum. This subset relationship can be expressed as a partial order with a single minimal element, a stratum that is included in the closure of every other stratum. Hence the strata can be arranged in a hierarchy represented by a directed acyclic graph that represents that partial order; we give an algorithm that computes that graph. A key result describes the relationship between this partial order and the ranks of certain matrices in the network. We derive the tangent and normal subspaces of the strata, and we construct elegant bases for those subspaces.
+  Each stratum represents a different pattern of information flow through the network, expressed as a barcode, borrowed from the study of persistent homology. The topology of a stratum depends solely on its barcode. So does its geometry, up to a linear transformation in weight space. Connections among the strata are best understood through &quot;barcode moves,&quot; which can be expressed as simple modifications of the barcodes.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">We characterize the geometry of the set of all weight vectors for which a fully-connected linear neural network computes the same linear transformation $W$.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Persistence diagrams of finite topological spaces</div>
+<div class="meta-line">Authors: Akhilesh Badra, Hemant Kumar Singh</div>
+<div class="meta-line">First: 2026-10-12T08:36:53+00:00 · Latest: 2026-10-12T08:36:53+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.16386v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.16386v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">In this paper, we apply persistent homology to study finite topological spaces by associating persistence diagrams with their elements through the furtherness function. This approach enables us to classify elements according to their topological evolution within the space. We further establish a bottleneck stability theorem showing that the bottleneck distance between the persistence diagrams associated with two elements is bounded above by their mutual furtherness.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">In this paper, we apply persistent homology to study finite topological spaces by associating persistence diagrams with their elements through the furtherness function.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">OneShot: Label-Efficient Detector Weighting for Time Series Anomaly Detection</div>
+<div class="meta-line">Authors: Seunghan Lee, Jun Seo, Jaehoon Lee, Junhyeok Kang, Sangjun Han, Sungdong Yoo, Minjae Kim, Tae Yoon Lim, Dongwan Kang, Hwanil Choi, Soonyoung Lee, Wonbin Ahn</div>
+<div class="meta-line">First: 2026-10-12T05:49:42+00:00 · Latest: 2026-10-12T05:49:42+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.16219v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.16219v1">PDF</a> · <a href="https://github.com/seunghan96/one_shot">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Time series (TS) anomaly detection (AD) lacks a universal detector, with the best choice determined by the series rather than by the algorithm. Existing methods therefore either select one detector for each series or average a pool of them. However, both assume that no label ever arrives, while a deployed monitor does receive them, since an operator confirms the alarms it raises. In this paper, we propose ONESHOT, which uses a single confirmed anomaly to weight the pool rather than to choose one detector from it. Specifically, we score each detector on the confirmed anomaly, and those scores become the weights of a soft mixture over the whole pool. We show that a single confirmed anomaly is enough to come close to the best detector for the series. Across 152 univariate and 73 multivariate series, ONESHOT outperforms the strongest single detector, averaging the whole pool, and even picking the best detector on the confirmed event. Code is available at: https://github.com/seunghan96/one_shot.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Time series (TS) anomaly detection (AD) lacks a universal detector, with the best choice determined by the series rather than by the algorithm.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">CHAIN: Calibrated LLM Forecasting via Causal-Temporal Hypergraph Inference</div>
+<div class="meta-line">Authors: Wenjin Liu, Chenxi Wang, Yue Lu, Zhe Cui, Haoran Luo</div>
+<div class="meta-line">First: 2026-09-29T04:30:42+00:00 · Latest: 2026-10-12T01:19:53+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.36689v2">Abs</a> · <a href="https://arxiv.org/pdf/2609.36689v2">PDF</a> · <a href="https://github.com/QwenQKing/Chain">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Large language models have achieved significant progress in event forecasting, yet their probability outputs exhibit systematic calibration bias that varies heterogeneously across different domains and question types, undermining the trustworthiness of probabilistic outputs for decision-making under uncertainty. However, existing calibration methods typically correct probability outputs after prediction is complete, without modeling the structural sources of bias within the prediction process itself. To address this challenge, we decompose probabilistic prediction over causal-temporal hypergraphs into three stages, evidence weighting, evidence aggregation, and source fusion, and propose CHAIN, which designs stage-specific mechanisms to mitigate bias at each stage: (i) modulating the temporal decay function by causal topological distance, (ii) aggregating approximately independent causal chains via Noisy-OR after direction-aware deduplication, and (iii) driving adaptive fusion by causal coverage and directional balance. Experimental results on cross-domain forecasting benchmarks show CHAIN outperforms existing methods in expected calibration error, Brier score, and accuracy. Our project is available at https://github.com/QwenQKing/Chain.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Large language models have achieved significant progress in event forecasting, yet their probability outputs exhibit systematic calibration bias that varies heterogeneously across different domains and question types, undermining the trustworthiness of probabilistic outputs for decision-making under uncertainty.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Geodesic Models for Loop Spaces on Riemannian Manifolds</div>
+<div class="meta-line">Authors: Abbas Bahri, Fred Cohen, Moncef Ghazel, Sadok Kallel</div>
+<div class="meta-line">First: 2026-10-11T14:47:48+00:00 · Latest: 2026-10-11T14:47:48+00:00</div>
+<div class="meta-line">Comments: 27 pages, to appear in Fields Institute Communications</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.15668v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.15668v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">A topological group, defined in terms of ``composable minimal geodesics&#x27;&#x27; is constructed and shown to be homotopy equivalent to the pointed loop space of a path-connected, simply connected Riemannian manifold $M$ of positive convexity radius. This construction is analogous to John Milnor&#x27;s free group model for the pointed loop space of a connected simplicial complex. Related models built from composable minimal geodesics are also obtained for the free loop space of $M$ and for the space of maps from any finite two-dimensional CW-complex into $M$.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">A topological group, defined in terms of ``composable minimal geodesics&#x27;&#x27; is constructed and shown to be homotopy equivalent to the pointed loop space of a path-connected, simply connected Riemannian manifold $M$ of positive convexity radius.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Learning Higher-Order Interactions from Incomplete Spatiotemporal Data with Mixtures of Hypergraph Laplacians</div>
+<div class="meta-line">Authors: Keshu Wu, Sixu Li, Zihao Li, Zhiwen Fan, Xiaopeng Li, Yang Zhou</div>
+<div class="meta-line">First: 2026-05-17T08:15:16+00:00 · Latest: 2026-10-11T02:28:48+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.17316v2">Abs</a> · <a href="https://arxiv.org/pdf/2605.17316v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Traffic sensor data exhibit strong temporal and cross-sensor dependencies, yet long gaps erase both a sensor&#x27;s local history and the joint observations needed to learn its relationships with other sensors. We introduce MoHL, a mixture of hypergraph Laplacians that learns group-wise relational structure directly from incomplete spatiotemporal data. MoHL discovers overlapping sensor groups from observed co-variation, constructs a Laplacian component for each interaction order, and learns their mixture through holdouts that mimic the missingness pattern. By sharing weights across group-induced couplings, MoHL pools scattered evidence instead of estimating each coupling independently. We characterize the induced weight-sharing structure and analyze the conditions under which sharing reduces estimation risk. Experiments on three traffic networks show that higher-order groups are most beneficial under long gaps, while support-matched comparisons demonstrate the advantage of shared weights when relational evidence is scarce. MoHL achieves the lowest error among the evaluated baseline methods under day-long gaps, with orders of magnitude fewer learned parameters than deep imputers. These results show how group-wise sharing can sustain reliable reconstruction precisely when missingness depletes the evidence needed to learn cross-sensor dependence.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Traffic sensor data exhibit strong temporal and cross-sensor dependencies, yet long gaps erase both a sensor&#x27;s local history and the joint observations needed to learn its relationships with other sensors.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Correlation-Aware Reconstruction for Multivariate Time Series Anomaly Detection</div>
+<div class="meta-line">Authors: Md. Johir Raihan, Zahra Zamanzadeh Darban, Yueyang Liu, Flora D. Salim, Levin Kuhlmann, Mahsa Salehi</div>
+<div class="meta-line">First: 2026-10-11T00:46:24+00:00 · Latest: 2026-10-11T00:46:24+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.15250v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.15250v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Reconstruction-based detectors for multivariate time series anomaly detection typically learn a single entangled representation of normal behavior and flag anomalies based on reconstruction error. However, real-world anomalies are not only isolated spikes in a single channel but also disruptions in the relationships between channels, where each sensor individually appears normal, but their joint behavior deviates from the norm. Because these models compress both temporal evolution and inter-channel structure into this single space, they lack an explicit mechanism to isolate such inter-channel dependencies from normal temporal dependencies, leading to lower detection rates for cross-channel anomalies. We propose CARMA (Correlation-Aware Reconstruction for Multivariate Time Series Anomaly Detection), which is a reconstruction-based variational autoencoder with two complementary latent spaces: a temporal latent that captures sequential dynamics, and a correlation latent that is trained to reconstruct the window&#x27;s pairwise Pearson correlations. Both representations are fused in the signal decoder, and anomalies are detected from the reconstruction error. We evaluate CARMA on the TSB-AD-M benchmark suite (17 datasets, 180 series) against 29 baseline methods, and show that it significantly outperforms all of them across multiple threshold-free and range-aware metrics, achieving a VUS-PR of 0.4929. Ablations show that removing the correlation branch degrades performance, that adding a second latent without supervision recovers only part of the gain, and that supervising the correlation latent with an explicit correlation target accounts for the rest and produces a sharper error response at anomalies.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Reconstruction-based detectors for multivariate time series anomaly detection typically learn a single entangled representation of normal behavior and flag anomalies based on reconstruction error.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Topological realizations of finite posets</div>
+<div class="meta-line">Authors: Vin de Silva</div>
+<div class="meta-line">First: 2026-10-10T18:16:14+00:00 · Latest: 2026-10-10T18:16:14+00:00</div>
+<div class="meta-line">Comments: 34 pages</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.15099v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.15099v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">I introduce a new class of cell complexes, called CL-complexes, that provide alternative topological realizations of finite posets. Each realization of a given poset has the same homotopy type as the order complex of that, so in some sense these spaces do not provide anything really new. Their value is that they enable short transparent proofs of standard results in poset homotopy. These include Quillen&#x27;s Theorem A for finite posets, the Nerve Theorem for good covers of a topological space, and Sheehy&#x27;s multicover generalization of the Nerve Theorem. Order complexes retain a special status: the order complex of a finite poset admits CL-complex structures both for the poset itself and for its opposite poset. The definition of CL-complexes is motivated by an elementary generalization of the Carrier Lemma of J. W. Walker, which in its original form constructs a canonical homotopy class of maps from a simplicial complex to a space covered by a suitable family of contractible sets. In the generalized lemma, the role played by simplicial complexes and the role played by spaces covered by contractible sets can both be fulfilled by CL-complexes. This sets up an equivalence of categories that tacitly underlies our approach.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">I introduce a new class of cell complexes, called CL-complexes, that provide alternative topological realizations of finite posets.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">HodgePhaseNet: Discrete Hodge Decomposition of Semantic Flows in Transformer Attention</div>
+<div class="meta-line">Authors: Kiyotaka Kasubuchi, Kazuo Fukiya</div>
+<div class="meta-line">First: 2026-10-10T14:45:53+00:00 · Latest: 2026-10-10T14:45:53+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.14971v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.14971v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">WavePhaseNet introduced frequency-resolved semantic representations, QuantumPhaseNet introduced gauge-covariant phase connections, and ModularPhaseNet made a finite cyclic phase channel and its cycle holonomy computable in an ordinary Transformer. These constructions are complementary, yet they do not by themselves separate an observed collection of pairwise relations into a globally consistent direction, circulation around local compositions, and circulation that persists around a larger unfilled cycle. HodgePhaseNet addresses this separation by representing semantic transitions as an antisymmetric real-valued 1-cochain on a finite oriented simplicial complex. With vertex-edge incidence matrix $B_1$ and edge-face incidence matrix $B_2$, every such field has a unique orthogonal decomposition $Ω= B_1^TΦ+ B_2Ψ+ H$, where $B_1H=0$ and $B_2^TH=0$. The three component fields are unique even when their potentials are not. We give explicit projectors, a sparse implementation, integrability and gauge results, a verified numerical example, and a redesigned attention interface. The attention bias is defined on allowed ordered query-key pairs, remains consistent under arbitrary choices of edge orientation, and preserves a decoder&#x27;s causal information boundary by constructing its complex from the visible prefix. Gauge invariance of the attention output is conditional on using invariant or appropriately compensated features. A simple difference of vertex embeddings has no coexact or harmonic component; a genuine relation encoder is therefore indispensable. Local circulation is not automatically contradiction, and harmonic flow is not automatically missing knowledge. These interpretations and any reduction in factual error require controlled empirical evaluation. This paper presents a mathematical and architectural proposal, not external natural-language performance results.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">WavePhaseNet introduced frequency-resolved semantic representations, QuantumPhaseNet introduced gauge-covariant phase connections, and ModularPhaseNet made a finite cyclic phase channel and its cycle holonomy computable in an ordinary Transformer.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">TopoPilot: Reliable Conversational Workflow Automation for Topological Data Analysis and Visualization</div>
+<div class="meta-line">Authors: Nathaniel Gorski, Shusen Liu, Bei Wang</div>
+<div class="meta-line">First: 2026-03-26T05:56:53+00:00 · Latest: 2026-10-09T22:53:42+00:00</div>
+<div class="meta-line">Comments: 21 pages, 10 figures</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2603.25063v2">Abs</a> · <a href="https://arxiv.org/pdf/2603.25063v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Recent agentic systems demonstrate that large language models can generate complex codebases from natural language prompts. Despite this progress, they present reliability concerns for scientific visualization due to invalid operations, subtle errors, and failure to resolve underspecified inputs. These challenges are compounded in real-world workflows that exceed the complexity of standard benchmarks. In this work, we introduce TopoPilot, a reliable and extensible agentic framework for automating complex scientific visualization workflows. We focus on topological data analysis and visualization as a primary use case, while designing the framework to generalize to broader visualization domains. TopoPilot employs a two-agent architecture: an orchestrator translates user prompts into workflows composed of atomic backend actions, while a verifier evaluates workflows prior to execution. Its modular design isolates components and supports new topological descriptors and domain-specific workflows without modifying the core system. It also employs numerous deterministic guardrails to ensure semantic consistency and accurate execution. To systematically improve reliability, we develop a taxonomy of failure modes and employ targeted safeguards for each class of error. Across 1,000 simulated multi-turn conversations spanning 100 prompts, including adversarial and infeasible requests, TopoPilot achieves a success rate exceeding 95%, compared with under 50% for a baseline without comprehensive guardrails and verification. We also show that TopoPilot outperforms Claude Code and Codex on similar prompts in terms of accuracy, completion time, and token usage.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Recent agentic systems demonstrate that large language models can generate complex codebases from natural language prompts.</div>
+</details>
+</div>
+<div class="card">
 <div class="title">PANDA: Prior-guided Attentional Dual-path Architecture</div>
 <div class="meta-line">Authors: Rishabh Jain, Federico Belotti, Stefano Coniglio, Pietro Lio, Stefano Fiorini</div>
 <div class="meta-line">Venue: NeurIPS 2026</div>
@@ -224,218 +437,10 @@ summary{cursor:pointer;color:var(--acc)}
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">Multiparameter persistent homology is a rapidly developing branch of topological data analysis that improves the robustness of single-parameter persistent homology to outliers, while still capturing the metric characteristics of the data.</div>
 </details>
-</div>
-<div class="card">
-<div class="title">Beyond expressiveness in pairwise and higher-order models</div>
-<div class="meta-line">Authors: Cyril Rommens, Pietro Traversa, Guilherme Ferraz de Arruda, Yamir Moreno</div>
-<div class="meta-line">First: 2026-09-22T11:32:57+00:00 · Latest: 2026-10-07T08:18:12+00:00</div>
-<div class="meta-line">Comments: 26 pages, no figures. Submitted for publication</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.26031v2">Abs</a> · <a href="https://arxiv.org/pdf/2609.26031v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">The debate over pairwise and higher-order models is often framed as a contest of expressive power. This framing is misleading. A graph with arbitrary multivariate node functions can reproduce the node-level dynamics of many hypergraph models, but the hypergraph&#x27;s grouping information does not thereby disappear: it may simply move from the structure to the rule. We separate four notions frequently conflated here: structural representation, functional representability, statistical identifiability, and mechanistic adequacy. We then prove that interaction order, the number of variables that must act jointly in some term of any additive decomposition of a node&#x27;s update, is the same in every exact representation: no change of structural language can lower it. As a description-length problem, at the unrestricted algorithmic level a fixed compiler redistributes information between structure and rule at constant overhead, so expressiveness alone cannot privilege either language. Preferences arise only relative to explicit model classes, code families, and data. This yields an operational minimum-description-length criterion combining structural cost, conditional rule cost, and imperfect fit. Within it, for $M$ disjoint groups of size $k$, the clique projection&#x27;s edge list is asymptotically $k-1$ times longer than the hyperedge list it replaces: the projection encodes the same grouping at higher cost. Examples from diffusion, Boolean dynamics, ecology, and ambiguous projections give graph-preferred, hypergraph-preferred, and unresolved cases; for bipartite and multilayer lifts, cost, fit, and identifiability tie, and the choice turns on which entities are posited as primitive. The position is symmetric: higher-order structure should not be inferred from phenomenology alone, nor does a graph&#x27;s ability to emulate a system make it the most parsimonious or adequate description.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">The debate over pairwise and higher-order models is often framed as a contest of expressive power.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">MORA: Modeling Observed Changes for Drift-Robust Time-Series Anomaly Detection</div>
-<div class="meta-line">Authors: Xudong Mou, Tiejun Wang, Rui Wang, Hui Wang, Pin Liu, Tianyu Wo, Xudong Liu, Renyu Yang</div>
-<div class="meta-line">First: 2026-10-07T05:31:22+00:00 · Latest: 2026-10-07T05:31:22+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.09473v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.09473v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Time-series anomaly detection (TSAD) identifies deviations from patterns learned from historical data. In non-stationary settings, distribution drift and true anomalies can cause similar local changes, making it difficult to tell whether a deviation reflects abnormality or evolving context. Existing methods typically adapt to detected shifts or learn drift-insensitive representations, but do not resolve this ambiguity. We define this problem as \emph{temporal change disambiguation}: determining whether a local deviation is explained by broader temporal evolution. We introduce MORA, a drift-robust TSAD framework that reconstructs the same local target from paired short- and long-term views. The reconstruction gap measures contextual support for a local deviation, and a data-dependent correction mechanism conservatively adjusts the primary local anomaly score. Context can only reduce the score when it improves reconstruction of the same target. MORA needs neither drift annotations nor online adaptation. Experiments on four TSAD benchmarks show strong robustness to non-stationarity while preserving sensitivity to genuine anomalies.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Time-series anomaly detection (TSAD) identifies deviations from patterns learned from historical data.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">MovieSTAGE: Scene, Transition, and Global Encoding for Movie-fMRI ADHD Classification</div>
-<div class="meta-line">Authors: Boseong Kim, Haejun Chung, Ikbeom Jang</div>
-<div class="meta-line">First: 2026-10-07T02:04:07+00:00 · Latest: 2026-10-07T02:04:07+00:00</div>
-<div class="meta-line">Comments: Accepted to the 2026 IEEE International Conference on Bioinformatics and Biomedicine (BIBM 2026)</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.09306v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.09306v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Naturalistic movie-fMRI provides a shared, temporally structured probe of brain dynamics, yet predictive models commonly rely on whole-run functional connectivity (FC) or temporally generic representations that are not aligned with narrative events. We introduce MovieSTAGE (Scene, Transition, and Global Encoding), a multiscale framework that combines hypergraph-structured FC-profile organization within scenes, unsigned FC-profile differences across adjacent scenes, and whole-movie FC. We evaluated 260 participants from the CMI-HBN Despicable Me cohort on case-control, ADHD-subtype, and three-class classification using 10 repetitions of stratified five-fold cross-validation, complete out-of-fold (OOF) predictions, and paired subject-cluster bootstrap and permutation tests. MovieSTAGE achieved AUROCs of 0.69, 0.73, and 0.75 and balanced accuracies of 67.6%, 69.8%, and 58.3%, respectively, yielding the highest mean point estimates among the evaluated methods. On the three-class task, the full model outperformed all two-branch variants, the HGNN scene encoder outperformed MLP, GAT, and BNT alternatives under matched settings, and the human-annotated partition outperformed duration-matched random and fixed-count GSBS controls. These controlled results support incremental predictive value from event-aligned scene and transition representations when combined with whole-movie FC in this cohort. Post-hoc model-derived analyses generated network-level hypotheses involving frontoparietal and default-mode systems.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Naturalistic movie-fMRI provides a shared, temporally structured probe of brain dynamics, yet predictive models commonly rely on whole-run functional connectivity (FC) or temporally generic representations that are not aligned with narrative events.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">PIT-GCL: Protein Interaction using Topological Graph Contrastive Learning</div>
-<div class="meta-line">Authors: Jae Won Choi, Ryoonki Hong, Alan Liang, Manjula Adiveppa Wader, Bingsong Zeng, Peiyang Tang, Longwei Liu, Ruishan Liu</div>
-<div class="meta-line">First: 2026-10-04T01:30:42+00:00 · Latest: 2026-10-06T21:57:50+00:00</div>
-<div class="meta-line">Comments: 12pages, 6figures</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.04850v2">Abs</a> · <a href="https://arxiv.org/pdf/2610.04850v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Protein binding prediction is central to target identification, therapeutic binder design, and large scale screening, yet remains challenging because binding depends on sequence, three dimensional geometry, and global structural organization. Recent folding models such as AlphaFold3 and Boltz-2 have substantially improved structure prediction, but their confidence outputs (pLDDT, pTM, ipTM) are not specifically designed for binary binding prediction, and dedicated structure aware predictors often require bound complex structures that are unavailable at screening scale. We introduce PIT-GCL, a dual tower structure aware framework that encodes each protein independently from its amino acid sequence, Cα point cloud, and a global persistent homology descriptor. Each tower combines residue ESM-2 embeddings with a topological summary computed from the H0 and H1 persistence landscapes of a Vietoris-Rips filtration, and processes the resulting tokens with a structure aware Transformer in which pairwise Cα distances enter as a learned attention bias. A bidirectional cross attention module then performs latent space soft docking between the two per-protein representations, and the model is trained with a combined binary cross entropy and NT-Xent contrastive objective. On three binary interaction prediction benchmarks, general PPI on PPIRef, TCRpMHC binding on STAG, and whole chain pairs on PPB-Affinity, PIT-GCL outperforms representative sequence based, structure aware, and task specific baselines on general PPI under our evaluation, and is the only method above chance on PPB-Affinity; on TCR-pMHC it leads at a fixed decision threshold but is outranked by a task specific sequence model. Because each protein is encoded independently in the first phase, its representation can be precomputed and reused across candidate pairs, which is convenient for large scale screening.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Protein binding prediction is central to target identification, therapeutic binder design, and large scale screening, yet remains challenging because binding depends on sequence, three dimensional geometry, and global structural organization.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Scalable extraction and visualization of multi-attribute logical and functional dependencies in tabular data</div>
-<div class="meta-line">Authors: Chaithra Umesh, Arvind Lomrore, Neethu D, Kristian Seegel-Schultz, Saptarshi Bej, Olaf Wolkenhauer</div>
-<div class="meta-line">First: 2026-10-06T12:56:40+00:00 · Latest: 2026-10-06T12:56:40+00:00</div>
-<div class="meta-line">Comments: 31 pages, 4 figures, submitted to Pattern Recognition Journal</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.08287v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.08287v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Understanding the structural relationships among attributes in tabular data is fundamental to machine learning and pattern recognition. While functional dependency (FD) discovery has been extensively studied, scalable discovery of logical dependencies (LDs), particularly as the number of attributes and dependency order increase, remains underexplored. These dependencies capture non-deterministic, condition-specific relationships among pairwise or multiple attributes. Furthermore, existing approaches do not provide a unified framework for extracting multi-attribute LDs and FDs. To address these limitations, we propose LDTool and HLDTool for extracting and visualizing multi-attribute LDs and FDs from tabular data. LDTool extends dependency discovery beyond pairwise relationships, while HLDTool enables scalable extraction through hypergraph-guided search-space reduction. Experiments on three simulated and eleven real-world datasets demonstrate that the proposed framework extracts meaningful LDs and FDs while improving scalability. LDTool recovers the same FDs as existing FD discovery methods with lower runtime in high-dimensional feature spaces, whereas HLDTool enables dependency discovery in datasets with hundreds of features. The proposed framework provides interpretable visualizations of dependency structures and supports applications in exploratory data analysis and the quantitative evaluation of synthetic tabular data.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Understanding the structural relationships among attributes in tabular data is fundamental to machine learning and pattern recognition.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">A cubical approach to homology theories for hypergraphs</div>
-<div class="meta-line">Authors: Syed Hadi Ali Zaidi, Samira Sahar Jamil</div>
-<div class="meta-line">First: 2026-10-06T11:48:36+00:00 · Latest: 2026-10-06T11:48:36+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.08196v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.08196v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">We introduce three homology theories for hypergraphs, namely $Γ$-homology, $\Box$-homology, and $\times$-homology, and show that they are pairwise non-isomorphic and distinct from the embedded homology of hypergraphs. We further introduce a notion of homotopy for hypergraphs that extends the discrete homotopy theory of graphs. Among the homology theories considered, we prove that $\Box$-homology is invariant under this homotopy, whereas $Γ$-homology and $\times$-homology fail to satisfy homotopy invariance. Based on excision, we also identify a distinctive structural behavior exhibited by $Γ$-homology that further differentiates it from $\Box$-homology.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">We introduce three homology theories for hypergraphs, namely $Γ$-homology, $\Box$-homology, and $\times$-homology, and show that they are pairwise non-isomorphic and distinct from the embedded homology of hypergraphs.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Do Higher-Order Models Win for Higher-Order Reasons? Rethinking Performance Gains in Hypergraph Learning</div>
-<div class="meta-line">Authors: Fanchen Bu, Fan Li, Geon Lee, Sunwoo Kim, Xiaoyang Wang, Renaud Lambiotte, Kijung Shin</div>
-<div class="meta-line">First: 2026-10-06T08:44:38+00:00 · Latest: 2026-10-06T08:44:38+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.07981v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.07981v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Higher-order models (e.g., hypergraph neural networks) often outperform lower-order baselines on hypergraph learning benchmarks, and their advantages are commonly attributed to their ability to exploit higher-order information. However, better performance alone does not establish this explanation. We therefore ask: Do higher-order models win for higher-order reasons? To investigate this question, we introduce a controlled performance-attribution framework that perturbs higher-order information while preserving the lower-order, i.e., pairwise, information. Across 25 commonly used hypergraph learning benchmarks spanning three tasks, we frequently observe an intriguing pattern: higher-order models originally outperform lower-order baselines, yet retain most of their advantage after perturbation. This suggests that much of the observed advantage remains achievable without the higher-order information. We then investigate potential lower-order explanations for these remaining gaps. We find that simple additions to a lower-order baseline, e.g., richer pairwise weighting, more steps of pairwise feature propagation, and normalization, reduce the remaining performance gaps, supporting lower-order explanations for part of the observed advantage. Our analysis calls for the hypergraph learning community to rethink performance attribution by distinguishing performance gains from their explanations, adopt stronger lower-order baselines, and use suitable benchmarks that better test the value of higher-order information.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Higher-order models (e.g., hypergraph neural networks) often outperform lower-order baselines on hypergraph learning benchmarks, and their advantages are commonly attributed to their ability to exploit higher-order information.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Interpretable Hypergraph Learning via Neural Additive Models</div>
-<div class="meta-line">Authors: Shihan Feng, Xin Zheng, Shiyi Yang, Ren Wang, Chudi Zhong, Can Chen</div>
-<div class="meta-line">First: 2026-10-05T22:07:40+00:00 · Latest: 2026-10-05T22:07:40+00:00</div>
-<div class="meta-line">Comments: 16 pages, 8 figures, 13 tables</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.07458v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.07458v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Hypergraphs offer a natural framework for modeling networked data, where dependencies among entities are governed by higher-order interactions. While hypergraph learning methods such as hypergraph neural networks have demonstrated remarkable predictive performance, most existing approaches rely on black-box message-passing architectures, making it difficult to disentangle the contributions of node attributes and higher-order structural information. To address this challenge, we introduce the hypergraph neural additive network (HGNAN), an inherently interpretable framework for learning on hypergraph-structured data. HGNAN extends classical neural additive models to higher-order relational data by integrating feature-wise nonlinear decomposition with hypergraph-aware structural aggregation, enabling transparent prediction for both node- and hyperedge-level tasks. Extensive experiments on benchmark datasets demonstrate that HGNAN achieves performance comparable with state-of-the-art hypergraph learning methods while providing intrinsic and meaningful interpretability.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Hypergraphs offer a natural framework for modeling networked data, where dependencies among entities are governed by higher-order interactions.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Fed-BRDECS: Privacy-Preserving and Heterogeneity-Aware Federated Deep Embedded Clustering</div>
-<div class="meta-line">Authors: Haemin Park, Diego Klabjan, Martin W. Braun, Xiuqi Li, Balakrishnan Ananthanarayanan</div>
-<div class="meta-line">First: 2026-10-05T21:11:14+00:00 · Latest: 2026-10-05T21:11:14+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.07399v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.07399v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Federated deep clustering seeks to learn clustering-friendly representations from decentralized unlabeled data while preserving client privacy. However, Deep Embedded Clustering (DEC)-style objectives depend on global soft-assignment statistics that require clients to reveal their sensitive information. We propose Fed-BRDECS, a privacy-preserving and heterogeneity-aware federated deep embedded clustering framework. Fed-BRDECS replaces the globally normalized clustering objective with a locally computable sample-stability loss, avoiding the transmission of local soft-assignment distributions. To tackle non-IID client distributions, we introduce prediction-balanced sampling, which oversamples locally rare predicted clusters without requiring ground-truth labels, and centroid-level restarting, which periodically refreshes biased or inactive centroids. Experiments on image and text clustering benchmarks show that Fed-BRDECS consistently outperforms representative federated clustering and deep clustering baselines under both IID and non-IID partitions. We further demonstrate its applicability to federated time-series anomaly detection, where it improves reconstruction-based detectors without adding inference-time cost.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Federated deep clustering seeks to learn clustering-friendly representations from decentralized unlabeled data while preserving client privacy.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Redundancy and synergy in multivariate Gaussians via the Blackwell order</div>
-<div class="meta-line">Authors: Artemy Kolchinsky</div>
-<div class="meta-line">First: 2026-10-05T20:27:00+00:00 · Latest: 2026-10-05T20:27:00+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.07360v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.07360v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">The goal of the partial information decomposition (PID) is to quantify the redundant and synergistic information that multiple sources provide about a target. PID has many applications in machine learning, neuroscience, and other fields, but defining and computing it for high-dimensional continuous systems remains challenging. Here, we define a PID for multivariate Gaussian systems based on the Blackwell order, which formalizes when one channel is more informative than another. We prove that Gaussian channels are optimal for extracting both redundant and union information, yielding an intuitive geometric interpretation and an efficient numerical algorithm for the PID. Our union information and synergy coincide with the well-known BROJA measures, and we derive closed-form expressions for both in the case of two sources. We also argue that Blackwell redundancy (which differs from BROJA) is the only existing redundancy measure that satisfies a set of natural desiderata. We demonstrate the scalability of our method on systems with up to a thousand dimensions or sources. Our approach is illustrated on an optimal control problem, where it identifies redundant and synergistic interactions between sensor and memory.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">The goal of the partial information decomposition (PID) is to quantify the redundant and synergistic information that multiple sources provide about a target.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Uncovering Hierarchical Structure in LLM Embeddings Using Geometric and Topological Measures</div>
-<div class="meta-line">Authors: Prakash Chourasia, Sarwan Ali, Murray Patterson</div>
-<div class="meta-line">First: 2025-12-24T04:15:36+00:00 · Latest: 2026-10-05T18:30:56+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2512.20926v3">Abs</a> · <a href="https://arxiv.org/pdf/2512.20926v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">The rapid advancement of large language models (LLMs) has driven major advances across scientific domains, yet the hierarchical, geometric, and topological structure of their embedding spaces remains poorly understood. In this work, we introduce a comprehensive framework for evaluating LLM embeddings through six complementary metrics that characterize hierarchy, geometry, and topology. Specifically, $δ$-hyperbolicity and ultrametricity quantify the degree of tree-like structure, while Neighbor Joining evaluates how well pairwise distances support hierarchical reconstruction. The Ollivier-Ricci curvature captures local geometric behavior, persistent homology measures multiscale topological stability, and fractal dimension estimates intrinsic complexity. Applying this framework to embeddings from multiple protein LLMs, we reveal how different models encode hierarchical relationships and structural organization. Evaluating the structure of these embeddings in the representation space helps improve geometry-aware model design. This is critical in domains such as bioinformatics and healthcare, where real-world hierarchical and relational structures matter. Our results demonstrate that geometric and topological analysis provides a guiding lens for understanding and potentially improving the representational quality of LLM embeddings.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">The rapid advancement of large language models (LLMs) has driven major advances across scientific domains, yet the hierarchical, geometric, and topological structure of their embedding spaces remains poorly understood.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Learning Topological Representations of Protein Structure and Dynamics</div>
-<div class="meta-line">Authors: Dominik Geng, Florian Graf, Martin Uray, Roland Kwitt</div>
-<div class="meta-line">First: 2026-06-02T13:26:11+00:00 · Latest: 2026-10-05T15:14:53+00:00</div>
-<div class="meta-line">Comments: 36 pages, 6 figures</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2606.14737v2">Abs</a> · <a href="https://arxiv.org/pdf/2606.14737v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Modern protein representation models support tasks such as enzyme design and drug discovery, but their reliance on static data such as sequence and native structure limits their ability to capture the conformational dynamics that drive protein function. We investigate whether persistent homology (PH) can provide descriptors shared across diverse proteins that retain global structure, fine-grained conformational variability, and kinetically relevant information without large-scale pretraining. We introduce the masked Flood complex, i.e., an adaptation of a recently proposed simplicial complex construction, that incorporates domain knowledge to emphasize inter-residue structure at low computational cost. We then use it to compute PH on molecular dynamics (MD) sampled structures, vectorize the persistence diagrams into a shared coordinate system, and probe the capacity of these representations in terms of the aforementioned aspects. To assess the amount of kinetic information, we learn low-dimensional embeddings from time-lagged observations and evaluate Markov state models (MSMs) estimated from them. Using these MSMs to guide training of the recent marsfm generative framework improves several ensemble statistics relative to the original model. After finetuning on lower-temperature MD data and adapting the sampling procedure, the resulting model also shows promising transfer to fast folding proteins.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Modern protein representation models support tasks such as enzyme design and drug discovery, but their reliance on static data such as sequence and native structure limits their ability to capture the conformational dynamics that drive protein function.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">T-ARC: Topology-Aware Randomized Clustering via Distributionally Robust Stochastic Block Models</div>
-<div class="meta-line">Authors: Serena Grazia De Benedictis, Andersen Ang, Nicoletta Del Buono, Flavia Esposito, Laura Selicato</div>
-<div class="meta-line">First: 2026-09-30T10:30:31+00:00 · Latest: 2026-10-05T13:58:21+00:00</div>
-<div class="meta-line">Comments: 20 pages, 17 figures. Preprint</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.39466v2">Abs</a> · <a href="https://arxiv.org/pdf/2609.39466v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">In this work, we introduce a new clustering method, namely T-ARC (Topology-Aware Randomized Clustering), that corrects the geometric bias of K-means by embedding topological information directly into the optimization objective. Building on the assumption that the data admits an underlying hidden structure modeled via a latent graph, the idea is to uncover this information through the interplay between the standard K-means data-fidelity term and a graph-cut penalty, which discourages cluster assignments inconsistent with the connectivity structure of the data.
-  To render this coupling tractable, the latent graph is modeled as a random realization from a Stochastic Block Model (SBM), whose scalar parameter is optimized within a Distributionally Robust Optimization (DRO) framework, yielding a closed-form proximal update. Both SBM and DRO are informed by a persistence-based similarity matrix derived from zero-dimensional persistent homology ($H_0$), which translates the multiscale connectivity structure of the data into a pairwise topological prior. The overall optimization proceeds via Block Coordinate Descent; convergence is established through a global Lyapunov functional: the deterministic blocks satisfy monotonic descent, while the stochastic graph update satisfies descent in expectation, so that the expected energy converges.
-  Experiments on synthetic datasets with non-convex geometries and on random subsets of Fashion-MNIST show that T-ARC recovers latent topological structures where K-means fails, achieving the highest accuracy on curved and interleaved clusters while remaining competitive, and markedly more stable than K-means, on real data.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">In this work, we introduce a new clustering method, namely T-ARC (Topology-Aware Randomized Clustering), that corrects the geometric bias of K-means by embedding topological information directly into the optimization objective.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Anlu: Enabling In-Context Time Series Anomaly Detection in Foundation Models via Counterfactual Supervision</div>
-<div class="meta-line">Authors: Tian Lan, Yifei Gao, Yimeng Lu, Xuming An, Meng Wang, Yue Pan, Wenjun He, Chen Zhang</div>
-<div class="meta-line">First: 2026-10-05T12:00:49+00:00 · Latest: 2026-10-05T12:00:49+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.06180v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.06180v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Whether a time-series pattern is anomalous often depends on the operating regime of the monitored process. A missing event can signal a fault in one regime and be routine in another, and the query alone may not reveal which regime applies. We study in-context learning (ICL) for time series anomaly detection (TSAD) through reference-conditioned detection, where a reference record provides evidence about expected behavior and model parameters remain fixed at inference. Supplying the reference is not enough: when training anomalies are recognizable from the query alone, the detector can fit its targets while ignoring the reference. We therefore introduce counterfactual supervision, which pairs one query with two references that support different normal rules and labels the query under each. At positions where the two labels disagree, no detector that ignores the reference can fit both targets. Anlu learns from this supervision by adding a reference memory and zero-initialized gated adapters to a frozen time-series foundation model (TSFM) pretrained for anomaly detection. On the 350 TSB-AD-U evaluation sequences, Anlu raises the mean VUS-PR of the frozen TSFM from 0.542 to 0.607. Replacing the reference with zeros lowers Anlu&#x27;s score to 0.499.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Whether a time-series pattern is anomalous often depends on the operating regime of the monitored process.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Lightweight CNN-Based Anomaly Detection for High Voltage Converter Modulators in the Spallation Neutron Source</div>
-<div class="meta-line">Authors: Alberto D. Cencillo, Leonardo Concepción, Julián Luengo, Isaac Triguero</div>
-<div class="meta-line">First: 2026-05-29T12:54:13+00:00 · Latest: 2026-10-05T09:46:27+00:00</div>
-<div class="meta-line">Comments: 22 pages, 8 figures</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.31259v3">Abs</a> · <a href="https://arxiv.org/pdf/2605.31259v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Time series anomaly detection is central to monitoring industrial and scientific equipment, where anomalous sensor readings can precede failures. As such equipment usually carries several sensors, a detector must also decide how to model the dependencies between channels. In many physical systems, normal behaviour is defined by how groups of sensors evolve together, and an anomaly can appear as the coupling or decoupling of sensors while each signal remains normal. Anomalies in popular public benchmarks, however, are mostly visible in single channels, so these benchmarks cannot show whether modelling inter-channel dependencies improves detection. We study this on the High Voltage Converter Modulators (HVCMs) of the Spallation Neutron Source (SNS), whose fourteen sensors are physically coupled and whose faults are labelled by type. Keeping a convolutional neural network (CNN) fixed, we vary only whether its blocks combine channels before or after temporal filtering, and measure detection for each SNS subsystem and fault family. The effect of this choice depends on how visible each fault family is on a single channel. Families clearly visible on one channel are detected equally well by all variants, whereas weakly separable families, such as flux faults, gain consistently when channels are combined first. Modelling the dependencies between channels therefore helps only where individual channels do not already reveal the fault. The best detector reaches an average area under the precision--recall curve of 0.816, competitive with published HVCM detectors at roughly half the parameters of a standard CNN.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Time series anomaly detection is central to monitoring industrial and scientific equipment, where anomalous sensor readings can precede failures.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">CoHyFuse: Condition-wise Hypergraph Fusion with Global Connectome in Task-fMRI</div>
-<div class="meta-line">Authors: Boseong Kim, Haejun Chung, Ikbeom Jang</div>
-<div class="meta-line">First: 2026-10-05T07:27:14+00:00 · Latest: 2026-10-05T07:27:14+00:00</div>
-<div class="meta-line">Comments: Accepted to the 2026 IEEE International Conference on Bioinformatics and Biomedicine (BIBM 2026)</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.05913v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.05913v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Task-fMRI connectomes reveal state-dependent neural reconfigurations, yet conventional methods marginalize these signals by aggregating distinct conditions into static pairwise graphs, thereby obscuring condition-specific multi-ROI organization. We introduce CoHyFuse, a condition-aware ROI-centered hypergraph framework that constructs a task-state-specific incidence matrix from condition-wise functional connectivity (FC)-profile embeddings, allowing the same ROI to form different multi-ROI hyperedges across task phases. Condition-specific neighborhood sizes $K_q$ further adapt the hyperedge scale to each task state, and the resulting condition embeddings are fused with a complementary whole-session FC branch for prediction. In the AABC cohort (N=1,074), CoHyFuse achieved the best mean out-of-fold predictive performance among evaluated baselines on FACENAME Fluid Cognition Composite (FCC) prediction (7.83$\pm$0.10 MAE, 0.439$\pm$0.026 \(R^2\)) and VISMOTOR age prediction (7.52$\pm$0.37 MAE, 0.592$\pm$0.022 \(R^2\)). In an auxiliary CMI-HBN attention-deficit/hyperactivity disorder (ADHD) classification benchmark (N=223), CoHyFuse obtained 72.0$\pm$2.1\% macro-AUC and 74.2$\pm$2.9\% accuracy. Ablation studies support the contributions of condition-wise incidence construction and dual-view fusion, suggesting that state-resolved ROI-set structure provides complementary predictive information beyond whole-session FC alone. Occlusion analysis identifies the Distraction condition as the primary driver of model prediction, pointing toward the Salience/Ventral Attention Network (SAN)--FrontoParietal Network (FPN) and within-SAN hyperedge-defined ROI-set motifs as candidate model-relevant patterns. This framework provides an interpretable, state-resolved view of the connectome for downstream cohort analysis.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Task-fMRI connectomes reveal state-dependent neural reconfigurations, yet conventional methods marginalize these signals by aggregating distinct conditions into static pairwise graphs, thereby obscuring condition-specific multi-ROI organization.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">An Identifiability Theory of Masked Prediction: Mode Blindness and Mask Schedules</div>
-<div class="meta-line">Authors: Yichao Cai, Javen Qinfeng Shi</div>
-<div class="meta-line">First: 2026-08-02T17:06:02+00:00 · Latest: 2026-10-05T05:39:37+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2608.01383v5">Abs</a> · <a href="https://arxiv.org/pdf/2608.01383v5">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Masked prediction learns to infer missing variables from visible context selected by a mask schedule. When does small excess risk guarantee recovery of the true joint distribution? We study this question on finite product spaces under masked-block log loss, with conditionals induced by a single joint distribution. To quantify recovery, we introduce an $\varepsilon$-identifiability modulus measuring the worst-case error among joint distributions with population excess risk at most $\varepsilon$. For data with separated modes pinned down by sufficiently large visible contexts, schedules that always retain such contexts can permit nonvanishing mode-weight errors while incurring exponentially small excess risk. An information decomposition explains why: the loss captures mode-weight mismatch only where the visible context leaves the mode uncertain. We prove two-sided bounds showing that, over a fixed range of mode weights, sensitivity to mode reweighting is governed by residual mode uncertainty averaged over the mask schedule. Assigning schedule mass to low-visibility masks that retain this uncertainty yields recovery bounds within the reweighting family. Beyond this family, positive full-mask probability characterizes uniform control of joint KL divergence by excess risk. Exact calculations and controlled gradient optimization validate these predictions.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Masked prediction learns to infer missing variables from visible context selected by a mask schedule.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Hypergraph Representation Learning with Hyperlink Random Effects</div>
-<div class="meta-line">Authors: Zimeng Li, Shihao Wu, Gongjun Xu, Ji Zhu</div>
-<div class="meta-line">First: 2026-10-03T16:31:31+00:00 · Latest: 2026-10-03T16:31:31+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.04640v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.04640v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Hypergraphs record multi-way interactions among entities. Extracting information from the combinatorial structure underlying observed multi-way interactions is a central task in many real-world problems. Existing methods face several limitations. First, many deep architectures for hypergraphs do not explicitly exploit the potential low-rank structure, which can sacrifice parsimony and interpretability in the learned representations. Second, many low-rank-based methods operate on tensor representations, which typically require hyperlinks to have uniform sizes and thus limit their applicability to general hypergraphs with non-uniform hyperlink sizes. Third, many methods ignore the fact that hyperlinks often arise from heterogeneous mechanisms. For example, medical symptoms may co-occur in the profiles of patients with very different conditions, and such heterogeneity should be incorporated into the learning process. In this work, we develop a general framework for hypergraph representation learning using hyperlink random effects while exploiting the low-rank structure in hypergraphs. The proposed framework accommodates latent heterogeneity in hyperlink formation while preserving entity interaction patterns. We establish identifiability of the model parameters and theoretical guarantees of representation-level recovery under this framework. The framework allows flexible specifications for the hyperlink random effects; in this paper, we study three choices: categorical, Gaussian mixture, and score-based effects, and develop corresponding estimation algorithms. Through simulation studies, we demonstrate the effectiveness of the proposed method in recovering latent structure and capturing heterogeneous interaction patterns. Empirical studies on real-world hypergraph datasets further illustrate the practical utility of our approach.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Hypergraphs record multi-way interactions among entities.</div>
-</details>
 </div></div>
     <details style="margin-top:16px" class="detail"><summary>History</summary>
-      <div class="history-list"><a href="archive/20261011_2147.html">20261011_2147</a>
+      <div class="history-list"><a href="archive/20261013_0030.html">20261013_0030</a>
+<a href="archive/20261011_2147.html">20261011_2147</a>
 <a href="archive/20261010_2118.html">20261010_2118</a>
 <a href="archive/20261009_2210.html">20261009_2210</a>
 <a href="archive/20261008_2223.html">20261008_2223</a>

@@ -74,12 +74,34 @@ summary{cursor:pointer;color:var(--acc)}
   <button class="btn" onclick="__expandAll(false)">Collapse All</button>
 </div>
 
-        <span class="badge">2026-10-18 19:57</span>
+        <span class="badge">2026-10-19 22:21</span>
       </div>
     </div>
     <div class="hr"></div>
     <div>Latest digest</div>
     <div class="row"><div class="card">
+<div class="title">A Topological Signature of Learning under Noisy Labels</div>
+<div class="meta-line">Authors: Zhongtian Sun, Fan Mo, Prayag Tiwari, Kelin Xia</div>
+<div class="meta-line">First: 2026-10-16T14:04:35+00:00 · Latest: 2026-10-16T14:04:35+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.23491v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.23491v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">How does noisy supervision change the representations learned by a neural network? Training accuracy measures agreement with training labels but provides little information about representation geometry. We use persistent homology to track loop structure across distance thresholds in neural activations. Experiments span image classification, text classification, and modular arithmetic. On a fixed CIFAR-10/ResNet-18 training probe, equally sized clean-label and corrupted-label subsets show no detectable persistence difference at epoch 10, whereas corrupted-label subsets have higher persistence at epoch 50. The contrast survives uniform-scale controls, even though predictions match the assigned noisy labels for only 7-11% of corrupted probe examples at that checkpoint. Normalisation preserves the crossover between clean and noisy training trajectories on CIFAR-10/ResNet-18, whereas CIFAR-100/ResNet-18 shows no crossover under any of the five evaluated constructions. In a separate noise-rate calibration comparison across five pipelines, mean activation norm achieves a higher mean in-sample R2 than raw persistence (0.936 versus 0.908). These findings show that noisy supervision leaves a measurable geometric signature even when agreement with corrupted labels is low. Comparing persistence under scale controls with label-fitting measurements offers a way to study how representations respond to label corruption beyond what training accuracy reveals.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">How does noisy supervision change the representations learned by a neural network?</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Uncovering Hierarchical Structure in LLM Embeddings Using Geometric and Topological Measures</div>
+<div class="meta-line">Authors: Prakash Chourasia, Sarwan Ali, Murray Patterson, Alex Zelikovsky</div>
+<div class="meta-line">First: 2025-12-24T04:15:36+00:00 · Latest: 2026-10-15T19:54:18+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2512.20926v4">Abs</a> · <a href="https://arxiv.org/pdf/2512.20926v4">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">The rapid advancement of large language models (LLMs) has driven major advances across scientific domains, yet the hierarchical, geometric, and topological structure of their embedding spaces remains poorly understood. In this work, we introduce a comprehensive framework for evaluating LLM embeddings through six complementary metrics that characterize hierarchy, geometry, and topology. Specifically, $δ$-hyperbolicity and ultrametricity quantify the degree of tree-like structure, while Neighbor Joining evaluates how well pairwise distances support hierarchical reconstruction. The Ollivier-Ricci curvature captures local geometric behavior, persistent homology measures multiscale topological stability, and fractal dimension estimates intrinsic complexity. Applying this framework to embeddings from multiple protein LLMs, we reveal how different models encode hierarchical relationships and structural organization. Evaluating the structure of these embeddings in the representation space helps improve geometry-aware model design. This is critical in domains such as bioinformatics and healthcare, where real-world hierarchical and relational structures matter. Our results demonstrate that geometric and topological analysis provides a guiding lens for understanding and potentially improving the representational quality of LLM embeddings.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">The rapid advancement of large language models (LLMs) has driven major advances across scientific domains, yet the hierarchical, geometric, and topological structure of their embedding spaces remains poorly understood.</div>
+</details>
+</div>
+<div class="card">
 <div class="title">Retrieval Over Training: Similarity search-based Model Selection for Time Series Anomaly Detection</div>
 <div class="meta-line">Authors: Christos Panourgias, Roberto Stanzione, Adrien Petralia, Themis Palpanas, Paul Boniol</div>
 <div class="meta-line">First: 2026-10-14T14:18:55+00:00 · Latest: 2026-10-15T11:07:21+00:00</div>
@@ -411,32 +433,10 @@ summary{cursor:pointer;color:var(--acc)}
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">Traffic sensor data exhibit strong temporal and cross-sensor dependencies, yet long gaps erase both a sensor&#x27;s local history and the joint observations needed to learn its relationships with other sensors.</div>
 </details>
-</div>
-<div class="card">
-<div class="title">Correlation-Aware Reconstruction for Multivariate Time Series Anomaly Detection</div>
-<div class="meta-line">Authors: Md. Johir Raihan, Zahra Zamanzadeh Darban, Yueyang Liu, Flora D. Salim, Levin Kuhlmann, Mahsa Salehi</div>
-<div class="meta-line">First: 2026-10-11T00:46:24+00:00 · Latest: 2026-10-11T00:46:24+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.15250v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.15250v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Reconstruction-based detectors for multivariate time series anomaly detection typically learn a single entangled representation of normal behavior and flag anomalies based on reconstruction error. However, real-world anomalies are not only isolated spikes in a single channel but also disruptions in the relationships between channels, where each sensor individually appears normal, but their joint behavior deviates from the norm. Because these models compress both temporal evolution and inter-channel structure into this single space, they lack an explicit mechanism to isolate such inter-channel dependencies from normal temporal dependencies, leading to lower detection rates for cross-channel anomalies. We propose CARMA (Correlation-Aware Reconstruction for Multivariate Time Series Anomaly Detection), which is a reconstruction-based variational autoencoder with two complementary latent spaces: a temporal latent that captures sequential dynamics, and a correlation latent that is trained to reconstruct the window&#x27;s pairwise Pearson correlations. Both representations are fused in the signal decoder, and anomalies are detected from the reconstruction error. We evaluate CARMA on the TSB-AD-M benchmark suite (17 datasets, 180 series) against 29 baseline methods, and show that it significantly outperforms all of them across multiple threshold-free and range-aware metrics, achieving a VUS-PR of 0.4929. Ablations show that removing the correlation branch degrades performance, that adding a second latent without supervision recovers only part of the gain, and that supervising the correlation latent with an explicit correlation target accounts for the rest and produces a sharper error response at anomalies.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Reconstruction-based detectors for multivariate time series anomaly detection typically learn a single entangled representation of normal behavior and flag anomalies based on reconstruction error.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Topological realizations of finite posets</div>
-<div class="meta-line">Authors: Vin de Silva</div>
-<div class="meta-line">First: 2026-10-10T18:16:14+00:00 · Latest: 2026-10-10T18:16:14+00:00</div>
-<div class="meta-line">Comments: 34 pages</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.15099v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.15099v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">I introduce a new class of cell complexes, called CL-complexes, that provide alternative topological realizations of finite posets. Each realization of a given poset has the same homotopy type as the order complex of that, so in some sense these spaces do not provide anything really new. Their value is that they enable short transparent proofs of standard results in poset homotopy. These include Quillen&#x27;s Theorem A for finite posets, the Nerve Theorem for good covers of a topological space, and Sheehy&#x27;s multicover generalization of the Nerve Theorem. Order complexes retain a special status: the order complex of a finite poset admits CL-complex structures both for the poset itself and for its opposite poset. The definition of CL-complexes is motivated by an elementary generalization of the Carrier Lemma of J. W. Walker, which in its original form constructs a canonical homotopy class of maps from a simplicial complex to a space covered by a suitable family of contractible sets. In the generalized lemma, the role played by simplicial complexes and the role played by spaces covered by contractible sets can both be fulfilled by CL-complexes. This sets up an equivalence of categories that tacitly underlies our approach.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">I introduce a new class of cell complexes, called CL-complexes, that provide alternative topological realizations of finite posets.</div>
-</details>
 </div></div>
     <details style="margin-top:16px" class="detail"><summary>History</summary>
-      <div class="history-list"><a href="archive/20261017_1923.html">20261017_1923</a>
+      <div class="history-list"><a href="archive/20261018_1957.html">20261018_1957</a>
+<a href="archive/20261017_1923.html">20261017_1923</a>
 <a href="archive/20261016_2013.html">20261016_2013</a>
 <a href="archive/20261015_2034.html">20261015_2034</a>
 <a href="archive/20261014_2040.html">20261014_2040</a>

@@ -74,12 +74,61 @@ summary{cursor:pointer;color:var(--acc)}
   <button class="btn" onclick="__expandAll(false)">Collapse All</button>
 </div>
 
-        <span class="badge">2026-10-20 20:33</span>
+        <span class="badge">2026-10-21 20:44</span>
       </div>
     </div>
     <div class="hr"></div>
     <div>Latest digest</div>
     <div class="row"><div class="card">
+<div class="title">Claims of emergence in AI should be grounded in information decomposition</div>
+<div class="meta-line">Authors: Christoph Riedl, Fernando E. Rosas</div>
+<div class="meta-line">Venue: NeurIPS Spotlight</div>
+<div class="meta-line">First: 2026-10-20T16:29:28+00:00 · Latest: 2026-10-20T16:29:28+00:00</div>
+<div class="meta-line">Comments: NeurIPS Spotlight Paper</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.28479v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.28479v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">When a language model develops capabilities not traceable to its individual components, when a multi-agent AI system outperforms each agent on its own, or when a human-AI pair succeeds where either fails in isolation, AI researchers describe it as a case of ``synergy&#x27;&#x27; or ``emergence&#x27;&#x27;. However, these are usually informal assessments not supported by a theoretical framework, making these claims impossible to compare or even meaningfully dispute. Here we argue that \emph{information decomposition can serve as a unifying formal framework to operationalize assessments about synergy in AI systems}. Information decomposition provides a way to distinguish qualitatively different \emph{types} of information, including unique information available from individual components, redundant information shared across multiple components, and synergistic information accessible only from parts taken together. This gives claims of emergence a precise, falsifiable criterion: a system&#x27;s behavior is emergent only if it carries synergistic information about task-relevant outcomes. We apply this lens to attention heads, autonomous agents, and human-AI teams, showing how it organizes existing knowledge across scales and substrates, while also generating cross-level conjectures that siloed fields would miss.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">When a language model develops capabilities not traceable to its individual components, when a multi-agent AI system outperforms each agent on its own, or when a human-AI pair succeeds where either fails in isolation, AI researchers describe it as a case of ``synergy&#x27;&#x27; or ``emergence&#x27;&#x27;.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Persistent (Co)Homology in Matrix Multiplication Time</div>
+<div class="meta-line">Authors: Dmitriy Morozov, Primoz Skraba</div>
+<div class="meta-line">First: 2024-12-03T17:21:23+00:00 · Latest: 2026-10-20T08:31:05+00:00</div>
+<div class="meta-line">Comments: Fast row algorithms corrected</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2412.02591v3">Abs</a> · <a href="https://arxiv.org/pdf/2412.02591v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Most algorithms for computing persistent homology do so by tracking cycles that represent homology classes. There are many choices of such cycles, and specific choices have found different uses in applications. Although it is known that persistence diagrams can be computed in matrix multiplication time [8] for the more general case of zigzag persistent homology, it is not clear how to extract cycle representatives, especially if specific representatives are desired. In this paper, we provide the same matrix multiplication bound for computing representatives for the two choices common in applications in the case of ordinary persistent (co)homology. We first provide a fast version of the reduction algorithm, which is simpler than the algorithm in [8], but returns a different set of representatives than the standard algorithm [6] We then give a fast version of a different variant called the row algorithm [4], which returns the same representatives as the standard algorithm.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Most algorithms for computing persistent homology do so by tracking cycles that represent homology classes.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Influence Is the Target-Response Jacobian Times Residuals</div>
+<div class="meta-line">Authors: Paul Geertsema, Simon Geertsema</div>
+<div class="meta-line">First: 2026-10-20T06:04:57+00:00 · Latest: 2026-10-20T06:04:57+00:00</div>
+<div class="meta-line">Comments: 19 pages, 2 figures, 8 tables</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.27689v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.27689v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">We introduce the target-response Jacobian $J = [\partial \hat y_i/\partial y_j]$, which measures how model predictions respond to changes in individual training targets. $J$ complements training-data attribution (TDA) methods, which characterize sensitivity to the weights placed on training observations in the loss rather than to their targets, and can be computed matrix-free at the same cost as influence-based TDA methods. We show that sample-weight influence $\mathcal{I}$ and $J$ follow from the same implicit differentiation argument and differ only by a per-example multiplier: for pointwise losses, $\mathcal{I} = J\operatorname{diag}(m)$ exactly at any stationary point with an invertible Hessian. For canonical-link losses (squared error, logistic, Poisson) the multiplier is the training residual, $\mathcal{I} = J\operatorname{diag}(r)$, and softmax cross-entropy obeys a multiclass version. The identity predicts three ways in which influence fails when used in place of $J$: small residuals shrink its predicted shift towards zero (interpolation collapse), residuals of mixed sign wash out its direction (direction washout), and under softmax cross-entropy it collapses a training point&#x27;s per-class sensitivities towards its own true class (true-class collapse). We score both operators against refitting with a per-prediction $R^2$ across target perturbations, with no rescaling. On tanh networks trained with squared error (Friedman #1) and logistic loss (MAGIC, HIGGS), with $N$ from 2,000 to $10^6$, $J$ reaches $R^2$ between 0.99 and 1.00, whereas influence&#x27;s $R^2$ is negative on every dataset. On an MNIST softmax classifier, influence&#x27;s $R^2$ is again negative, while $J$ reaches 0.92. On HIGGS, one row of $J$, holding all $10^6$ sensitivities of one prediction, takes under 0.2 seconds on an RTX 3090 after a one-time setup of under five minutes, whereas refitting would take $10^6$ refits.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">We introduce the target-response Jacobian $J = [\partial \hat y_i/\partial y_j]$, which measures how model predictions respond to changes in individual training targets.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Representing Vineyard Modules</div>
+<div class="meta-line">Authors: Katharine Turner</div>
+<div class="meta-line">First: 2023-07-12T09:02:53+00:00 · Latest: 2026-10-20T04:44:36+00:00</div>
+<div class="meta-line">Comments: 56 pages, 11 figures</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2307.06020v2">Abs</a> · <a href="https://arxiv.org/pdf/2307.06020v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Time-series of persistence diagrams, more commonly known as vineyards, are a useful way to capture how multi-scale topological features vary over time. However, we do lose significant information in how the persistent homology at different time stamps relate to each other. A natural algebraic version of vineyards is a time series of persistence modules equipped with interleaving maps between the persistence modules at different time stamps. We call this a vineyard module. In this paper we will set up the framework for representing a vineyard module via an indexed set of vines alongside a collection of matrices. We outline an algorithmic way to transform the bases of the persistence modules at each time step within the vineyard module to make the matrices within this representation as simple as possible. With some reasonable assumptions on the vineyard modules, this simplified representation can be completely described (up to isomorphism) by the associated vineyard and a vector of finite length. While this vineyard and vector representation is not necessarily unique we can prove that the vector will always be the zero vector when the vineyard module is isomorphic to the direct sum of vine modules. We also show uniqueness when the vineyard module contains two vines (over field $\mathbb{F}_2$) and can characterise and count which are realisable, giving a complete account of isomorphism classes of vineyard modules with two vines. To define and analyse this approach we first must set up a lot of preliminary results about changes of bases for pairs of persistence modules where we are given $\varepsilon$-interleaving maps for sufficiently close $\varepsilon$. This new perspective on vineyards also provides a new approach to the study of multi-parameter persistence modules.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Time-series of persistence diagrams, more commonly known as vineyards, are a useful way to capture how multi-scale topological features vary over time.</div>
+</details>
+</div>
+<div class="card">
 <div class="title">High-dimensional covariate-assisted ranking</div>
 <div class="meta-line">Authors: Yujia Liu, Yuanyuan Lin, Ruijian Han, Yiming Xu</div>
 <div class="meta-line">First: 2026-10-19T17:41:43+00:00 · Latest: 2026-10-19T17:41:43+00:00</div>
@@ -389,58 +438,10 @@ summary{cursor:pointer;color:var(--acc)}
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">Explicit dynamic finite element (FE) simulations are widely used for large-deformation analysis but remain expensive for design-space exploration.</div>
 </details>
-</div>
-<div class="card">
-<div class="title">Exact Topological Compliance: Generating Persistence-Equivalent Graphs</div>
-<div class="meta-line">Authors: Mattie Ji, Indradyumna Roy, Vikas Garg</div>
-<div class="meta-line">Venue: NeurIPS 2026</div>
-<div class="meta-line">First: 2026-10-13T17:59:19+00:00 · Latest: 2026-10-13T17:59:19+00:00</div>
-<div class="meta-line">Comments: Accepted by NeurIPS 2026</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.18856v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.18856v1">PDF</a> · <a href="https://github.com/Aalto-QuML/ExactCompliance">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Persistent homology summarizes the topological evolution of a graph as persistence diagrams (PDs). Generating graphs whose topology matches a target descriptor is increasingly important, yet existing topology-aware generative models rely on soft regularization, producing graphs whose PDs may only be approximately similar. We initiate a principled investigation of the generation problem: produce graphs that realize a target PD exactly. We propose two approaches guided by the implicit local and global constraints a target PD imposes. The local approach builds degree-based PD-equivalent graphs iteratively, and we prove that every output realizes the target PD and that every degree-based PD-equivalent graph is reachable. However, as shown thereafter, local generation necessarily trades off between sample diversity and reaching infeasible states. We therefore recast generation as a global constraint satisfaction problem with a complete encoding solvable by modern constraint programming solvers. This is applicable to any vertex-based permutation equivariant filtration scheme and is minimal under the degree filtration. Experiments on four standard graph generation benchmarks confirm that both methods realize the target PD exactly. Together, our methods provide a principled treatment of strict topology-compliant graph generation. Code is available at https://github.com/Aalto-QuML/ExactCompliance.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Persistent homology summarizes the topological evolution of a graph as persistence diagrams (PDs).</div>
-</details>
-</div>
-<div class="card">
-<div class="title">From Fourier Amplitudes to Persistence Images for Impact-Echo Defect Detection</div>
-<div class="meta-line">Authors: Keunsu Kim, Suyoung Choi, Meiyan Kang</div>
-<div class="meta-line">First: 2026-10-13T17:07:04+00:00 · Latest: 2026-10-13T17:07:04+00:00</div>
-<div class="meta-line">Comments: 32 pages, 5 figures, including supplementary material</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.18732v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.18732v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Impact-echo testing is a nondestructive testing method used to detect internal defects in concrete structures. However, boundary reflections, structured interference, and measurement noise can produce complex Fourier amplitude spectra, making defect classification difficult. We constructed a two-dimensional frequency--amplitude persistence image (FA-PI) from the Fourier amplitude spectrum. Using a fixed parameterization of exact multi-parameter persistent homology, each retained Fourier component is represented with frequency-bin location as one coordinate and amplitude as the other, and Gaussian kernels are then applied in this two-dimensional space. This construction has a direct analytical connection to the corresponding one-dimensional Gaussian-smoothed Fourier amplitude spectrum. FA-PI was evaluated on an experimental backfill-void dataset and a public bridge-deck impact-echo dataset, and compared with raw and Gaussian-smoothed Fourier amplitude spectra using a linear classifier with a Softmax output and identical signal-level data splits. The evaluation included original signals and signals corrupted by Gaussian noise, sinusoidal interference, or mixed noise, with matching noise types and signal-to-noise ratios during training, validation, and testing. Performance was assessed using accuracy and macro-averaged precision, recall, and F1-score. Across the two datasets, FA-PI consistently outperformed the raw and Gaussian-smoothed Fourier baselines in the noisy-condition summaries. These findings indicate that representing Fourier spectral components in a two-dimensional frequency--amplitude space can improve impact-echo defect classification beyond frequency-axis smoothing alone.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Impact-echo testing is a nondestructive testing method used to detect internal defects in concrete structures.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Training data attribution in diffusion models via mirrored unlearning and noise-consistent skew</div>
-<div class="meta-line">Authors: Joan Serrà, Dipam Goswami, Fabio Morreale, Wei-Hsiang Liao, Yuki Mitsufuji</div>
-<div class="meta-line">First: 2026-05-18T06:52:26+00:00 · Latest: 2026-10-13T16:48:43+00:00</div>
-<div class="meta-line">Comments: Accepted at NeurIPS26; 21 pages, 5 figures, 9 tables (includes appendix)</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.17938v2">Abs</a> · <a href="https://arxiv.org/pdf/2605.17938v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Training data attribution (TDA) should enable generative model interpretability and foster a variety of related downstream tasks. Nonetheless, current TDA approaches lack reliability and robustness, preventing their adoption in real-world setups. In this paper, we take a decisive step towards more reliable and robust TDA for diffusion models. We propose to perform TDA with mirrored unlearning and noise-consistent skew (MUCS). The idea is to fine-tune a second model with bounded mirrored gradient ascent, and to measure the normalized skew of this model with respect to the original one using consistent noise samples. We show that, while being conceptually simple and generic, MUCS systematically outperforms existing methods on three different datasets by a large margin. We additionally study the effect that core design choices have on final performance, and analyze novel aspects regarding the overlap of influential instances across generated items and the potential of ensembling TDA approaches. We believe that our findings may have broader implications for more general unlearning setups, as well as for tasks requiring the comparison of diffusion losses.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Training data attribution (TDA) should enable generative model interpretability and foster a variety of related downstream tasks.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Directed percolation in higher-order social dilemmas</div>
-<div class="meta-line">Authors: Pablo Villegas, Sandro Meloni</div>
-<div class="meta-line">First: 2026-10-13T15:00:41+00:00 · Latest: 2026-10-13T15:00:41+00:00</div>
-<div class="meta-line">Comments: 13 pages, 3 figures, 57 refs and supplementary material</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.18506v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.18506v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Multiplayer social dilemmas on hypergraphs show a variety of emergent phenomena, which has been attributed to group interactions. Here we test whether pairwise dynamics can reproduce them as well. We derive the mesoscopic Langevin equation of a testbed model and find the operator content of absorbing phase transitions: a directed-percolation line, a tricritical point, and a first-order region whose spinodal is the explosive transition. In our analysis, three-player games only set the values of the Landau coefficients. We construct a strictly pairwise model with short-lived memory, in which every event involves at most two entities, that reproduces these coefficients term by term and has exactly the same mean-field fixed points. Simulations confirm that the two dynamics share mean-field critical and tricritical scaling and the size of the critical mass, and that a purely three-player game on a two-dimensional triangular lattice lies in the directed-percolation class. For these games, the explosive transition and the critical mass therefore do not require group interactions, and the critical behavior is that of the pairwise theory.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Multiplayer social dilemmas on hypergraphs show a variety of emergent phenomena, which has been attributed to group interactions.</div>
-</details>
 </div></div>
     <details style="margin-top:16px" class="detail"><summary>History</summary>
-      <div class="history-list"><a href="archive/20261019_2221.html">20261019_2221</a>
+      <div class="history-list"><a href="archive/20261020_2033.html">20261020_2033</a>
+<a href="archive/20261019_2221.html">20261019_2221</a>
 <a href="archive/20261018_1957.html">20261018_1957</a>
 <a href="archive/20261017_1923.html">20261017_1923</a>
 <a href="archive/20261016_2013.html">20261016_2013</a>

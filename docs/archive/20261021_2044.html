@@ -1,0 +1,892 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv 论文速递</title><style>
+:root {
+  --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#667085; --border:#e5e7eb; --acc:#2563eb;
+}
+:root[data-theme="dark"] {
+  --bg:#0b0f17; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --border:#1f2937; --acc:#2563eb;
+}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6;}
+.container{max-width:900px;margin:0 auto;padding:18px;}
+.header{display:flex;gap:10px;justify-content:space-between;align-items:center;margin:8px 0 16px;flex-wrap:wrap}
+h1{font-size:22px;margin:0}
+.badge{font-size:12px;color:#111827;background:var(--acc);padding:2px 8px;border-radius:999px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 18px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.title{font-weight:700;margin:0 0 6px 0;font-size:18px}
+.meta-line{color:var(--muted);font-size:13px;margin:2px 0}
+.links a{color:var(--acc);text-decoration:none;margin-right:12px}
+.detail{margin-top:10px;background:rgba(2,6,23,.03);border:1px solid var(--border);border-radius:10px;padding:8px 10px}
+summary{cursor:pointer;color:var(--acc)}
+.mono{white-space:pre-wrap;background:rgba(2,6,23,.03);border:1px solid var(--border);padding:10px;border-radius:10px}
+.row{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width: 860px) {
+  .row-2{grid-template-columns:1fr 1fr}
+}
+.footer{color:var(--muted);font-size:13px;margin:20px 0 10px}
+.hr{height:1px;background:var(--border);margin:14px 0}
+.history-list a{display:block;color:var(--acc);text-decoration:none;margin:4px 0}
+.controls{display:flex;gap:8px;align-items:center}
+.btn{border:1px solid var(--border);background:var(--card);padding:6px 10px;border-radius:10px;cursor:pointer;color:var(--text)}
+.btn:hover{border-color:var(--acc)}
+</style>
+<script>
+(function() {
+  const root = document.documentElement;
+  function apply(t) {
+    if (t==='dark') root.setAttribute('data-theme','dark');
+    else if (t==='light') root.removeAttribute('data-theme');
+    else {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        root.setAttribute('data-theme','dark');
+      else root.removeAttribute('data-theme');
+    }
+  }
+  let t = localStorage.getItem('theme') || 'light';
+  if (!['light','dark','auto'].includes(t)) t='light';
+  apply(t);
+  window.__toggleTheme = function() {
+    let cur = localStorage.getItem('theme') || 'light';
+    if (cur==='light') cur='dark';
+    else if (cur==='dark') cur='auto';
+    else cur='light';
+    localStorage.setItem('theme', cur);
+    apply(cur);
+    const el=document.getElementById('theme-label');
+    if(el) el.textContent = cur.toUpperCase();
+  }
+  window.__expandAll = function(open) {
+    document.querySelectorAll('details').forEach(d => d.open = !!open);
+  }
+})();
+</script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>arXiv 论文速递</h1>
+      <div style="display:flex;gap:10px;align-items:center">
+        
+<div class="controls">
+  <button class="btn" onclick="__toggleTheme()">Theme: <span id="theme-label" style="margin-left:6px">AUTO</span></button>
+  <button class="btn" onclick="__expandAll(true)">Expand All</button>
+  <button class="btn" onclick="__expandAll(false)">Collapse All</button>
+</div>
+
+        <span class="badge">2026-10-21 20:44</span>
+      </div>
+    </div>
+    <div class="hr"></div>
+    <div>Snapshot: 20261021_2044</div>
+    <div class="row"><div class="card">
+<div class="title">Claims of emergence in AI should be grounded in information decomposition</div>
+<div class="meta-line">Authors: Christoph Riedl, Fernando E. Rosas</div>
+<div class="meta-line">Venue: NeurIPS Spotlight</div>
+<div class="meta-line">First: 2026-10-20T16:29:28+00:00 · Latest: 2026-10-20T16:29:28+00:00</div>
+<div class="meta-line">Comments: NeurIPS Spotlight Paper</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.28479v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.28479v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">When a language model develops capabilities not traceable to its individual components, when a multi-agent AI system outperforms each agent on its own, or when a human-AI pair succeeds where either fails in isolation, AI researchers describe it as a case of ``synergy&#x27;&#x27; or ``emergence&#x27;&#x27;. However, these are usually informal assessments not supported by a theoretical framework, making these claims impossible to compare or even meaningfully dispute. Here we argue that \emph{information decomposition can serve as a unifying formal framework to operationalize assessments about synergy in AI systems}. Information decomposition provides a way to distinguish qualitatively different \emph{types} of information, including unique information available from individual components, redundant information shared across multiple components, and synergistic information accessible only from parts taken together. This gives claims of emergence a precise, falsifiable criterion: a system&#x27;s behavior is emergent only if it carries synergistic information about task-relevant outcomes. We apply this lens to attention heads, autonomous agents, and human-AI teams, showing how it organizes existing knowledge across scales and substrates, while also generating cross-level conjectures that siloed fields would miss.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">When a language model develops capabilities not traceable to its individual components, when a multi-agent AI system outperforms each agent on its own, or when a human-AI pair succeeds where either fails in isolation, AI researchers describe it as a case of ``synergy&#x27;&#x27; or ``emergence&#x27;&#x27;.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Persistent (Co)Homology in Matrix Multiplication Time</div>
+<div class="meta-line">Authors: Dmitriy Morozov, Primoz Skraba</div>
+<div class="meta-line">First: 2024-12-03T17:21:23+00:00 · Latest: 2026-10-20T08:31:05+00:00</div>
+<div class="meta-line">Comments: Fast row algorithms corrected</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2412.02591v3">Abs</a> · <a href="https://arxiv.org/pdf/2412.02591v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Most algorithms for computing persistent homology do so by tracking cycles that represent homology classes. There are many choices of such cycles, and specific choices have found different uses in applications. Although it is known that persistence diagrams can be computed in matrix multiplication time [8] for the more general case of zigzag persistent homology, it is not clear how to extract cycle representatives, especially if specific representatives are desired. In this paper, we provide the same matrix multiplication bound for computing representatives for the two choices common in applications in the case of ordinary persistent (co)homology. We first provide a fast version of the reduction algorithm, which is simpler than the algorithm in [8], but returns a different set of representatives than the standard algorithm [6] We then give a fast version of a different variant called the row algorithm [4], which returns the same representatives as the standard algorithm.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Most algorithms for computing persistent homology do so by tracking cycles that represent homology classes.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Influence Is the Target-Response Jacobian Times Residuals</div>
+<div class="meta-line">Authors: Paul Geertsema, Simon Geertsema</div>
+<div class="meta-line">First: 2026-10-20T06:04:57+00:00 · Latest: 2026-10-20T06:04:57+00:00</div>
+<div class="meta-line">Comments: 19 pages, 2 figures, 8 tables</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.27689v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.27689v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">We introduce the target-response Jacobian $J = [\partial \hat y_i/\partial y_j]$, which measures how model predictions respond to changes in individual training targets. $J$ complements training-data attribution (TDA) methods, which characterize sensitivity to the weights placed on training observations in the loss rather than to their targets, and can be computed matrix-free at the same cost as influence-based TDA methods. We show that sample-weight influence $\mathcal{I}$ and $J$ follow from the same implicit differentiation argument and differ only by a per-example multiplier: for pointwise losses, $\mathcal{I} = J\operatorname{diag}(m)$ exactly at any stationary point with an invertible Hessian. For canonical-link losses (squared error, logistic, Poisson) the multiplier is the training residual, $\mathcal{I} = J\operatorname{diag}(r)$, and softmax cross-entropy obeys a multiclass version. The identity predicts three ways in which influence fails when used in place of $J$: small residuals shrink its predicted shift towards zero (interpolation collapse), residuals of mixed sign wash out its direction (direction washout), and under softmax cross-entropy it collapses a training point&#x27;s per-class sensitivities towards its own true class (true-class collapse). We score both operators against refitting with a per-prediction $R^2$ across target perturbations, with no rescaling. On tanh networks trained with squared error (Friedman #1) and logistic loss (MAGIC, HIGGS), with $N$ from 2,000 to $10^6$, $J$ reaches $R^2$ between 0.99 and 1.00, whereas influence&#x27;s $R^2$ is negative on every dataset. On an MNIST softmax classifier, influence&#x27;s $R^2$ is again negative, while $J$ reaches 0.92. On HIGGS, one row of $J$, holding all $10^6$ sensitivities of one prediction, takes under 0.2 seconds on an RTX 3090 after a one-time setup of under five minutes, whereas refitting would take $10^6$ refits.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">We introduce the target-response Jacobian $J = [\partial \hat y_i/\partial y_j]$, which measures how model predictions respond to changes in individual training targets.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Representing Vineyard Modules</div>
+<div class="meta-line">Authors: Katharine Turner</div>
+<div class="meta-line">First: 2023-07-12T09:02:53+00:00 · Latest: 2026-10-20T04:44:36+00:00</div>
+<div class="meta-line">Comments: 56 pages, 11 figures</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2307.06020v2">Abs</a> · <a href="https://arxiv.org/pdf/2307.06020v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Time-series of persistence diagrams, more commonly known as vineyards, are a useful way to capture how multi-scale topological features vary over time. However, we do lose significant information in how the persistent homology at different time stamps relate to each other. A natural algebraic version of vineyards is a time series of persistence modules equipped with interleaving maps between the persistence modules at different time stamps. We call this a vineyard module. In this paper we will set up the framework for representing a vineyard module via an indexed set of vines alongside a collection of matrices. We outline an algorithmic way to transform the bases of the persistence modules at each time step within the vineyard module to make the matrices within this representation as simple as possible. With some reasonable assumptions on the vineyard modules, this simplified representation can be completely described (up to isomorphism) by the associated vineyard and a vector of finite length. While this vineyard and vector representation is not necessarily unique we can prove that the vector will always be the zero vector when the vineyard module is isomorphic to the direct sum of vine modules. We also show uniqueness when the vineyard module contains two vines (over field $\mathbb{F}_2$) and can characterise and count which are realisable, giving a complete account of isomorphism classes of vineyard modules with two vines. To define and analyse this approach we first must set up a lot of preliminary results about changes of bases for pairs of persistence modules where we are given $\varepsilon$-interleaving maps for sufficiently close $\varepsilon$. This new perspective on vineyards also provides a new approach to the study of multi-parameter persistence modules.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Time-series of persistence diagrams, more commonly known as vineyards, are a useful way to capture how multi-scale topological features vary over time.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">High-dimensional covariate-assisted ranking</div>
+<div class="meta-line">Authors: Yujia Liu, Yuanyuan Lin, Ruijian Han, Yiming Xu</div>
+<div class="meta-line">First: 2026-10-19T17:41:43+00:00 · Latest: 2026-10-19T17:41:43+00:00</div>
+<div class="meta-line">Comments: 48 pages</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.26796v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.26796v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Ranking data in modern applications often involves covariate vectors whose dimension grows with the number of objects. Identifying relevant covariates and integrating them with item-specific utilities can yield better predictive performance. In this work, we study a Plackett--Luce model that incorporates both item-specific utilities and high-dimensional covariate effects. Under a sparsity assumption on the covariate coefficients, we establish a necessary and sufficient condition for identifiability in terms of the Kruskal rank of the restricted covariate design. We then propose an $\ell_1$-regularized maximum likelihood estimator for the covariate coefficients. Under suitable design and connectivity conditions, we establish the existence and uniqueness of the estimator with probability tending to one, as well as its uniform consistency. With an additional minimum-signal condition, we further establish exact support recovery. Our analysis combines a hypergraph-based chaining technique with a profile-likelihood perturbation analysis, yielding estimation rates that explicitly capture the effects of the comparison hypergraph&#x27;s connectivity and the underlying sparsity level. Numerical experiments using synthetic data and a horse racing dataset corroborate our theoretical findings.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Ranking data in modern applications often involves covariate vectors whose dimension grows with the number of objects.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Clustering coefficients for networks with higher order interactions</div>
+<div class="meta-line">Authors: Gyeong-Gyun Ha, Izaak Neri, Alessia Annibale</div>
+<div class="meta-line">Venue: Chaos 1 April 2024; 34 (4): 043102</div>
+<div class="meta-line">First: 2023-11-14T21:53:37+00:00 · Latest: 2026-10-19T11:35:52+00:00</div>
+<div class="meta-line">Comments: 32 pages, 19 figures. Minor typo in equation (66) corrected</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2311.08563v3">Abs</a> · <a href="https://arxiv.org/pdf/2311.08563v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">We introduce a clustering coefficient for nondirected and directed hypergraphs, which we call the quad clustering coefficient. We determine the average quad clustering coefficient and its distribution in real-world hypergraphs and compare its value with those of random hypergraphs drawn from the configuration model. We find that real-world hypergraphs exhibit a nonnegligible fraction of nodes with a maximal value of the quad clustering coefficient, while we do not find such nodes in random hypergraphs. Interestingly, these highly clustered nodes can have large degrees and can be incident to hyperedges of large cardinality. Moreover, highly clustered nodes are not observed in an analysis based on the pairwise clustering coefficient of the associated projected graph that has binary interactions, and hence higher order interactions are required to identify nodes with a large quad clustering coefficient.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">We introduce a clustering coefficient for nondirected and directed hypergraphs, which we call the quad clustering coefficient.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Connected components in networks with higher-order interactions</div>
+<div class="meta-line">Authors: Gyeong-Gyun Ha, Izaak Neri, Alessia Annibale</div>
+<div class="meta-line">Venue: J. Phys. Complex. 6, 045006 (2025)</div>
+<div class="meta-line">First: 2025-04-03T22:21:22+00:00 · Latest: 2026-10-19T11:16:11+00:00</div>
+<div class="meta-line">Comments: 40 pages, 10 figures. Corrected typos in equations (55)-(57), (63), (D.4), (D.5), Tables 2 and 3, and Figure 5 to match the published Corrigendum</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2504.03060v4">Abs</a> · <a href="https://arxiv.org/pdf/2504.03060v4">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">We address the problem of defining connected components in hypergraphs, which are models for systems with higher-order interactions. For graphs with dyadic interactions, connected components are defined in terms of paths connecting nodes along the graph. However, defining connected components in hypergraphs is a more involved problem, as one needs to consider the higher-order nature of the interactions associated with the hyperedge. Higher-order interactions can be taken into consideration through a logic associated with the hyperedges, two examples being OR-logic and AND-logic; these logical operations can be considered two limiting cases corresponding to non-cooperative and fully cooperative interactions, respectively. In this paper we show how connected components can be defined in hypergraphs with OR or AND logic. While OR-logic and AND-logic provide the same connected components for nondirected hypergraphs, for directed hypergraphs the strongly connected component of AND-logic is a subset of the OR-logic strongly connected component. Interestingly, higher-order interactions change the general topological properties of connected components in directed hypergraphs. Notably, while for directed graphs the strongly connected component is the intersection of its in- and out-component, in hypergraphs with AND-logic the intersection of in- and out-component does not equal the strongly connected component. We develop a theory for the fraction of nodes that are part of the largest connected component and through comparison with real-world data we show that degree-cardinality correlations play a significant role.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">We address the problem of defining connected components in hypergraphs, which are models for systems with higher-order interactions.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Higher-Order Co-Infection on Hypergraphs</div>
+<div class="meta-line">Authors: Katrina Liu, Laura P. Schaposnik</div>
+<div class="meta-line">First: 2026-10-19T09:31:18+00:00 · Latest: 2026-10-19T09:31:18+00:00</div>
+<div class="meta-line">Comments: 19 pages, 8 images</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.26072v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.26072v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">People encounter infections through overlapping groups, such as households, classrooms, and workplaces. Understanding how these shared contacts affect the spread of multiple pathogens is critical to determining what information epidemic models need to retain. We introduce HyCo-SIS (Higher-order Co-infection SIS), a discrete-time SIS model on hypergraphs with explicit reinforcement between overlapping active groups and pairwise transmission. We investigate how this reinforcement affects infection dynamics and whether simplified representations of hypergraphs preserve the resulting behavior. We derive an exact representation of overlap reinforcement as target-dependent four-person interactions and determine when a symmetric representation is possible. Numerical experiments examine reinforcement strength, contact structure, and susceptibility to secondary infection, as well as calibrated pairwise approximations. Our results demonstrate that redistributing overlap weights can substantially change finite-time co-infection even when every individual&#x27;s total overlap coefficient is preserved. We further derive an exact five-person calculation and demonstrate why equal mean infection pressure does not necessarily produce equal acquisition probabilities. These findings identify how the allocation of higher-order interactions can influence contagion dynamics beyond their aggregate strength. Beyond epidemiology, this work contributes to the statistical physics of spreading processes by examining how the arrangement of many-body interactions shapes collective dynamics, and what information is lost when those interactions are simplified.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">People encounter infections through overlapping groups, such as households, classrooms, and workplaces.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">A Faithful Discretization of Verbose Directional Transforms</div>
+<div class="meta-line">Authors: Brittany Terese Fasy, Samuel Micka, David L. Millman, Anna Schenfisch, Lucia Williams</div>
+<div class="meta-line">Venue: Discrete &amp; Computational Geometry, volume 75, pages 904-949 (2026)</div>
+<div class="meta-line">First: 2019-12-29T23:35:44+00:00 · Latest: 2026-10-19T09:07:03+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/1912.12759v7">Abs</a> · <a href="https://arxiv.org/pdf/1912.12759v7">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">The persistent homology transform, Betti function transform, and Euler characteristic transform represent a shape with a multiset of persistence diagrams, Betti functions, or Euler characteristic functions, respectively, parameterized by the sphere of directions in the ambient space. In this work, we give the first explicit construction of finite sets of directions discretizing the verbose variants of these transforms and show that such discretizations faithfully represent the underlying shape. Our discretization, while exponential in the dimension of the shape, does not depend on any restrictions on the particular immersion beyond general position, and is stable with respect to various perturbations.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">The persistent homology transform, Betti function transform, and Euler characteristic transform represent a shape with a multiset of persistence diagrams, Betti functions, or Euler characteristic functions, respectively, parameterized by the sphere of directions in the ambient space.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">PTOPOFL: Topology-Guided Personalised Federated Learning with Persistent-Homology Client Descriptors</div>
+<div class="meta-line">Authors: Kelly L Vomo-Donfack, Adryel Hoszu, Grégory Ginot, Ian Morilla</div>
+<div class="meta-line">First: 2026-03-04T17:44:39+00:00 · Latest: 2026-10-19T08:15:59+00:00</div>
+<div class="meta-line">Comments: 32 pages, 6 Figures. Revised version with fine theoretical demonstration on convergence. Also real clinical dataset added</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2603.04323v2">Abs</a> · <a href="https://arxiv.org/pdf/2603.04323v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Clustered and personalised federated learning (FL) needs a signal telling the server which clients should share a model. Most methods derive it from losses or model updates that must be recomputed during training. We study pTopoFL, which derives it once, before training, from a compact persistent-homology (PH) descriptor of each client&#x27;s feature distribution: the server clusters clients on these descriptors, weights them within clusters, and runs blended clustered local gradient descent, returning one personalised model per cluster. For strongly convex, smooth losses we analyse the complete procedure: for any partition, one round is a contraction with factor (1-eta*mu)^tau; the fixed point is characterised by a local-step drift bound, an exact formula for the effective strength of blending (which yields a calibration rule) and a stochastic floor exposing a bias-variance trade-off of clustering; and personalisation lowers the heterogeneity floor in proportion to a measurable share of the dispersion of client optima. Experiments on synthetic federations, a label-skew benchmark and a real four-hospital dataset confirm the theory and delimit the method. When feature geometry and decision rules co-vary, the PH partition recovers the latent client groups, including differences a linear-subspace descriptor misses, and pTopoFL is competitive with the strongest clustered baselines; on the real federation it lowers the test log-loss of FedAvg from 0.463 to 0.438, on par with the best personalised methods. When heterogeneity is invisible in feature geometry, it offers no advantage over FedAvg. pTopoFL transmits model parameters and is no more private than FedAvg; we give a record-level differential-privacy accounting and show that privatising the descriptor destroys the partition. Code reproduces every number.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Clustered and personalised federated learning (FL) needs a signal telling the server which clients should share a model.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">On simplicial maps with non-zero Hopf invariant</div>
+<div class="meta-line">Authors: Sergei Vad. Fomin</div>
+<div class="meta-line">First: 2026-10-18T21:57:52+00:00 · Latest: 2026-10-18T21:57:52+00:00</div>
+<div class="meta-line">Comments: 10 pages</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.25562v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.25562v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">In general, it is interesting to investigate the complexity of simplicial maps under various topological constraints. In this paper, we consider maps between (triangulated oriented rational homology) manifolds with non-zero Hopf invariant and establish bounds on the simplicial complexity of the fiber of a regular point. The lower bound, which is cubic in the dimension, is proved via a refinement of a theorem of S. Eilenberg. The upper bound is notable in that it is uniform with respect to the Hopf invariant.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">In general, it is interesting to investigate the complexity of simplicial maps under various topological constraints.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">LandscapeSHAP: Which Persistent Homology Class Gets the Credit?</div>
+<div class="meta-line">Authors: Nikola Milićević</div>
+<div class="meta-line">First: 2026-09-25T16:17:42+00:00 · Latest: 2026-10-18T18:33:53+00:00</div>
+<div class="meta-line">Comments: 42 pages, 11 figures, 1 table, fixed typos, fixed errors in Example 3.6, improved stability results, expanded bibliography</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.31469v2">Abs</a> · <a href="https://arxiv.org/pdf/2609.31469v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Shapley values, a solution concept from cooperative game theory, have recently become a standard tool for feature credit allocation in machine learning. They provide an axiomatically justified method to fairly distribute a model&#x27;s prediction among the data features. Shapley values have not yet been applied to explain machine learning models trained on features from topological data analysis. We develop what we believe is the first such approach, focusing on the persistence landscape featurization of persistence diagrams. Because each landscape coordinate is a rank statistic, crediting a model&#x27;s prediction back to individual persistent homology classes (persistence diagram points) is nontrivial. We introduce LandscapeSHAP, a method for fair credit allocation to persistence diagram points based on a model&#x27;s prediction. For linear models on persistence landscapes, LandscapeSHAP has a closed form expression that gives the exact Shapley value of every persistence diagram point. In particular, there is no coalition sampling required. We further prove that the four Shapley &quot;fairness&quot; axioms uniquely characterize this credit allocation for any model, not only linear ones. For a general nonlinear model, this unique value can only be calculated exactly from its defining coalition averaging formula, which requires considering all $2^N$ many coalitions, where $N$ is the number of points in the persistence diagram. This is computationally intractable for persistence diagrams of realistic size. We complement the exact linear model result with an efficient Monte Carlo sampling of persistence diagram coalitions. We give convergence rates in terms of number of samples needed to approximate to a desired degree of accuracy. We also prove stability results for the LandscapeSHAP credit allocation, for any model.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Shapley values, a solution concept from cooperative game theory, have recently become a standard tool for feature credit allocation in machine learning.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">HCFM: Helmholtz Component Flow Matching for Time Series Anomaly Detection</div>
+<div class="meta-line">Authors: Shyam Sundar Saravanan, Tie Luo, Sanjay Madria</div>
+<div class="meta-line">First: 2026-10-18T06:58:40+00:00 · Latest: 2026-10-18T06:58:40+00:00</div>
+<div class="meta-line">Comments: To appear as a conference paper in ICDE 2027</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.25059v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.25059v1">PDF</a> · <a href="https://github.com/TrustAIoT/HCFM__time-series-anomaly/">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Flow Matching (FM) is an efficient simulation-free approach for training flow-based generative models, making it a promising foundation for scalable time-series anomaly detection (TSAD). However, standard FM learns a monolithic vector field in which nominal transport and local density-changing behavior are entangled. This creates a central challenge for TSAD; local expansion and contraction carry crucial anomaly-sensitive information, yet isolating this signal requires expensive Jacobian-trace estimation over the entire field. We propose \emph{Helmholtz Component Flow Matching} (HCFM), an unsupervised TSAD framework that parameterizes the vector field prediction network with separate transport, compression, and residual heads. The transport head is constrained to be divergence-free, so divergence estimation is restricted to the compression head, while a lightweight residual head absorbs the remaining mismatch. This structured parameterization improves scalability and detection performance by separating volume-preserving nominal transport from density-changing compression, yielding cleaner anomaly signals from distinct deviations of nominal behavior. Experiments on large-scale univariate and multivariate TSAD benchmarks show that HCFM consistently improves detection accuracy while maintaining efficient inference compared with 16 baselines. The code is available at https://github.com/TrustAIoT/HCFM__time-series-anomaly/</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Flow Matching (FM) is an efficient simulation-free approach for training flow-based generative models, making it a promising foundation for scalable time-series anomaly detection (TSAD).</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Contrastive Hypergraph Source-free Domain Adaptive Object Detection in Adverse Weather Conditions--Extended Version</div>
+<div class="meta-line">Authors: Jicheng Yuan, Tung Kieu, Manh Nguyen-Duc, Manfred Hauswirth, Danh Le-Phuoc</div>
+<div class="meta-line">Venue: NeurIPS 2026</div>
+<div class="meta-line">First: 2026-10-17T07:45:56+00:00 · Latest: 2026-10-17T07:45:56+00:00</div>
+<div class="meta-line">Comments: 20 pages. An extended version of &quot;Contrastive Hypergraph Source-free Domain Adaptive Object Detection in Adverse Weather Conditions&quot; accepted at NeurIPS 2026</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.24532v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.24532v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Adverse weather conditions such as fog, rain, snow, and low illumination introduce structured visibility degradations that severely impair object detectors trained on clear-weather data. When source data are inaccessible due to privacy or trans- mission constraints, source-free domain adaptation (SFDA) becomes necessary. However, existing SFDA methods based on pairwise contrastive learning struggle to capture high-order semantics and often suffer from agreement collapse under severe corruption. We propose REUNION, a hypergraph-guided SFDA framework for object detection in adverse weather conditions. REUNION constructs a contrastive hypergraph over target-domain object proposals, encoding high-order relations through intra-image context, weather-aware grouping, prototype-based semantic anchors, and uncertainty-aware connections between reliable and low-confidence instances. To effectively exploit these structured relations, we introduce a group-wise Hyper-InfoNCE objective that optimizes representations at the hyperedge level, enabling semantic information to propagate from confident proposals to corrupted or low-contrast instances. Experiments with diverse benchmarks demonstrate that REUNION effectively mitigates domain shifts and achieves state-of-the-art performance in SFDA settings.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Adverse weather conditions such as fog, rain, snow, and low illumination introduce structured visibility degradations that severely impair object detectors trained on clear-weather data.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">A Topological Signature of Learning under Noisy Labels</div>
+<div class="meta-line">Authors: Zhongtian Sun, Fan Mo, Prayag Tiwari, Kelin Xia</div>
+<div class="meta-line">First: 2026-10-16T14:04:35+00:00 · Latest: 2026-10-16T14:04:35+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.23491v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.23491v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">How does noisy supervision change the representations learned by a neural network? Training accuracy measures agreement with training labels but provides little information about representation geometry. We use persistent homology to track loop structure across distance thresholds in neural activations. Experiments span image classification, text classification, and modular arithmetic. On a fixed CIFAR-10/ResNet-18 training probe, equally sized clean-label and corrupted-label subsets show no detectable persistence difference at epoch 10, whereas corrupted-label subsets have higher persistence at epoch 50. The contrast survives uniform-scale controls, even though predictions match the assigned noisy labels for only 7-11% of corrupted probe examples at that checkpoint. Normalisation preserves the crossover between clean and noisy training trajectories on CIFAR-10/ResNet-18, whereas CIFAR-100/ResNet-18 shows no crossover under any of the five evaluated constructions. In a separate noise-rate calibration comparison across five pipelines, mean activation norm achieves a higher mean in-sample R2 than raw persistence (0.936 versus 0.908). These findings show that noisy supervision leaves a measurable geometric signature even when agreement with corrupted labels is low. Comparing persistence under scale controls with label-fitting measurements offers a way to study how representations respond to label corruption beyond what training accuracy reveals.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">How does noisy supervision change the representations learned by a neural network?</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Uncovering Hierarchical Structure in LLM Embeddings Using Geometric and Topological Measures</div>
+<div class="meta-line">Authors: Prakash Chourasia, Sarwan Ali, Murray Patterson, Alex Zelikovsky</div>
+<div class="meta-line">First: 2025-12-24T04:15:36+00:00 · Latest: 2026-10-15T19:54:18+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2512.20926v4">Abs</a> · <a href="https://arxiv.org/pdf/2512.20926v4">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">The rapid advancement of large language models (LLMs) has driven major advances across scientific domains, yet the hierarchical, geometric, and topological structure of their embedding spaces remains poorly understood. In this work, we introduce a comprehensive framework for evaluating LLM embeddings through six complementary metrics that characterize hierarchy, geometry, and topology. Specifically, $δ$-hyperbolicity and ultrametricity quantify the degree of tree-like structure, while Neighbor Joining evaluates how well pairwise distances support hierarchical reconstruction. The Ollivier-Ricci curvature captures local geometric behavior, persistent homology measures multiscale topological stability, and fractal dimension estimates intrinsic complexity. Applying this framework to embeddings from multiple protein LLMs, we reveal how different models encode hierarchical relationships and structural organization. Evaluating the structure of these embeddings in the representation space helps improve geometry-aware model design. This is critical in domains such as bioinformatics and healthcare, where real-world hierarchical and relational structures matter. Our results demonstrate that geometric and topological analysis provides a guiding lens for understanding and potentially improving the representational quality of LLM embeddings.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">The rapid advancement of large language models (LLMs) has driven major advances across scientific domains, yet the hierarchical, geometric, and topological structure of their embedding spaces remains poorly understood.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Retrieval Over Training: Similarity search-based Model Selection for Time Series Anomaly Detection</div>
+<div class="meta-line">Authors: Christos Panourgias, Roberto Stanzione, Adrien Petralia, Themis Palpanas, Paul Boniol</div>
+<div class="meta-line">First: 2026-10-14T14:18:55+00:00 · Latest: 2026-10-15T11:07:21+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.20243v2">Abs</a> · <a href="https://arxiv.org/pdf/2610.20243v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Anomaly detection is a fundamental task for time-series analytics, with important implications for the downstream performance of many applications. Despite the large number of anomaly detection methods proposed in the literature, recent benchmark studies have shown that no single detector performs best across highly heterogeneous time series. Therefore, a practical and scalable solution is to develop a model-selection method that, for a given time series, selects the anomaly detector most likely to perform well. Nevertheless, the model selection approaches proposed in the literature suffer from a significant drop in accuracy when applied in Out-of-Distribution (OOD) settings. In this paper, we tackle the aforementioned limitation and propose RAMSAD, a retrieval-based framework for model selection in time-series anomaly detection. Given a new time series, our method queries a knowledge base of previously observed instances, retrieves the top-k most similar series, and transfers detector recommendations from their performance profiles. The framework can operate with standard similarity measures as well as embedding-based representations. Our results show that RAMSAD outperforms existing baselines in In-Distribution (ID) settings and is the most robust selector in OOD, where, when selecting a small subset of detectors, it matches or exceeds ensembles that run the entire detector pool, at a fraction of their cost. Overall, we demonstrate that similarity-based retrieval constitutes a strong and efficient foundation for model selection in time-series anomaly detection.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Anomaly detection is a fundamental task for time-series analytics, with important implications for the downstream performance of many applications.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Adaptive Domain Models: Bayesian Evolution, Warm Rotation, and Principled Training for Geometric and Neuromorphic AI</div>
+<div class="meta-line">Authors: Houston Haynes</div>
+<div class="meta-line">First: 2026-03-18T12:36:19+00:00 · Latest: 2026-10-15T10:19:57+00:00</div>
+<div class="meta-line">Comments: 30 pages, 0 figures, 2 tables. Updated for contributions from Karwowski et al</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2603.18104v7">Abs</a> · <a href="https://arxiv.org/pdf/2603.18104v7">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Transformer-based large language models have become a prominent focus of machine learning. We develop adaptive domain models to supply domain-specific predictions and checks within language-model pipelines, as well as to serve direct machine automation efficiently. Their predictions can inform generation, while declared constraints and error bounds support checks on the calculations underlying proposed responses and actions. These feedforward and feedback paths aim to reduce domain errors while supporting use cases such as constraint solving for machine processes as well as preserving accuracy in a language model&#x27;s conversational setting. Physical dimensions and geometric support restrict admissible computation, while a probability model expresses uncertainty. Our type and program hypergraph work connects these relationships to numerical and deployment obligations. We derive a natural-gradient calculation over forward tangent directions using a declared program metric, with a calibration example and a bound separating metric, derivative and solve errors. Forward differentiation and posit accumulation expose complementary resource and error tradeoffs. Our worked linear-Gaussian update connects posterior computation to error and a distribution-shift decision. Recent results from Urschel bound elimination growth probabilistically under distinct Gaussian-input and random-preconditioning hypotheses. Our unique approach to warm rotation binds candidate parameters to their numerical evidence and destination while each request observes a coherent model and state. We propose Bayesian distillation as a source of prior information. Our architecture offers a route to domain computations with explicit guarantees that can guide automated decisions and model responses. We specify experiments to evaluate prediction quality, domain errors across conversational turns, and total resource cost.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Transformer-based large language models have become a prominent focus of machine learning.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Decidable By Construction: Design-Time Verification for Truly Fearless Systems</div>
+<div class="meta-line">Authors: Houston Haynes</div>
+<div class="meta-line">First: 2026-03-26T13:09:36+00:00 · Latest: 2026-10-15T10:16:36+00:00</div>
+<div class="meta-line">Comments: 34 pages, 0 figures, 4 tables. Updated for contributions from Karwowski et al</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2603.25414v6">Abs</a> · <a href="https://arxiv.org/pdf/2603.25414v6">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Concurrency, parallelism and distributed execution become truly fearless when the compiler tracks wait-for edges, proves multi-threaded work is sound and preserves distributed boundary contracts. In this design, our Composer compiler preserves proofs while lowering Clef directly to native CPU, GPU, NPU and FPGA code, without translation through C or vendor APIs. Our Program Semantic Graph retains the values, relationships and premises that justify BAREWire&#x27;s unboxed boundary contracts. And C &amp; C++ interfacing is an explicit marshaling boundary, with proofs tied to actual arguments, conversions and returned values. Four verification tiers connect an account of our design. Tier 1 supplies structural inference, founded on principal dimensional types. Tier 2 generates and checks local arithmetic, representation, and computational integrity at the node level. Tier 3 instantiates reusable domain and system lemmas, including distributed proofs supported by Iris, Actris and Aneris. Tiers 1-3 require no developer annotations, with a quotation based lemma library design to extend coverage as use cases expand. Tier 4 admits computational and probabilistic relational proofs, with project annotations identifying the required relations. We extend the same library direction toward recognizing relational constructions from hypergraph structure. A formal composition rule connects arithmetic, ownership, protocol and realization evidence. Our worked distributed reduction preserves one specified result across concurrent workers, reordered arrivals and boundary mappings. Its probabilistic extension carries worker and conversion error with an explicit failure budget. With recent work by Urschel, we show bounds supply a relevant source of reusable proof terms. These constructions make verification a core engineering discipline for truly fearless programs and systems across a variety of hardware targets.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Concurrency, parallelism and distributed execution become truly fearless when the compiler tracks wait-for edges, proves multi-threaded work is sound and preserves distributed boundary contracts.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Sparse Contextual Coupling Reshapes Diffusion Geometry in Multilayer Hypergraphs</div>
+<div class="meta-line">Authors: Hao Ding, Sanjukta Krishnagopal</div>
+<div class="meta-line">First: 2026-05-19T20:06:54+00:00 · Latest: 2026-10-14T21:14:01+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.20454v2">Abs</a> · <a href="https://arxiv.org/pdf/2605.20454v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Many complex systems combine dense background structure with sparse contextual information. We introduce a diffusion-based framework for analyzing how sparse condition-specific layers reshape diffusion geometry in multilayer hypergraphs. Each layer is represented as a weighted hypergraph, layers are coupled through shared entities, and random walks on the coupled system induce multiscale diffusion distances between nodes.
+  We apply the framework to disease-conditioned gene networks by coupling a dense MSigDB functional gene-set layer to sparse disease-specific DGIdb drug-gene hypergraphs, with disease-associated drugs selected from DDDB and HumanNet-GSP used to define external gene weights. Across Bipolar Disorder, Schizophrenia, Leukemia, and Breast Cancer, the disease-specific layer contains less than 2 percent of genes in the coupled system, yet substantially changes diffusion distances and community structure. Centrality analysis suggests that this disproportionate effect arises because DGIdb-associated genes occupy influential positions in the MSigDB-derived functional network.
+  The resulting diffusion-derived communities are stable under subsampling and show coherent post hoc functional enrichment, including signaling and neurotransmission categories in neuropsychiatric diseases and immune, translational, and metabolic categories in cancer-associated diseases. Community-level comparisons further reveal disease similarities not reducible to direct DGIdb gene overlap, including a Breast Cancer-Schizophrenia relationship consistent with recent biomedical evidence. These results show that sparse contextual layers can induce interpretable nonlocal changes in higher-order network geometry.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Many complex systems combine dense background structure with sparse contextual information.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Learning Topology-Aware Representations for Mechanics-Relevant TPMS Metamaterials</div>
+<div class="meta-line">Authors: Songlin Duan, Shuo Yang, Yujia Zheng, Tobin Filleter</div>
+<div class="meta-line">First: 2026-10-14T16:38:20+00:00 · Latest: 2026-10-14T16:38:20+00:00</div>
+<div class="meta-line">Comments: 29 pages, 10 figures</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.20684v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.20684v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Learning informative representations of mechanical Triply Periodic Minimal Surface (TPMS) metamaterials is important for mechanics analysis and structural design, yet existing methods have rarely explicitly supervised learned representations with information about global structural connectivity that is relevant to mechanical response. We propose a topology-aware representation learning framework that integrates persistent homology into a DMAE backbone to explicitly encode global structural connectivity. A persistence-guided masking strategy prioritizes patches associated with persistent topological features, while an auxiliary persistent-homology decoder encourages the latent representation to retain information about topological feature counts across connected components, tunnels, and voids. We evaluate the learned representations on two complementary TPMS datasets using family classification, mechanical-property classification, unsupervised clustering, and regression. Across the two datasets, our method demonstrates strong performance in both structural family and mechanical-property classification, improving family classification by up to 3.9% while achieving the best linear-probe performance. More notably, unsupervised property-clustering performance improves by up to 26.7% and 51.5% across the two datasets, while strong regression performance is retained with $R^2=0.993$. These results establish persistent topology as an effective inductive bias for representation learning of complex three-dimensional mechanical metamaterials.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Learning informative representations of mechanical Triply Periodic Minimal Surface (TPMS) metamaterials is important for mechanics analysis and structural design, yet existing methods have rarely explicitly supervised learned representations with information about global structural connectivity that is relevant to mechanical response.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Tracking a Small Set of Experts in Online Convex Optimization</div>
+<div class="meta-line">Authors: Angelos Assos, Anand Brahmbhatt, Elad Hazan</div>
+<div class="meta-line">First: 2026-10-14T16:13:03+00:00 · Latest: 2026-10-14T16:13:03+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.20416v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.20416v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">For the fundamental problem of prediction from expert advice, Freund asked whether one could compete with a comparator that switches $k$ times among only $m$ experts. For a discrete set of experts, this problem was resolved by Bousquet and Warmuth (2020), who gave an efficient algorithm with optimal regret matching the information-theoretic limit.
+  We study the analogous problem in online convex optimization, where the action space is continuous. An inefficient algorithm can be derived by discretizing the action space and applying the Bousquet--Warmuth algorithm, giving regret of $\widetilde{O}(md+k)$, while the best known efficient algorithm for this problem has regret $\widetilde{O}(dk)$. We show that this computational inefficiency is inherent, establishing a separation between the information-theoretic and polynomial-time regret achievable for this problem. Specifically, under the hypergraphic planted-clique conjecture, we show that for every polynomial-time algorithm there exist instances for which it incurs at least $(k\sqrt d)^{1-o(1)}$ regret.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">For the fundamental problem of prediction from expert advice, Freund asked whether one could compete with a comparator that switches $k$ times among only $m$ experts.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">From Human Corrections to Learned Segmentations: A Critical Mathematical Review of Information, Learning, and Human Effort</div>
+<div class="meta-line">Authors: Jon Sporring</div>
+<div class="meta-line">First: 2026-10-14T16:00:20+00:00 · Latest: 2026-10-14T16:00:20+00:00</div>
+<div class="meta-line">Comments: 40 pages, literature-selection and search record included</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.20396v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.20396v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">When does a human correction become useful learning, and what establishes better segmentation at matched human effort? This critical narrative review follows feedback through its selection, learner update, and evaluation. It compares active learning, machine teaching, interactive segmentation, and sequential predictive evaluation using a common mathematical account of target information, predictive error, response predictability, and human work. An exact Bayesian update converts evaluation-label information into expected log-loss improvement; an excess-risk decomposition explains what an approximate learner can lose. Conditional information decompositions separate the roles of selected locations, labels, and displayed context. Empirical comparisons show why response protocols, update mechanisms, and effort denominators matter, distinguishing current-mask refinement from reusable learning and simulated interaction from human evidence. We identify what logs can reveal, what requires independent evaluation, and what remains model-dependent. The resulting research priorities are to test what selection reveals, whether using it improves assimilation, and whether the resulting interaction policy benefits segmentation at matched effort. These are distinct claims: predicting a teacher&#x27;s responses need not identify human intentions or establish better learning. No new acquisition algorithm or empirical superiority is claimed.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">When does a human correction become useful learning, and what establishes better segmentation at matched human effort?</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Discrete Morse Theory for Computing Filtered Cosheaf Homology</div>
+<div class="meta-line">Authors: Neria Baris</div>
+<div class="meta-line">First: 2026-10-14T15:45:17+00:00 · Latest: 2026-10-14T15:45:17+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.20376v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.20376v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">This paper addresses the computation of persistent homology for filtrations of cellular cosheaves over a fixed cell complex, where the algebraic data vary along the filtration while the underlying topological structure remains unchanged. We extend methods from discrete Morse theory to this setting, establishing conditions under which chain complexes can be reduced while preserving the associated persistence module. Building on these results, we introduce &quot;FilteredScythe&quot;, an algorithm that identifies Morse matchings compatible with all stages of the filtration and performs reductions using Schur complements, based on the exist &quot;Scythe&quot; algorithm. We prove the correctness of these reductions and establish bounds on the algorithm&#x27;s time and space complexity.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">This paper addresses the computation of persistent homology for filtrations of cellular cosheaves over a fixed cell complex, where the algebraic data vary along the filtration while the underlying topological structure remains unchanged.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Topology-Aware Representation Alignment for Semi-Supervised Vision-Language Learning</div>
+<div class="meta-line">Authors: Junwon You, Mihyun Jang, Sangwoo Mo, Jae-Hun Jung</div>
+<div class="meta-line">First: 2026-04-29T07:30:33+00:00 · Latest: 2026-10-14T14:28:53+00:00</div>
+<div class="meta-line">Comments: 38 pages, 13 figures, 32 tables</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2604.26370v2">Abs</a> · <a href="https://arxiv.org/pdf/2604.26370v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Vision-language models have shown strong performance, but they often generalize poorly to specialized domains. While semi-supervised vision-language learning mitigates this limitation by leveraging a small set of labeled image-text pairs together with abundant unlabeled images, existing methods remain fundamentally pairwise and fail to model the global structure of multimodal representation manifolds. Most existing topology-based alignment methods rely on persistence diagram matching, which neither guarantees geometric alignment nor uses the image-text pairing information central to vision-language learning. We propose Topology-Aware Representation Alignment for Semi-Supervised Vision-Language Learning (ToMA), a framework that uses persistent homology to decompose pairwise relations into $H_0$-death and $H_1$-birth relations and aligns them across modalities through available cross-modal correspondences. This lightweight decomposition captures both connectivity and cycle-closing structure without constructing 2-simplices. Experiments show clear improvements on remote sensing, while fashion results reveal strong gains in classification and particularly strong retrieval improvements for difficult queries. Additional analysis shows that ToMA provides more consistent gains than alternative topology-based objectives and that lightweight $H_1$-birth edges provide useful higher-order structural signals.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Vision-language models have shown strong performance, but they often generalize poorly to specialized domains.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Causally-Constrained Probabilistic Forecasting for Time-Series Anomaly Detection</div>
+<div class="meta-line">Authors: Pooyan Khosravinia, João Gama, Bruno Veloso</div>
+<div class="meta-line">First: 2026-04-20T09:24:28+00:00 · Latest: 2026-10-14T13:48:21+00:00</div>
+<div class="meta-line">Comments: This work is currently under review for possible publication in the IEEE Access journal. All intellectual property rights are retained by IEEE</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2604.17998v2">Abs</a> · <a href="https://arxiv.org/pdf/2604.17998v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Anomaly detection in multivariate time series is a central challenge in industrial monitoring, as failures frequently arise from complex temporal dynamics and cross-sensor interactions. While recent deep learning models, including graph neural networks and Transformers, have demonstrated strong empirical performance, most approaches remain primarily correlational and offer limited support for causal interpretation and root-cause localization. This study introduces a causally-constrained probabilistic forecasting framework which is a Causally Guided Transformer (CGT) model for multivariate time-series anomaly detection, integrating an explicit time-lagged causal graph prior with deep sequence modeling. For each target variable, a dedicated forecasting block employs a hard parent mask derived from causal discovery to restrict the main prediction pathway to graph-supported causes, while a latent Gaussian head captures predictive uncertainty. To leverage residual correlational information without compromising the causal representation, a shadow auxiliary path with stop-gradient isolation and a safety-gated blending mechanism is incorporated to suppress non-causal contributions when reliability is low. Anomalies are identified using negative log-likelihood scores with adaptive streaming thresholding, and root-cause variables are determined through per-dimension probabilistic attribution and counterfactual clamping. Experiments on the ASD and SMD benchmarks indicate that the proposed method achieves state-of-the-art detection performance, with F1-scores of 96.19% on ASD and 95.32% on SMD, and enhances variable-level attribution quality. These findings suggest that causal structural priors can improve both robustness and interpretability in detecting deep anomalies in multivariate sensor systems.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Anomaly detection in multivariate time series is a central challenge in industrial monitoring, as failures frequently arise from complex temporal dynamics and cross-sensor interactions.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Uncovering higher-order interactions from memory in observed dynamics</div>
+<div class="meta-line">Authors: Arthur Rondeau, Alain Barrat, Roland Bouffanais</div>
+<div class="meta-line">First: 2026-10-14T12:34:03+00:00 · Latest: 2026-10-14T12:34:03+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.20095v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.20095v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Many complex systems involve group interactions, which can readily be represented by higher-order structures such as hypergraphs. However, when observing a system&#x27;s dynamical evolution, establishing whether that evolution actually results from higher-order interactions, or whether pairwise interactions suffice to explain the data, remains a challenge. Even in the simple case of a temporal sequence of nodes visited during a diffusion process, such a task is intricate. Indeed, group interactions leave their traces as memory on the observed nodes, while path dependence in a purely pairwise process can mimic that same footprint without any group structure. To resolve this, we propose an inference pipeline based on a hidden Markov model (HMM) that tests, directly from an observed sequence of nodes carrying no group labels, whether higher-order interactions are required to describe the dynamics. The HMM latent states represent higher-order interactions, seen as hyperedges of an unobserved hypergraph, so that their detection becomes a model selection problem between the HMM class and a class of null models without higher-order interactions. We first validate this approach on synthetic node sequences generated from random walks on graphs and hypergraphs, showing that it recovers both the number and the composition of the underlying hyperedges, while correctly rejecting them when the generating process is pairwise. As a second step, we consider a validation based on empirical data, namely empirical trajectories of ball possession in football matches. This application shows that the pipeline goes beyond providing statistical evidence of the presence of higher-order interactions, and yields interpretable underlying structures: the recovered hyperedges map directly onto recognizable tactical team formations.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Many complex systems involve group interactions, which can readily be represented by higher-order structures such as hypergraphs.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Participation-Sensitive Convergence and the Fragment First, Converge Later Pattern in Asynchronous Online Learning: A Topological Analysis Across 22 OULAD Courses</div>
+<div class="meta-line">Authors: Hitoshi Inoue, Koichi Yasutake</div>
+<div class="meta-line">Venue: Proceedings of ICLEA 2026: 2nd International Conference on Learning Evidence and Analytics, Asia-Pacific Society for Computers in Education, 2026</div>
+<div class="meta-line">First: 2026-10-01T14:10:36+00:00 · Latest: 2026-10-14T11:25:52+00:00</div>
+<div class="meta-line">Comments: Author&#x27;s version, posted under the non-commercial rights retained in the APSCE copyright transfer agreement. v2: method description corrected - epsilon = 1.5 (not 1.00), connected components computed directly (no persistent-homology library), beta0 over weekly-active learners (not a fixed cohort). Results unchanged</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.01738v2">Abs</a> · <a href="https://arxiv.org/pdf/2610.01738v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Asynchronous online learning offers temporal flexibility at a structural cost: learning communities tend to fragment rather than cohere. $β_0$, the number of disconnected behavioral clusters from Zigzag Persistent Homology, serves as a cohort-level indicator of this structure. Two questions remained unverified at scale: (1) does apparent $β_0$ convergence reflect genuine behavioral alignment or learner dropout? and (2) do assessment deadlines produce reproducible fragmentation-convergence cycles? We address both across all 22 OULAD courses (N &gt; 22,000; 857 week-pairs). Changes in $β_0$ strongly co-vary with active learner changes (pooled r = 0.387; median per-course r_delta = 0.459, 20/22 courses), identifying $β_0$ as a participation-sensitive indicator: $β_0$ and active learner counts co-respond to deadline events rather than one causing the other. Deadlines produced fragmentation in 82.6% of assessments and the full Fragment First, Converge Later (FFCL) cycle in 60.2%. 3-phase analysis confirmed structural fragmentation as the dominant long-term trajectory (90.9% of courses), moderated by curriculum structure. These findings establish $β_0$ as a participation-sensitive structural indicator with direct implications for AI-augmented learning analytics design.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Asynchronous online learning offers temporal flexibility at a structural cost: learning communities tend to fragment rather than cohere.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Persistence and Topological Complexity</div>
+<div class="meta-line">Authors: Facundo Mémoli, Ling Zhou</div>
+<div class="meta-line">First: 2025-06-22T03:39:45+00:00 · Latest: 2026-10-14T03:07:39+00:00</div>
+<div class="meta-line">Comments: 49 pages, 4 figures, 4 tables</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2506.17888v3">Abs</a> · <a href="https://arxiv.org/pdf/2506.17888v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Topological complexity is a homotopy invariant that measures the minimal number of continuous rules required for motion planning in a space. In this work, we introduce persistent analogs of topological complexity and its cohomological lower bound, the zero-divisor-cup-length, for persistent topological spaces, and establish their stability. For Vietoris--Rips filtrations of metric spaces, we show that the erosion distances between these persistent invariants are bounded above by twice the Gromov--Hausdorff distance. We develop metric models of classical topological spaces based on cube boundaries with the $\ell_\infty$ metric and their products and wedges, allowing explicit computations of persistent invariants and their distances. These examples show that, in certain cases, persistent topological complexity and zero-divisor-cup-length distinguish spaces that persistent homology, persistent LS-category, and persistent cup-length fail to distinguish.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Topological complexity is a homotopy invariant that measures the minimal number of continuous rules required for motion planning in a space.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">A finite-element-inspired bipartite graph learned simulator for manufacturability assessment in large-deformation sheet forming</div>
+<div class="meta-line">Authors: Yingxue Zhao, Haoran Li, Haosu Zhou, Tobias Pfaff, Nan Li</div>
+<div class="meta-line">First: 2026-05-14T17:12:44+00:00 · Latest: 2026-10-13T23:27:46+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.22845v3">Abs</a> · <a href="https://arxiv.org/pdf/2605.22845v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Explicit dynamic finite element (FE) simulations are widely used for large-deformation analysis but remain expensive for design-space exploration. In explicit FE analysis, nodal kinematics and element-level deformation measures evolve through a coupled node-element update process. An FE-inspired learned simulator can preserve this structure and learn nodal kinematics and elemental deformation on their native domains. Nodal displacement describes geometry evolution, while elemental thinning identifies local deformation and critical regions. Feeding both outputs back during rollout allows each field to inform subsequent updates of the other. This work proposes CAtt-BiGNN, a cross-attention-based bipartite graph neural network for coupled nodal-elemental learning. The bipartite graph encodes FE-guided state organisation and information flow without imposing equilibrium or constitutive constraints. Mesh nodes and elements are represented as distinct graph entities connected by directed node-element edges, enabling prediction of nodal displacement increments and elemental deformation on their native domains. An edge-aware cross-attention processor dynamically updates edge representations and weights messages using the receiving state and evolving local relations. For larger graphs, CAtt-BiUGNN uses separate nodal and elemental downsampling and upsampling to enhance long-range propagation while preserving their interaction across graph levels. The method is evaluated on dome-shaped cold-forming and corner-shaped hot-forming benchmarks. Comparisons with node-centred baselines, an FE-inspired hypergraph model, a Physics-Attention-based neural operator, a graph Transformer, and attention ablations show improved joint accuracy in nodal displacement and elemental thinning prediction during autoregressive rollout.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Explicit dynamic finite element (FE) simulations are widely used for large-deformation analysis but remain expensive for design-space exploration.</div>
+</details>
+</div></div>
+    <details style="margin-top:16px" class="detail"><summary>History</summary>
+      <div class="history-list"><a href="archive/20261020_2033.html">20261020_2033</a>
+<a href="archive/20261019_2221.html">20261019_2221</a>
+<a href="archive/20261018_1957.html">20261018_1957</a>
+<a href="archive/20261017_1923.html">20261017_1923</a>
+<a href="archive/20261016_2013.html">20261016_2013</a>
+<a href="archive/20261015_2034.html">20261015_2034</a>
+<a href="archive/20261014_2040.html">20261014_2040</a>
+<a href="archive/20261013_0030.html">20261013_0030</a>
+<a href="archive/20261011_2147.html">20261011_2147</a>
+<a href="archive/20261010_2118.html">20261010_2118</a>
+<a href="archive/20261009_2210.html">20261009_2210</a>
+<a href="archive/20261008_2223.html">20261008_2223</a>
+<a href="archive/20261007_2213.html">20261007_2213</a>
+<a href="archive/20261006_2156.html">20261006_2156</a>
+<a href="archive/20261005_2334.html">20261005_2334</a>
+<a href="archive/20261004_2103.html">20261004_2103</a>
+<a href="archive/20261003_2015.html">20261003_2015</a>
+<a href="archive/20261002_2135.html">20261002_2135</a>
+<a href="archive/20261001_2211.html">20261001_2211</a>
+<a href="archive/20260930_2121.html">20260930_2121</a>
+<a href="archive/20260929_2145.html">20260929_2145</a>
+<a href="archive/20260928_2257.html">20260928_2257</a>
+<a href="archive/20260927_2046.html">20260927_2046</a>
+<a href="archive/20260926_2005.html">20260926_2005</a>
+<a href="archive/20260925_2035.html">20260925_2035</a>
+<a href="archive/20260923_2034.html">20260923_2034</a>
+<a href="archive/20260922_2022.html">20260922_2022</a>
+<a href="archive/20260921_2137.html">20260921_2137</a>
+<a href="archive/20260920_2002.html">20260920_2002</a>
+<a href="archive/20260919_1948.html">20260919_1948</a>
+<a href="archive/20260918_2005.html">20260918_2005</a>
+<a href="archive/20260917_2026.html">20260917_2026</a>
+<a href="archive/20260916_2026.html">20260916_2026</a>
+<a href="archive/20260912_1929.html">20260912_1929</a>
+<a href="archive/20260911_2002.html">20260911_2002</a>
+<a href="archive/20260910_2004.html">20260910_2004</a>
+<a href="archive/20260909_2010.html">20260909_2010</a>
+<a href="archive/20260908_2000.html">20260908_2000</a>
+<a href="archive/20260907_2118.html">20260907_2118</a>
+<a href="archive/20260906_1932.html">20260906_1932</a>
+<a href="archive/20260905_1916.html">20260905_1916</a>
+<a href="archive/20260904_2006.html">20260904_2006</a>
+<a href="archive/20260903_2002.html">20260903_2002</a>
+<a href="archive/20260902_2004.html">20260902_2004</a>
+<a href="archive/20260901_2030.html">20260901_2030</a>
+<a href="archive/20260831_2258.html">20260831_2258</a>
+<a href="archive/20260830_2044.html">20260830_2044</a>
+<a href="archive/20260829_2106.html">20260829_2106</a>
+<a href="archive/20260829_0322.html">20260829_0322</a>
+<a href="archive/20260828_0213.html">20260828_0213</a>
+<a href="archive/20260826_1551.html">20260826_1551</a>
+<a href="archive/20260825_1548.html">20260825_1548</a>
+<a href="archive/20260824_1603.html">20260824_1603</a>
+<a href="archive/20260823_1538.html">20260823_1538</a>
+<a href="archive/20260822_1537.html">20260822_1537</a>
+<a href="archive/20260821_1547.html">20260821_1547</a>
+<a href="archive/20260820_1547.html">20260820_1547</a>
+<a href="archive/20260819_1544.html">20260819_1544</a>
+<a href="archive/20260818_1544.html">20260818_1544</a>
+<a href="archive/20260817_1559.html">20260817_1559</a>
+<a href="archive/20260816_1530.html">20260816_1530</a>
+<a href="archive/20260815_1529.html">20260815_1529</a>
+<a href="archive/20260814_1621.html">20260814_1621</a>
+<a href="archive/20260813_1627.html">20260813_1627</a>
+<a href="archive/20260811_1611.html">20260811_1611</a>
+<a href="archive/20260810_1626.html">20260810_1626</a>
+<a href="archive/20260809_1553.html">20260809_1553</a>
+<a href="archive/20260808_1548.html">20260808_1548</a>
+<a href="archive/20260807_1620.html">20260807_1620</a>
+<a href="archive/20260806_1746.html">20260806_1746</a>
+<a href="archive/20260805_1743.html">20260805_1743</a>
+<a href="archive/20260804_1745.html">20260804_1745</a>
+<a href="archive/20260803_1842.html">20260803_1842</a>
+<a href="archive/20260802_1715.html">20260802_1715</a>
+<a href="archive/20260731_1751.html">20260731_1751</a>
+<a href="archive/20260730_1730.html">20260730_1730</a>
+<a href="archive/20260729_1737.html">20260729_1737</a>
+<a href="archive/20260728_1736.html">20260728_1736</a>
+<a href="archive/20260727_1841.html">20260727_1841</a>
+<a href="archive/20260726_1712.html">20260726_1712</a>
+<a href="archive/20260725_1701.html">20260725_1701</a>
+<a href="archive/20260724_1727.html">20260724_1727</a>
+<a href="archive/20260723_1724.html">20260723_1724</a>
+<a href="archive/20260722_1733.html">20260722_1733</a>
+<a href="archive/20260721_1734.html">20260721_1734</a>
+<a href="archive/20260720_1806.html">20260720_1806</a>
+<a href="archive/20260719_1712.html">20260719_1712</a>
+<a href="archive/20260718_1655.html">20260718_1655</a>
+<a href="archive/20260717_1716.html">20260717_1716</a>
+<a href="archive/20260716_1720.html">20260716_1720</a>
+<a href="archive/20260715_1717.html">20260715_1717</a>
+<a href="archive/20260714_1714.html">20260714_1714</a>
+<a href="archive/20260713_1825.html">20260713_1825</a>
+<a href="archive/20260712_1711.html">20260712_1711</a>
+<a href="archive/20260711_1655.html">20260711_1655</a>
+<a href="archive/20260710_1832.html">20260710_1832</a>
+<a href="archive/20260709_1832.html">20260709_1832</a>
+<a href="archive/20260707_1825.html">20260707_1825</a>
+<a href="archive/20260706_1936.html">20260706_1936</a>
+<a href="archive/20260705_1750.html">20260705_1750</a>
+<a href="archive/20260704_1731.html">20260704_1731</a>
+<a href="archive/20260703_1806.html">20260703_1806</a>
+<a href="archive/20260702_1810.html">20260702_1810</a>
+<a href="archive/20260701_1842.html">20260701_1842</a>
+<a href="archive/20260630_1831.html">20260630_1831</a>
+<a href="archive/20260629_1959.html">20260629_1959</a>
+<a href="archive/20260628_1758.html">20260628_1758</a>
+<a href="archive/20260627_1736.html">20260627_1736</a>
+<a href="archive/20260626_1823.html">20260626_1823</a>
+<a href="archive/20260625_1824.html">20260625_1824</a>
+<a href="archive/20260624_1823.html">20260624_1823</a>
+<a href="archive/20260623_1846.html">20260623_1846</a>
+<a href="archive/20260622_2050.html">20260622_2050</a>
+<a href="archive/20260621_1839.html">20260621_1839</a>
+<a href="archive/20260620_1817.html">20260620_1817</a>
+<a href="archive/20260619_1929.html">20260619_1929</a>
+<a href="archive/20260618_1919.html">20260618_1919</a>
+<a href="archive/20260617_1956.html">20260617_1956</a>
+<a href="archive/20260616_2021.html">20260616_2021</a>
+<a href="archive/20260615_2121.html">20260615_2121</a>
+<a href="archive/20260614_1824.html">20260614_1824</a>
+<a href="archive/20260613_1757.html">20260613_1757</a>
+<a href="archive/20260612_1901.html">20260612_1901</a>
+<a href="archive/20260611_1923.html">20260611_1923</a>
+<a href="archive/20260610_1856.html">20260610_1856</a>
+<a href="archive/20260609_1835.html">20260609_1835</a>
+<a href="archive/20260608_1958.html">20260608_1958</a>
+<a href="archive/20260607_1800.html">20260607_1800</a>
+<a href="archive/20260605_1846.html">20260605_1846</a>
+<a href="archive/20260602_1918.html">20260602_1918</a>
+<a href="archive/20260601_2037.html">20260601_2037</a>
+<a href="archive/20260531_1748.html">20260531_1748</a>
+<a href="archive/20260530_1715.html">20260530_1715</a>
+<a href="archive/20260527_1856.html">20260527_1856</a>
+<a href="archive/20260525_1919.html">20260525_1919</a>
+<a href="archive/20260524_1729.html">20260524_1729</a>
+<a href="archive/20260523_1711.html">20260523_1711</a>
+<a href="archive/20260521_1848.html">20260521_1848</a>
+<a href="archive/20260519_1847.html">20260519_1847</a>
+<a href="archive/20260516_1657.html">20260516_1657</a>
+<a href="archive/20260515_1758.html">20260515_1758</a>
+<a href="archive/20260513_1754.html">20260513_1754</a>
+<a href="archive/20260512_1754.html">20260512_1754</a>
+<a href="archive/20260511_1851.html">20260511_1851</a>
+<a href="archive/20260510_1707.html">20260510_1707</a>
+<a href="archive/20260509_1642.html">20260509_1642</a>
+<a href="archive/20260508_1636.html">20260508_1636</a>
+<a href="archive/20260507_1749.html">20260507_1749</a>
+<a href="archive/20260506_1740.html">20260506_1740</a>
+<a href="archive/20260505_1800.html">20260505_1800</a>
+<a href="archive/20260505_1132.html">20260505_1132</a>
+<a href="archive/20260504_1808.html">20260504_1808</a>
+<a href="archive/20260504_0410.html">20260504_0410</a>
+<a href="archive/20260503_0414.html">20260503_0414</a>
+<a href="archive/20260502_0426.html">20260502_0426</a>
+<a href="archive/20260501_0429.html">20260501_0429</a>
+<a href="archive/20260430_0430.html">20260430_0430</a>
+<a href="archive/20260429_0437.html">20260429_0437</a>
+<a href="archive/20260428_0429.html">20260428_0429</a>
+<a href="archive/20260427_0405.html">20260427_0405</a>
+<a href="archive/20260426_0404.html">20260426_0404</a>
+<a href="archive/20260425_0410.html">20260425_0410</a>
+<a href="archive/20260424_0430.html">20260424_0430</a>
+<a href="archive/20260423_0426.html">20260423_0426</a>
+<a href="archive/20260422_0424.html">20260422_0424</a>
+<a href="archive/20260421_0418.html">20260421_0418</a>
+<a href="archive/20260420_0359.html">20260420_0359</a>
+<a href="archive/20260419_0358.html">20260419_0358</a>
+<a href="archive/20260418_0415.html">20260418_0415</a>
+<a href="archive/20260417_0421.html">20260417_0421</a>
+<a href="archive/20260416_0425.html">20260416_0425</a>
+<a href="archive/20260415_0426.html">20260415_0426</a>
+<a href="archive/20260414_0423.html">20260414_0423</a>
+<a href="archive/20260413_0352.html">20260413_0352</a>
+<a href="archive/20260412_0347.html">20260412_0347</a>
+<a href="archive/20260411_0356.html">20260411_0356</a>
+<a href="archive/20260410_0412.html">20260410_0412</a>
+<a href="archive/20260409_0411.html">20260409_0411</a>
+<a href="archive/20260407_0404.html">20260407_0404</a>
+<a href="archive/20260406_0347.html">20260406_0347</a>
+<a href="archive/20260405_0344.html">20260405_0344</a>
+<a href="archive/20260404_0350.html">20260404_0350</a>
+<a href="archive/20260403_0400.html">20260403_0400</a>
+<a href="archive/20260401_0408.html">20260401_0408</a>
+<a href="archive/20260331_0407.html">20260331_0407</a>
+<a href="archive/20260329_0347.html">20260329_0347</a>
+<a href="archive/20260328_0350.html">20260328_0350</a>
+<a href="archive/20260326_0357.html">20260326_0357</a>
+<a href="archive/20260325_0405.html">20260325_0405</a>
+<a href="archive/20260324_0400.html">20260324_0400</a>
+<a href="archive/20260323_0342.html">20260323_0342</a>
+<a href="archive/20260322_0340.html">20260322_0340</a>
+<a href="archive/20260321_0347.html">20260321_0347</a>
+<a href="archive/20260320_0356.html">20260320_0356</a>
+<a href="archive/20260319_0358.html">20260319_0358</a>
+<a href="archive/20260318_0405.html">20260318_0405</a>
+<a href="archive/20260317_0401.html">20260317_0401</a>
+<a href="archive/20260316_0343.html">20260316_0343</a>
+<a href="archive/20260315_0341.html">20260315_0341</a>
+<a href="archive/20260314_0344.html">20260314_0344</a>
+<a href="archive/20260313_0352.html">20260313_0352</a>
+<a href="archive/20260312_0352.html">20260312_0352</a>
+<a href="archive/20260311_0347.html">20260311_0347</a>
+<a href="archive/20260310_0350.html">20260310_0350</a>
+<a href="archive/20260309_0338.html">20260309_0338</a>
+<a href="archive/20260308_0337.html">20260308_0337</a>
+<a href="archive/20260307_0347.html">20260307_0347</a>
+<a href="archive/20260306_0402.html">20260306_0402</a>
+<a href="archive/20260305_0348.html">20260305_0348</a>
+<a href="archive/20260304_0348.html">20260304_0348</a>
+<a href="archive/20260303_0348.html">20260303_0348</a>
+<a href="archive/20260302_0336.html">20260302_0336</a>
+<a href="archive/20260301_0339.html">20260301_0339</a>
+<a href="archive/20260228_0348.html">20260228_0348</a>
+<a href="archive/20260227_0354.html">20260227_0354</a>
+<a href="archive/20260226_0402.html">20260226_0402</a>
+<a href="archive/20260225_0404.html">20260225_0404</a>
+<a href="archive/20260224_0406.html">20260224_0406</a>
+<a href="archive/20260223_0338.html">20260223_0338</a>
+<a href="archive/20260222_0339.html">20260222_0339</a>
+<a href="archive/20260221_0345.html">20260221_0345</a>
+<a href="archive/20260220_0348.html">20260220_0348</a>
+<a href="archive/20260219_0358.html">20260219_0358</a>
+<a href="archive/20260218_0358.html">20260218_0358</a>
+<a href="archive/20260217_0343.html">20260217_0343</a>
+<a href="archive/20260216_0339.html">20260216_0339</a>
+<a href="archive/20260215_0338.html">20260215_0338</a>
+<a href="archive/20260213_0401.html">20260213_0401</a>
+<a href="archive/20260212_0404.html">20260212_0404</a>
+<a href="archive/20260210_0409.html">20260210_0409</a>
+<a href="archive/20260208_0339.html">20260208_0339</a>
+<a href="archive/20260207_0349.html">20260207_0349</a>
+<a href="archive/20260206_0347.html">20260206_0347</a>
+<a href="archive/20260205_0346.html">20260205_0346</a>
+<a href="archive/20260204_0354.html">20260204_0354</a>
+<a href="archive/20260202_0337.html">20260202_0337</a>
+<a href="archive/20260201_0333.html">20260201_0333</a>
+<a href="archive/20260131_0345.html">20260131_0345</a>
+<a href="archive/20260130_0341.html">20260130_0341</a>
+<a href="archive/20260129_0344.html">20260129_0344</a>
+<a href="archive/20260128_0341.html">20260128_0341</a>
+<a href="archive/20260127_0338.html">20260127_0338</a>
+<a href="archive/20260126_0330.html">20260126_0330</a>
+<a href="archive/20260125_0329.html">20260125_0329</a>
+<a href="archive/20260124_0337.html">20260124_0337</a>
+<a href="archive/20260123_0337.html">20260123_0337</a>
+<a href="archive/20260122_0343.html">20260122_0343</a>
+<a href="archive/20260121_0424.html">20260121_0424</a>
+<a href="archive/20260119_0329.html">20260119_0329</a>
+<a href="archive/20260118_0327.html">20260118_0327</a>
+<a href="archive/20260117_0332.html">20260117_0332</a>
+<a href="archive/20260116_0339.html">20260116_0339</a>
+<a href="archive/20260115_0334.html">20260115_0334</a>
+<a href="archive/20260114_0333.html">20260114_0333</a>
+<a href="archive/20260113_0334.html">20260113_0334</a>
+<a href="archive/20260112_0331.html">20260112_0331</a>
+<a href="archive/20260111_0329.html">20260111_0329</a>
+<a href="archive/20260110_0333.html">20260110_0333</a>
+<a href="archive/20260109_0334.html">20260109_0334</a>
+<a href="archive/20260108_0335.html">20260108_0335</a>
+<a href="archive/20260107_0330.html">20260107_0330</a>
+<a href="archive/20260106_0336.html">20260106_0336</a>
+<a href="archive/20260105_0328.html">20260105_0328</a>
+<a href="archive/20260104_0328.html">20260104_0328</a>
+<a href="archive/20260103_0325.html">20260103_0325</a>
+<a href="archive/20260102_0339.html">20260102_0339</a>
+<a href="archive/20260101_0329.html">20260101_0329</a>
+<a href="archive/20251231_0333.html">20251231_0333</a>
+<a href="archive/20251230_0332.html">20251230_0332</a>
+<a href="archive/20251229_0329.html">20251229_0329</a>
+<a href="archive/20251228_0332.html">20251228_0332</a>
+<a href="archive/20251227_0329.html">20251227_0329</a>
+<a href="archive/20251226_0330.html">20251226_0330</a>
+<a href="archive/20251225_0329.html">20251225_0329</a>
+<a href="archive/20251224_0331.html">20251224_0331</a>
+<a href="archive/20251223_0332.html">20251223_0332</a>
+<a href="archive/20251222_0328.html">20251222_0328</a>
+<a href="archive/20251221_0329.html">20251221_0329</a>
+<a href="archive/20251220_0330.html">20251220_0330</a>
+<a href="archive/20251219_0330.html">20251219_0330</a>
+<a href="archive/20251218_0345.html">20251218_0345</a>
+<a href="archive/20251217_0332.html">20251217_0332</a>
+<a href="archive/20251216_0333.html">20251216_0333</a>
+<a href="archive/20251215_0333.html">20251215_0333</a>
+<a href="archive/20251214_0327.html">20251214_0327</a>
+<a href="archive/20251212_0333.html">20251212_0333</a>
+<a href="archive/20251211_0331.html">20251211_0331</a>
+<a href="archive/20251210_0332.html">20251210_0332</a>
+<a href="archive/20251209_0331.html">20251209_0331</a>
+<a href="archive/20251208_0328.html">20251208_0328</a>
+<a href="archive/20251207_0327.html">20251207_0327</a>
+<a href="archive/20251206_0330.html">20251206_0330</a>
+<a href="archive/20251205_0331.html">20251205_0331</a>
+<a href="archive/20251204_0331.html">20251204_0331</a>
+<a href="archive/20251203_0333.html">20251203_0333</a>
+<a href="archive/20251202_0335.html">20251202_0335</a>
+<a href="archive/20251201_0328.html">20251201_0328</a>
+<a href="archive/20251130_0327.html">20251130_0327</a>
+<a href="archive/20251129_0328.html">20251129_0328</a>
+<a href="archive/20251128_0327.html">20251128_0327</a>
+<a href="archive/20251127_0327.html">20251127_0327</a>
+<a href="archive/20251126_0329.html">20251126_0329</a>
+<a href="archive/20251125_0327.html">20251125_0327</a>
+<a href="archive/20251124_0327.html">20251124_0327</a>
+<a href="archive/20251123_0326.html">20251123_0326</a>
+<a href="archive/20251122_0328.html">20251122_0328</a>
+<a href="archive/20251121_0328.html">20251121_0328</a>
+<a href="archive/20251120_0329.html">20251120_0329</a>
+<a href="archive/20251119_0328.html">20251119_0328</a>
+<a href="archive/20251118_0328.html">20251118_0328</a>
+<a href="archive/20251117_0326.html">20251117_0326</a>
+<a href="archive/20251116_0325.html">20251116_0325</a>
+<a href="archive/20251115_0327.html">20251115_0327</a>
+<a href="archive/20251114_0328.html">20251114_0328</a>
+<a href="archive/20251113_0330.html">20251113_0330</a>
+<a href="archive/20251112_0329.html">20251112_0329</a>
+<a href="archive/20251111_0328.html">20251111_0328</a>
+<a href="archive/20251110_0325.html">20251110_0325</a>
+<a href="archive/20251109_0326.html">20251109_0326</a>
+<a href="archive/20251108_0328.html">20251108_0328</a>
+<a href="archive/20251107_0328.html">20251107_0328</a>
+<a href="archive/20251106_0329.html">20251106_0329</a>
+<a href="archive/20251105_0326.html">20251105_0326</a>
+<a href="archive/20251104_0327.html">20251104_0327</a>
+<a href="archive/20251103_0324.html">20251103_0324</a>
+<a href="archive/20251102_0326.html">20251102_0326</a>
+<a href="archive/20251101_0324.html">20251101_0324</a>
+<a href="archive/20251031_0328.html">20251031_0328</a>
+<a href="archive/20251030_0330.html">20251030_0330</a>
+<a href="archive/20251029_0329.html">20251029_0329</a>
+<a href="archive/20251028_0329.html">20251028_0329</a>
+<a href="archive/20251027_0322.html">20251027_0322</a>
+<a href="archive/20251026_0327.html">20251026_0327</a>
+<a href="archive/20251025_0331.html">20251025_0331</a>
+<a href="archive/20251024_0329.html">20251024_0329</a>
+<a href="archive/20251023_0329.html">20251023_0329</a>
+<a href="archive/20251022_0330.html">20251022_0330</a>
+<a href="archive/20251021_0331.html">20251021_0331</a>
+<a href="archive/20251020_0328.html">20251020_0328</a>
+<a href="archive/20251019_0321.html">20251019_0321</a>
+<a href="archive/20251018_0327.html">20251018_0327</a>
+<a href="archive/20251017_0320.html">20251017_0320</a>
+<a href="archive/20251016_0328.html">20251016_0328</a>
+<a href="archive/20251015_0328.html">20251015_0328</a>
+<a href="archive/20251014_0323.html">20251014_0323</a>
+<a href="archive/20251011_0328.html">20251011_0328</a>
+<a href="archive/20251010_0330.html">20251010_0330</a>
+<a href="archive/20251009_0321.html">20251009_0321</a>
+<a href="archive/20251008_0343.html">20251008_0343</a>
+<a href="archive/20251007_0353.html">20251007_0353</a>
+<a href="archive/20251006_0325.html">20251006_0325</a>
+<a href="archive/20251005_0350.html">20251005_0350</a>
+<a href="archive/20251004_0352.html">20251004_0352</a>
+<a href="archive/20251003_0352.html">20251003_0352</a>
+<a href="archive/20251002_0356.html">20251002_0356</a>
+<a href="archive/20251001_0321.html">20251001_0321</a>
+<a href="archive/20250925_0335.html">20250925_0335</a>
+<a href="archive/20250924_0350.html">20250924_0350</a>
+<a href="archive/20250923_0348.html">20250923_0348</a>
+<a href="archive/20250922_0346.html">20250922_0346</a>
+<a href="archive/20250921_0345.html">20250921_0345</a>
+<a href="archive/20250920_0342.html">20250920_0342</a>
+<a href="archive/20250919_0346.html">20250919_0346</a>
+<a href="archive/20250918_0342.html">20250918_0342</a>
+<a href="archive/20250917_0336.html">20250917_0336</a>
+<a href="archive/20250916_0333.html">20250916_0333</a>
+<a href="archive/20250915_0333.html">20250915_0333</a>
+<a href="archive/20250914_0328.html">20250914_0328</a>
+<a href="archive/20250913_0322.html">20250913_0322</a>
+<a href="archive/20250912_0335.html">20250912_0335</a>
+<a href="archive/20250911_0337.html">20250911_0337</a>
+<a href="archive/20250910_0338.html">20250910_0338</a>
+<a href="archive/20250909_0341.html">20250909_0341</a>
+<a href="archive/20250908_0342.html">20250908_0342</a>
+<a href="archive/20250907_0333.html">20250907_0333</a>
+<a href="archive/20250906_0350.html">20250906_0350</a>
+<a href="archive/20250905_0319.html">20250905_0319</a>
+<a href="archive/20250904_0323.html">20250904_0323</a>
+<a href="archive/20250903_0355.html">20250903_0355</a>
+<a href="archive/20250902_0325.html">20250902_0325</a>
+<a href="archive/20250901_0355.html">20250901_0355</a>
+<a href="archive/20250831_0355.html">20250831_0355</a>
+<a href="archive/20250830_0356.html">20250830_0356</a>
+<a href="archive/20250829_0355.html">20250829_0355</a>
+<a href="archive/20250828_0333.html">20250828_0333</a>
+<a href="archive/20250827_1654.html">20250827_1654</a>
+<a href="archive/20250827_1602.html">20250827_1602</a>
+<a href="archive/20250827_1557.html">20250827_1557</a>
+<a href="archive/20250827_0320.html">20250827_0320</a>
+<a href="archive/20250826_0320.html">20250826_0320</a>
+<a href="archive/20250825_1752.html">20250825_1752</a>
+<a href="archive/20250825_1709.html">20250825_1709</a>
+<a href="archive/20250825_1652.html">20250825_1652</a>
+<a href="archive/20250825_1647.html">20250825_1647</a>
+<a href="archive/20250825_1645.html">20250825_1645</a>
+<a href="archive/20250825_1631.html">20250825_1631</a>
+<a href="archive/20250825_1606.html">20250825_1606</a>
+<a href="archive/20250825_1559.html">20250825_1559</a>
+<a href="archive/20250825_1558.html">20250825_1558</a>
+<a href="archive/20250825_1556.html">20250825_1556</a>
+<a href="archive/20250825_1531.html">20250825_1531</a>
+<a href="archive/20250825_1525.html">20250825_1525</a>
+<a href="archive/20250825_1516.html">20250825_1516</a>
+<a href="archive/20250825_1450.html">20250825_1450</a>
+<a href="archive/20250825_1444.html">20250825_1444</a>
+<a href="archive/20250825_1438.html">20250825_1438</a>
+<a href="archive/20250825_1414.html">20250825_1414</a>
+<a href="archive/20250825_1413.html">20250825_1413</a>
+<a href="archive/20250825_1410.html">20250825_1410</a>
+<a href="archive/20250825_1408.html">20250825_1408</a>
+<a href="archive/20250825_1405.html">20250825_1405</a>
+<a href="archive/20250825_1401.html">20250825_1401</a>
+<a href="archive/20250825_1355.html">20250825_1355</a>
+<a href="archive/20250825_1347.html">20250825_1347</a>
+<a href="archive/20250825_1345.html">20250825_1345</a>
+<a href="archive/20250825_1344.html">20250825_1344</a>
+<a href="archive/20250825_1343.html">20250825_1343</a>
+<a href="archive/20250825_1340.html">20250825_1340</a>
+<a href="archive/20250825_1339.html">20250825_1339</a>
+<a href="archive/20250825_1333.html">20250825_1333</a>
+<a href="archive/20250825_1323.html">20250825_1323</a>
+<a href="archive/20250825_1317.html">20250825_1317</a>
+<a href="archive/20250825_1243.html">20250825_1243</a>
+<a href="archive/20250824_0342.html">20250824_0342</a>
+<a href="archive/20250823_0343.html">20250823_0343</a>
+<a href="archive/20250823_0142.html">20250823_0142</a>
+<a href="archive/20250822_2331.html">20250822_2331</a>
+<a href="archive/20250822_2308.html">20250822_2308</a>
+<a href="archive/20250822_2258.html">20250822_2258</a>
+<a href="archive/20250822_2241.html">20250822_2241</a>
+<a href="archive/20250822_2228.html">20250822_2228</a>
+<a href="archive/20250822_2206.html">20250822_2206</a>
+<a href="archive/20250822_2147.html">20250822_2147</a>
+<a href="archive/20250822_2111.html">20250822_2111</a>
+<a href="archive/20250822_1259.html">20250822_1259</a>
+<a href="archive/20250822_1233.html">20250822_1233</a>
+<a href="archive/20250822_1229.html">20250822_1229</a>
+<a href="archive/20250822_1223.html">20250822_1223</a>
+<a href="archive/20250822_1210.html">20250822_1210</a>
+<a href="archive/20250822_1201.html">20250822_1201</a>
+<a href="archive/20250822_1111.html">20250822_1111</a>
+<a href="archive/20250822_1058.html">20250822_1058</a>
+<a href="archive/20250822_1052.html">20250822_1052</a>
+<a href="archive/20250822_1045.html">20250822_1045</a>
+<a href="archive/20250822_0657.html">20250822_0657</a>
+<a href="archive/20250822_0553.html">20250822_0553</a></div>
+    </details>
+    <div class="footer">Generated by arxiv-tracker</div>
+  </div>
+</body></html>
